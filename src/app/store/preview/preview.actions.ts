@@ -16,11 +16,6 @@ export const PreviewActions = createActionGroup({
     'Add new url': props<{ url: string }>(),
     'Success add new url': props<{ preview: Preview }>(),
 
-    'Start timer for update preview after success adding': props<{
-      preview: Preview;
-    }>(),
-    'Start timer for update preview': props<{ preview: Preview }>(),
-
     'Update preview': props<{ preview: Preview }>(),
     'Should not update preview': emptyProps(),
     'Success update preview': props<{ preview: Preview }>(),

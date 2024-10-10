@@ -40,8 +40,8 @@ const checkSavedToken = (
 ) =>
   actions$.pipe(
     ofType(PreviewActions.checkLocalStorageToken),
-    exhaustMap(({ token }) => {
-      return api.verifyToken({ token: token }).pipe(
+    exhaustMap(({ token }) =>
+      api.verifyToken({ token: token }).pipe(
         map(result => result.data?.isValid || false),
         map(isValid =>
           isValid
@@ -50,8 +50,8 @@ const checkSavedToken = (
               })
             : PreviewActions.createNewToken()
         )
-      );
-    })
+      )
+    )
   );
 
 const createNewToken = (actions$ = inject(Actions), api = inject(ApiClient)) =>
@@ -120,7 +120,7 @@ const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
   actions$.pipe(
     ofType(
       PreviewActions.successAddNewUrl,
-      PreviewActions.startTimerForUpdatePreview
+      PreviewActions.successUpdatePreview
     ),
     map(({ preview }) => (shouldUpdatePreview(preview) ? preview : null)),
     exhaustMap(preview =>
@@ -142,29 +142,32 @@ const updatePreview = (
   actions$.pipe(
     ofType(PreviewActions.updatePreview),
     concatLatestFrom(() => store.select(previewFeature.selectToken)),
-    exhaustMap(([{ preview }, token]) =>
-      token
-        ? api.getPreview({ url: preview.url.toString(), token: token }).pipe(
-            map(result => result.data.preview),
-            map(preview => {
-              if (preview) {
-                return {
-                  id: preview.id,
-                  url: new URL(preview.url),
-                  status: preview.status.toString(),
-                  image: preview.image,
-                };
-              } else {
-                throw Error('No preview');
-              }
-            }),
-            map(preview => PreviewActions.successUpdatePreview({ preview })),
-            catchError(err =>
-              of(PreviewActions.errorUpdatePreview({ error: err }))
-            )
-          )
-        : of(PreviewActions.errorUpdatePreview({ error: 'No token' }))
-    )
+    map(([{ preview }, token]) => {
+      if (token) {
+        return { preview, token };
+      } else {
+        throw Error('No token');
+      }
+    }),
+    exhaustMap(({ preview, token }) =>
+      api.getPreview({ url: preview.url.toString(), token: token }).pipe(
+        map(result => result.data.preview),
+        map(preview => {
+          if (preview) {
+            return {
+              id: preview.id,
+              url: new URL(preview.url),
+              status: preview.status.toString(),
+              image: preview.image,
+            };
+          } else {
+            throw Error('No preview');
+          }
+        }),
+        map(preview => PreviewActions.successUpdatePreview({ preview }))
+      )
+    ),
+    catchError(err => of(PreviewActions.errorUpdatePreview({ error: err })))
   );
 
 export const previewEffects = {
