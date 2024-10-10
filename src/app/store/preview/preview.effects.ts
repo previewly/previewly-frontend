@@ -13,7 +13,6 @@ import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
-import { PreviewData } from './preview.types';
 import { StoragePreviewService } from './storage-preview.service';
 
 const shouldUpdatePreview = (status: string) => status === 'pending';

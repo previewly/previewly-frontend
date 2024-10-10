@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { PreviewActions } from './preview.actions';
-import { PreviewData, PreviewItem, PreviewState } from './preview.types';
+import { PreviewItem, PreviewState } from './preview.types';
 
 const initialState: PreviewState = {
   token: undefined,
