@@ -61,6 +61,13 @@ export type VerifyTokenVariables = Exact<{
 
 export type VerifyToken = { isValid?: boolean | null };
 
+export type GetPreviewVariables = Exact<{
+  token: Scalars['String']['input'];
+  url: Scalars['String']['input'];
+}>;
+
+export type GetPreview = { preview?: Preview | null };
+
 export const Preview = gql`
   fragment Preview on PreviewData {
     id
@@ -126,6 +133,28 @@ export class VerifyTokenQuery extends Apollo.Query<
     super(apollo);
   }
 }
+export const GetPreviewDocument = gql`
+  query GetPreview($token: String!, $url: String!) {
+    preview: getPreviewData(token: $token, url: $url) {
+      ...Preview
+    }
+  }
+  ${Preview}
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetPreviewQuery extends Apollo.Query<
+  GetPreview,
+  GetPreviewVariables
+> {
+  override document = GetPreviewDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
@@ -143,7 +172,8 @@ export class ApiClient {
   constructor(
     private createTokenMutation: CreateTokenMutation,
     private addUrlMutation: AddUrlMutation,
-    private verifyTokenQuery: VerifyTokenQuery
+    private verifyTokenQuery: VerifyTokenQuery,
+    private getPreviewQuery: GetPreviewQuery
   ) {}
 
   createToken(
@@ -172,5 +202,19 @@ export class ApiClient {
     options?: WatchQueryOptionsAlone<VerifyTokenVariables>
   ) {
     return this.verifyTokenQuery.watch(variables, options);
+  }
+
+  getPreview(
+    variables: GetPreviewVariables,
+    options?: QueryOptionsAlone<GetPreviewVariables>
+  ) {
+    return this.getPreviewQuery.fetch(variables, options);
+  }
+
+  getPreviewWatch(
+    variables: GetPreviewVariables,
+    options?: WatchQueryOptionsAlone<GetPreviewVariables>
+  ) {
+    return this.getPreviewQuery.watch(variables, options);
   }
 }

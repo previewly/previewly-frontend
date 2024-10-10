@@ -1,3 +1,9 @@
 query VerifyToken($token: String!) {
   isValid: verifyToken(token: $token)
 }
+
+query GetPreview($token: String!, $url: String!) {
+  preview: getPreviewData(token: $token, url: $url) {
+    ...Preview
+  }
+}

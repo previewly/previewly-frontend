@@ -21,8 +21,10 @@ export const PreviewActions = createActionGroup({
     }>(),
     'Start timer for update preview': props<{ preview: Preview }>(),
 
-    'Update image': props<{ preview: Preview }>(),
-    'Should not update image preview': emptyProps(),
+    'Update preview': props<{ preview: Preview }>(),
+    'Should not update preview': emptyProps(),
+    'Success update preview': props<{ preview: Preview }>(),
+    'Error update preview': props<{ error: string }>(),
 
     'Empty token': emptyProps(),
     'Empty token on adding new url': emptyProps(),

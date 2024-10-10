@@ -16,6 +16,9 @@ import { previewFeature } from './preview.reducers';
 import { Preview } from './preview.types';
 import { StoragePreviewService } from './storage-preview.service';
 
+const shouldUpdatePreview = (preview: Preview) =>
+  preview && preview.status === 'pending';
+
 const initState = (
   actions$ = inject(Actions),
   storageService = inject(StoragePreviewService)
@@ -119,15 +122,48 @@ const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
       PreviewActions.successAddNewUrl,
       PreviewActions.startTimerForUpdatePreview
     ),
-    map(({ preview }) => (preview.status === 'pending' ? preview : null)),
+    map(({ preview }) => (shouldUpdatePreview(preview) ? preview : null)),
     exhaustMap(preview =>
       timer(3000).pipe(
         map(() =>
           preview
-            ? PreviewActions.updateImage({ preview: preview })
-            : PreviewActions.shouldNotUpdateImagePreview()
+            ? PreviewActions.updatePreview({ preview: preview })
+            : PreviewActions.shouldNotUpdatePreview()
         )
       )
+    )
+  );
+
+const updatePreview = (
+  actions$ = inject(Actions),
+  store = inject(Store),
+  api = inject(ApiClient)
+) =>
+  actions$.pipe(
+    ofType(PreviewActions.updatePreview),
+    concatLatestFrom(() => store.select(previewFeature.selectToken)),
+    exhaustMap(([{ preview }, token]) =>
+      token
+        ? api.getPreview({ url: preview.url.toString(), token: token }).pipe(
+            map(result => result.data.preview),
+            map(preview => {
+              if (preview) {
+                return {
+                  id: preview.id,
+                  url: new URL(preview.url),
+                  status: preview.status.toString(),
+                  image: preview.image,
+                };
+              } else {
+                throw Error('No preview');
+              }
+            }),
+            map(preview => PreviewActions.successUpdatePreview({ preview })),
+            catchError(err =>
+              of(PreviewActions.errorUpdatePreview({ error: err }))
+            )
+          )
+        : of(PreviewActions.errorUpdatePreview({ error: 'No token' }))
     )
   );
 
@@ -144,4 +180,6 @@ export const previewEffects = {
     startTimerForUpdatePreviewAfterAdding,
     StoreDispatchEffect
   ),
+
+  updatePreview: createEffect(updatePreview, StoreDispatchEffect),
 };
