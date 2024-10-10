@@ -7,7 +7,7 @@ import {
 } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
-import { catchError, exhaustMap, map, of, tap } from 'rxjs';
+import { catchError, exhaustMap, map, of, tap, timer } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
@@ -113,6 +113,24 @@ const addUrl = (
     )
   );
 
+const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
+  actions$.pipe(
+    ofType(
+      PreviewActions.successAddNewUrl,
+      PreviewActions.startTimerForUpdatePreview
+    ),
+    map(({ preview }) => (preview.status === 'pending' ? preview : null)),
+    exhaustMap(preview =>
+      timer(3000).pipe(
+        map(() =>
+          preview
+            ? PreviewActions.updateImage({ preview: preview })
+            : PreviewActions.shouldNotUpdateImagePreview()
+        )
+      )
+    )
+  );
+
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
@@ -121,4 +139,9 @@ export const previewEffects = {
   successCreateToken: createEffect(successCreateToken, StoreUnDispatchEffect),
 
   addUrl: createEffect(addUrl, StoreDispatchEffect),
+
+  successAddUrl: createEffect(
+    startTimerForUpdatePreviewAfterAdding,
+    StoreDispatchEffect
+  ),
 };
