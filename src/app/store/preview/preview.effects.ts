@@ -46,8 +46,8 @@ const checkSavedToken = (
         map(isValid =>
           isValid
             ? PreviewActions.applyInitialStateFromLocalStorage({
-              state: { ...storageService.readState(), token: token },
-            })
+                state: { ...storageService.readState(), token: token },
+              })
             : PreviewActions.createNewToken()
         )
       )
@@ -92,26 +92,29 @@ const addUrl = (
     exhaustMap(([{ url }, token]) =>
       token
         ? api.addUrl({ token: token, url: url }).pipe(
-          map(result => result.data?.preview),
-          map(preview => {
-            let previewData: PreviewData | undefined = undefined;
-            if (preview) {
-              previewData = {
-                status: preview.status,
-                url: new URL(url),
-              };
-              if (preview.image) {
-                previewData.preview = preview.image;
+            map(result => result.data?.preview),
+            map(preview => {
+              let previewData: PreviewData | undefined = undefined;
+              if (preview) {
+                previewData = {
+                  status: preview.status,
+                  url: new URL(url),
+                };
+                if (preview.image) {
+                  previewData.preview = preview.image;
+                }
               }
-            }
-            return previewData;
-          })
-        )
+              return { url: url, preview: previewData };
+            })
+          )
         : of(undefined)
     ),
-    map(preview =>
-      preview
-        ? PreviewActions.successAddNewUrl({ preview })
+    map(data =>
+      data?.preview
+        ? PreviewActions.successAddNewUrl({
+            url: data.url,
+            preview: data.preview,
+          })
         : PreviewActions.emptyTokenOnAddingNewUrl()
     )
   );
@@ -127,7 +130,7 @@ const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
       timer(3000).pipe(
         map(() =>
           preview
-            ? PreviewActions.updatePreview({ preview: preview })
+            ? PreviewActions.updatePreview({ url: preview.url.toString() })
             : PreviewActions.shouldNotUpdatePreview()
         )
       )
@@ -142,15 +145,15 @@ const updatePreview = (
   actions$.pipe(
     ofType(PreviewActions.updatePreview),
     concatLatestFrom(() => store.select(previewFeature.selectToken)),
-    map(([{ preview }, token]) => {
+    map(([{ url }, token]) => {
       if (token) {
-        return { preview, token };
+        return { url, token };
       } else {
         throw Error('No token');
       }
     }),
-    exhaustMap(({ preview, token }) =>
-      api.getPreview({ url: preview.url.toString(), token: token }).pipe(
+    exhaustMap(({ url, token }) =>
+      api.getPreview({ url: url, token: token }).pipe(
         map(result => result.data.preview),
         map(preview => {
           if (preview) {
@@ -164,7 +167,7 @@ const updatePreview = (
             throw Error('No preview');
           }
         }),
-        map(preview => PreviewActions.successUpdatePreview({ preview }))
+        map(preview => PreviewActions.successUpdatePreview({ url, preview }))
       )
     ),
     catchError(err => of(PreviewActions.errorUpdatePreview({ error: err })))

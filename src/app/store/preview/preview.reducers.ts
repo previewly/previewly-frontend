@@ -36,27 +36,31 @@ export const previewFeature = createFeature({
       })
     ),
 
-    on(PreviewActions.successAddNewUrl, (state, { preview }) => {
-      const isEqual = (previewItem: PreviewData, updated: PreviewData) =>
-        previewItem.url.toString() == updated.url.toString();
+    on(
+      PreviewActions.successAddNewUrl,
+      PreviewActions.successUpdatePreview,
+      (state, { url, preview }) => {
+        const isEqual = (previewItem: PreviewData, url: string) =>
+          previewItem.url.toString() == url;
 
-      const updatedPreview: PreviewData = {
-        url: preview.url,
-        preview: preview.preview,
-        status: preview.status,
-      };
+        const updatedPreview: PreviewData = {
+          url: preview.url,
+          preview: preview.preview,
+          status: preview.status,
+        };
 
-      const updatedPreviews = state.previews.map(item =>
-        isEqual(item, preview) ? { ...item, ...updatedPreview } : item
-      );
+        const updatedPreviews = state.previews.map(item =>
+          isEqual(item, url) ? { ...item, ...updatedPreview } : item
+        );
 
-      return {
-        ...state,
-        previews: updatedPreviews.findIndex(item => isEqual(item, preview))
-          ? [...updatedPreviews, updatedPreview]
-          : updatedPreviews,
-      };
-    }),
+        return {
+          ...state,
+          previews: updatedPreviews.findIndex(item => isEqual(item, url))
+            ? [...updatedPreviews, updatedPreview]
+            : updatedPreviews,
+        };
+      }
+    ),
 
     on(
       PreviewActions.successCreateToken,
