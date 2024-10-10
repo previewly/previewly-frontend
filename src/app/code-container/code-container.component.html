@@ -3,32 +3,54 @@
 <app-share-content-sub-title>
   Website preview image only
 </app-share-content-sub-title>
-<div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-  <pre>
-    <code>
-      &lt;img src=&quot;{{ imgUrl() }}&lt;site-url&gt;&quot;&gt;
-    </code>
-</pre>
-</div>
 
-<div class="mt-4"></div>
-<app-share-content-sub-title>
-  REST API with JSON response
-</app-share-content-sub-title>
-<div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-  <pre>
-    <code>
-      &lt;img src=&quot;{{ jsonUrl() }}&lt;site-url&gt;&quot;&gt;
-    </code>
-</pre>
-</div>
+<div role="tablist" class="tabs tabs-bordered tabs-lg">
+  <input
+    type="radio"
+    name="type_tab"
+    role="tab"
+    class="tab"
+    aria-label="Image" />
+  <div role="tabpanel" class="tab-content p-10">
+    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
+      <pre>
+        <code>
+          &lt;img src=&quot;{{ imgUrl() }}&lt;site-url&gt;&quot;&gt;
+        </code>
+      </pre>
+    </div>
+  </div>
 
-<div class="mt-4"></div>
-<app-share-content-sub-title>GraphQL endpoint</app-share-content-sub-title>
-<div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-  <pre>
-    <code>
-      &lt;img src=&quot;{{ gqlUrl() }}
-    </code>
-</pre>
+  <input
+    type="radio"
+    name="type_tab"
+    role="tab"
+    class="tab"
+    aria-label="REST"
+    checked="checked" />
+  <div role="tabpanel" class="tab-content p-10">
+    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
+      <pre>
+        <code>
+          &lt;img src=&quot;{{ jsonUrl() }}&lt;site-url&gt;&quot;&gt;
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <input
+    type="radio"
+    name="type_tab"
+    role="tab"
+    class="tab"
+    aria-label="GraphQL" />
+  <div role="tabpanel" class="tab-content p-10">
+    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
+      <pre>
+        <code>
+          &lt;img src=&quot;{{ gqlUrl() }}
+        </code>
+      </pre>
+    </div>
+  </div>
 </div>
