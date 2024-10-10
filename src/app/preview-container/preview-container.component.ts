@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 
 import { SubTitleComponent } from '../share/content/title/sub-title.component';
-import { Preview } from '../store/preview/preview.types';
+import { PreviewData } from '../store/preview/preview.types';
 
-type ViewPreview = Preview & {
+type ViewPreview = PreviewData & {
   shortUrl: string;
   href: string;
   previewAltTitle: string;
@@ -26,7 +26,7 @@ type ViewPreview = Preview & {
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
-  previews = input.required<Preview[]>();
+  previews = input.required<PreviewData[]>();
 
   views: Signal<ViewPreview[]> = computed(() =>
     this.previews().map(preview => {

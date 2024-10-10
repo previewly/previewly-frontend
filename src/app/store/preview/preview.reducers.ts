@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { PreviewActions } from './preview.actions';
-import { Preview, PreviewState } from './preview.types';
+import { PreviewData, PreviewState } from './preview.types';
 
 const initialState: PreviewState = {
   token: undefined,
@@ -37,10 +37,10 @@ export const previewFeature = createFeature({
     ),
 
     on(PreviewActions.successAddNewUrl, (state, { preview }) => {
-      const isEqual = (previewItem: Preview, updated: Preview) =>
+      const isEqual = (previewItem: PreviewData, updated: PreviewData) =>
         previewItem.url.toString() == updated.url.toString();
 
-      const updatedPreview: Preview = {
+      const updatedPreview: PreviewData = {
         url: preview.url,
         preview: preview.preview,
         status: preview.status,

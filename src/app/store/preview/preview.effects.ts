@@ -13,10 +13,10 @@ import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
-import { Preview } from './preview.types';
+import { PreviewData } from './preview.types';
 import { StoragePreviewService } from './storage-preview.service';
 
-const shouldUpdatePreview = (preview: Preview) =>
+const shouldUpdatePreview = (preview: PreviewData) =>
   preview && preview.status === 'pending';
 
 const initState = (
@@ -46,8 +46,8 @@ const checkSavedToken = (
         map(isValid =>
           isValid
             ? PreviewActions.applyInitialStateFromLocalStorage({
-                state: { ...storageService.readState(), token: token },
-              })
+              state: { ...storageService.readState(), token: token },
+            })
             : PreviewActions.createNewToken()
         )
       )
@@ -92,21 +92,21 @@ const addUrl = (
     exhaustMap(([{ url }, token]) =>
       token
         ? api.addUrl({ token: token, url: url }).pipe(
-            map(result => result.data?.preview),
-            map(preview => {
-              let previewData: Preview | undefined = undefined;
-              if (preview) {
-                previewData = {
-                  status: preview.status,
-                  url: new URL(url),
-                };
-                if (preview.image) {
-                  previewData.preview = preview.image;
-                }
+          map(result => result.data?.preview),
+          map(preview => {
+            let previewData: PreviewData | undefined = undefined;
+            if (preview) {
+              previewData = {
+                status: preview.status,
+                url: new URL(url),
+              };
+              if (preview.image) {
+                previewData.preview = preview.image;
               }
-              return previewData;
-            })
-          )
+            }
+            return previewData;
+          })
+        )
         : of(undefined)
     ),
     map(preview =>

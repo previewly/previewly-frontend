@@ -1,6 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
-import { LocalStorageState, Preview } from './preview.types';
+import { LocalStorageState, PreviewData } from './preview.types';
 
 export const PreviewActions = createActionGroup({
   source: 'Preview',
@@ -14,11 +14,11 @@ export const PreviewActions = createActionGroup({
     'Success create token': props<{ token: string }>(),
 
     'Add new url': props<{ url: string }>(),
-    'Success add new url': props<{ preview: Preview }>(),
+    'Success add new url': props<{ preview: PreviewData }>(),
 
-    'Update preview': props<{ preview: Preview }>(),
+    'Update preview': props<{ preview: PreviewData }>(),
     'Should not update preview': emptyProps(),
-    'Success update preview': props<{ preview: Preview }>(),
+    'Success update preview': props<{ preview: PreviewData }>(),
     'Error update preview': props<{ error: string }>(),
 
     'Empty token': emptyProps(),
