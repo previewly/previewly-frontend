@@ -8,13 +8,16 @@ import {
 } from '@angular/core';
 
 import { SubTitleComponent } from '../share/content/title/sub-title.component';
-import { PreviewData } from '../store/preview/preview.types';
+import { PreviewItem } from '../store/preview/preview.types';
 
-type ViewPreview = PreviewData & {
+interface ViewPreview {
+  title: string | undefined;
+  description: string | undefined;
+  preview: string | undefined;
   shortUrl: string;
   href: string;
   previewAltTitle: string;
-};
+}
 
 @Component({
   selector: 'app-preview-container',
@@ -26,15 +29,17 @@ type ViewPreview = PreviewData & {
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
-  previews = input.required<PreviewData[]>();
+  previews = input.required<PreviewItem[]>();
 
   views: Signal<ViewPreview[]> = computed(() =>
-    this.previews().map(preview => {
+    this.previews().map((preview): ViewPreview => {
       return {
-        ...preview,
+        preview: preview.data?.preview,
+        title: preview.data?.title,
+        description: preview.data?.description,
         shortUrl: preview.url.host,
         href: preview.url.toString(),
-        previewAltTitle: preview.title || preview.url.toString(),
+        previewAltTitle: preview.data?.title || preview.url.toString(),
       };
     })
   );

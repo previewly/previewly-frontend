@@ -4,16 +4,19 @@ export interface LocalStorageState {
   token: string | undefined;
   urls: string[];
 }
-
-export interface PreviewData {
+export interface PreviewItem {
   url: URL;
-  preview?: string;
+  status: string;
+  data: PreviewData | null;
+  error: string | null;
+}
+export interface PreviewData {
+  preview: string;
   title?: string;
   description?: string;
-  status: string;
 }
 
 export interface PreviewState extends Loadable {
   token: string | undefined;
-  previews: PreviewData[];
+  previews: PreviewItem[];
 }

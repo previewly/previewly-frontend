@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
 import { PreviewActions } from './preview.actions';
-import { PreviewData, PreviewState } from './preview.types';
+import { PreviewData, PreviewItem, PreviewState } from './preview.types';
 
 const initialState: PreviewState = {
   token: undefined,
@@ -39,14 +39,17 @@ export const previewFeature = createFeature({
     on(
       PreviewActions.successAddNewUrl,
       PreviewActions.successUpdatePreview,
-      (state, { url, preview }) => {
-        const isEqual = (previewItem: PreviewData, url: string) =>
+      (state, { url, status, preview }) => {
+        const isEqual = (previewItem: PreviewItem, url: string) =>
           previewItem.url.toString() == url;
 
-        const updatedPreview: PreviewData = {
-          url: preview.url,
-          preview: preview.preview,
-          status: preview.status,
+        const updatedPreview: PreviewItem = {
+          url: new URL(url),
+          data: {
+            ...preview,
+          },
+          status: status,
+          error: null,
         };
 
         const updatedPreviews = state.previews.map(item =>

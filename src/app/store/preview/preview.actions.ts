@@ -14,11 +14,19 @@ export const PreviewActions = createActionGroup({
     'Success create token': props<{ token: string }>(),
 
     'Add new url': props<{ url: string }>(),
-    'Success add new url': props<{ url: string; preview: PreviewData }>(),
+    'Success add new url': props<{
+      url: string;
+      status: string;
+      preview: PreviewData;
+    }>(),
 
     'Update preview': props<{ url: string }>(),
     'Should not update preview': emptyProps(),
-    'Success update preview': props<{ url: string; preview: PreviewData }>(),
+    'Success update preview': props<{
+      url: string;
+      status: string;
+      preview: PreviewData;
+    }>(),
     'Error update preview': props<{ error: string }>(),
 
     'Empty token': emptyProps(),

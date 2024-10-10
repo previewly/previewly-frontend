@@ -16,8 +16,7 @@ import { previewFeature } from './preview.reducers';
 import { PreviewData } from './preview.types';
 import { StoragePreviewService } from './storage-preview.service';
 
-const shouldUpdatePreview = (preview: PreviewData) =>
-  preview && preview.status === 'pending';
+const shouldUpdatePreview = (status: string) => status === 'pending';
 
 const initState = (
   actions$ = inject(Actions),
@@ -94,17 +93,17 @@ const addUrl = (
         ? api.addUrl({ token: token, url: url }).pipe(
             map(result => result.data?.preview),
             map(preview => {
-              let previewData: PreviewData | undefined = undefined;
-              if (preview) {
-                previewData = {
-                  status: preview.status,
-                  url: new URL(url),
-                };
-                if (preview.image) {
-                  previewData.preview = preview.image;
-                }
+              if (!preview) {
+                throw Error('No preview');
               }
-              return { url: url, preview: previewData };
+              return {
+                url: url,
+                status: preview.status,
+                preview: {
+                  id: preview.id,
+                  image: preview.image,
+                },
+              };
             })
           )
         : of(undefined)
@@ -113,7 +112,8 @@ const addUrl = (
       data?.preview
         ? PreviewActions.successAddNewUrl({
             url: data.url,
-            preview: data.preview,
+            status: data.status,
+            preview: { preview: data.preview.image },
           })
         : PreviewActions.emptyTokenOnAddingNewUrl()
     )
@@ -125,12 +125,12 @@ const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
       PreviewActions.successAddNewUrl,
       PreviewActions.successUpdatePreview
     ),
-    map(({ preview }) => (shouldUpdatePreview(preview) ? preview : null)),
-    exhaustMap(preview =>
+    map(action => (shouldUpdatePreview(action.status) ? action : null)),
+    exhaustMap(action =>
       timer(3000).pipe(
         map(() =>
-          preview
-            ? PreviewActions.updatePreview({ url: preview.url.toString() })
+          action
+            ? PreviewActions.updatePreview({ url: action.url })
             : PreviewActions.shouldNotUpdatePreview()
         )
       )
@@ -159,7 +159,7 @@ const updatePreview = (
           if (preview) {
             return {
               id: preview.id,
-              url: new URL(preview.url),
+              url: new URL(url),
               status: preview.status.toString(),
               image: preview.image,
             };
@@ -167,7 +167,15 @@ const updatePreview = (
             throw Error('No preview');
           }
         }),
-        map(preview => PreviewActions.successUpdatePreview({ url, preview }))
+        map(preview =>
+          PreviewActions.successUpdatePreview({
+            url,
+            status: preview.status,
+            preview: {
+              preview: preview.image,
+            },
+          })
+        )
       )
     ),
     catchError(err => of(PreviewActions.errorUpdatePreview({ error: err })))
