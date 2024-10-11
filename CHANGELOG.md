@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.9](https://github.com/wert2all/previewly-frontend/compare/v0.0.8...v0.0.9) (2024-10-11)
+
+### Features
+
+- add effect for update preview ([3a5acb2](https://github.com/wert2all/previewly-frontend/commit/3a5acb29103f2f369f97523559b2a09d37a362f6))
+- add idx support ([1f68d18](https://github.com/wert2all/previewly-frontend/commit/1f68d18243715062ed137c9da1989da88ca32458))
+- add more actions for preview store ([2290823](https://github.com/wert2all/previewly-frontend/commit/2290823652cf75d23db757f1d82fb11637c0c73e))
+- get preview ([2d713f1](https://github.com/wert2all/previewly-frontend/commit/2d713f1565298f0036de579df06e81ad8a5abbf1))
+
+### Bug Fixes
+
+- added attempts of update preview ([41d0efc](https://github.com/wert2all/previewly-frontend/commit/41d0efc0f1515d8f144874acc89186469efd280e))
+- clear url input after create button pressed ([640dceb](https://github.com/wert2all/previewly-frontend/commit/640dceb02ac3de77303d34e57cd6dd65a71a5aa9))
+- fix save url to local storage ([f3ddcd2](https://github.com/wert2all/previewly-frontend/commit/f3ddcd26289b65e97d9aad7d6288b0d9af03a1c4))
+- fix update state from local storage ([485ad8c](https://github.com/wert2all/previewly-frontend/commit/485ad8c262a057f63fa4772ea7b440e8bce2cc49))
+- load urls from local storage ([97fb253](https://github.com/wert2all/previewly-frontend/commit/97fb2533fd8db61ea5120505d100802dcb31af1c))
+- move local storage service to services namespace ([f2e5c49](https://github.com/wert2all/previewly-frontend/commit/f2e5c4907946e300369f9d69b169372a22c9a1eb))
+- remove useless actions for update preview ([08b4574](https://github.com/wert2all/previewly-frontend/commit/08b4574e3a7d42023d030aa1038f7c88db4db8a7))
+- remove useless imports ([bdffc66](https://github.com/wert2all/previewly-frontend/commit/bdffc6642e6b97ba0fc447f6dfbe53c73b432ca5))
+- show warning icon if preview has an error ([0340476](https://github.com/wert2all/previewly-frontend/commit/0340476a1d845970b146dfda03c547f82279372c))
+- update code block ([44fc0cd](https://github.com/wert2all/previewly-frontend/commit/44fc0cd2544f7552a5480ec888612e7d529546d7))
+
 ## [0.0.8](https://github.com/wert2all/previewly-frontend/compare/v0.0.7...v0.0.8) (2024-10-10)
 
 ### Features
