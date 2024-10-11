@@ -45,7 +45,7 @@ export class InputUrlComponent {
   createPreview() {
     if (this.urlInput.valid && this.urlInput.value) {
       this.url.emit(this.urlInput.value);
-      this.urlInput.setValue('')
+      this.urlInput.setValue('');
     }
   }
 }
