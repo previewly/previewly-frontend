@@ -143,27 +143,13 @@ const addUrlsFromLocalStorage = (
     ofType(PreviewActions.applyTokenFromLocalStorage),
     map(() =>
       PreviewActions.addUrlsFromLocalStorage({
-        urls: Object.keys(storage.readState().urls)
-          .map(url => {
-            try {
-              return { url: url, urlObject: new URL(url) };
-            } catch {
-              return { url: url, urlObject: null };
-            }
-          })
-          .map(({ url, urlObject }): PreviewItem => {
-            const preview: PreviewItem = {
-              url: url,
-              status: 'pending',
-              updateAttempts: 1,
-              data: null,
-              error: null,
-            };
-
-            return urlObject
-              ? { ...preview, urlObject: urlObject }
-              : { ...preview, status: 'error', error: 'Wrong URL' };
-          }),
+        urls: Object.keys(storage.readState().urls).map(url => ({
+          url: url,
+          status: 'pending',
+          updateAttempts: 1,
+          data: null,
+          error: null,
+        })),
       })
     )
   );
@@ -208,16 +194,6 @@ const updatePreviews = (
                       preview: preview.image,
                     },
                   };
-                  try {
-                    returnPreview = {
-                      ...returnPreview,
-                      urlObject: new URL(returnPreview.url),
-                    };
-                  } catch {
-                    returnPreview = {
-                      ...returnPreview,
-                    };
-                  }
                 } else {
                   returnPreview = { ...returnPreview, error: 'No preview' };
                 }
