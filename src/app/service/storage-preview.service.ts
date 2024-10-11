@@ -17,7 +17,7 @@ export class StoragePreviewService {
   readState(): LocalStorageState {
     return {
       token: localStorage.getItem(this.tokenKey) || undefined,
-      urls: JSON.parse(localStorage.getItem(this.urlsKey) || '[]'),
+      urls: this.getStorageUrls(),
     };
   }
 
@@ -25,7 +25,17 @@ export class StoragePreviewService {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  saveUrls(urls: string[]) {
+  addUrl(url: string) {
+    const urls = this.getStorageUrls();
+    urls.push(url);
+    this.saveUrls(urls);
+  }
+
+  private getStorageUrls(): string[] {
+    return JSON.parse(localStorage.getItem(this.urlsKey) || '[]');
+  }
+
+  private saveUrls(urls: string[]) {
     localStorage.setItem(this.urlsKey, JSON.stringify(urls));
   }
 }
