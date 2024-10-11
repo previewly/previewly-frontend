@@ -6,17 +6,19 @@ import {
   input,
   Signal,
 } from '@angular/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { phosphorCloudWarningDuotone } from '@ng-icons/phosphor-icons/duotone';
 
 import { SubTitleComponent } from '../share/content/title/sub-title.component';
 import { PreviewItem } from '../store/preview/preview.types';
-
 interface ViewPreview {
-  title: string | undefined;
-  description: string | undefined;
-  preview: string | undefined;
   shortUrl: string;
   href: string;
   previewAltTitle: string;
+  isError: boolean;
+  title: string | undefined;
+  description: string | undefined;
+  preview: string | undefined;
 }
 
 @Component({
@@ -24,7 +26,8 @@ interface ViewPreview {
   standalone: true,
   templateUrl: './preview-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, SubTitleComponent],
+  imports: [CommonModule, SubTitleComponent, NgIconComponent],
+  viewProviders: [provideIcons({ phosphorCloudWarningDuotone })],
 })
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
@@ -38,6 +41,7 @@ export class PreviewContainerComponent {
         title: preview.data?.title,
         description: preview.data?.description,
         shortUrl: preview.url.host,
+        isError: preview.status === 'error',
         href: preview.url.toString(),
         previewAltTitle: preview.data?.title || preview.url.toString(),
       };
