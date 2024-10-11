@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.10](https://github.com/wert2all/previewly-frontend/compare/v0.0.9...v0.0.10) (2024-10-11)
+
+### Bug Fixes
+
+- add loader for added urls ([74cb044](https://github.com/wert2all/previewly-frontend/commit/74cb044f11145038c459641092a5f56e3284202f))
+- fix adding new url ([3729cf2](https://github.com/wert2all/previewly-frontend/commit/3729cf28cf91c39a25d972fce0263b0a6cb17b66))
+- fix adding urls from local storage ([7955cef](https://github.com/wert2all/previewly-frontend/commit/7955cefdc10420d8d11218ad89127db8d41f808a))
+- fix adding wrong urls ([ee0249a](https://github.com/wert2all/previewly-frontend/commit/ee0249a7d37ab7d5406ea86805a3f7156f4cb0e5))
+- fix exposing URL ([dff192d](https://github.com/wert2all/previewly-frontend/commit/dff192d1595f514857b030880b6417dca849c72c))
+- fix refactoring issue ([adb5d11](https://github.com/wert2all/previewly-frontend/commit/adb5d11bc3b5026ebeb5e6c57c5fed00ee79e66b))
+- fix saving urls to local storage ([23cfd1a](https://github.com/wert2all/previewly-frontend/commit/23cfd1ac9ed75baef68457444c90913ad005a1e1))
+- fix saving urls to local storage ([4dbc67e](https://github.com/wert2all/previewly-frontend/commit/4dbc67ea83eebc5d2ccd31fb91317e09da758ab8))
+- fix updating preview ([da32dba](https://github.com/wert2all/previewly-frontend/commit/da32dbacee32f20a1cdb8547832bbc0130954582))
+- fix url refresh ([d274b72](https://github.com/wert2all/previewly-frontend/commit/d274b7246a540efce8debdef2b70b91500ba8844))
+
 ## [0.0.9](https://github.com/wert2all/previewly-frontend/compare/v0.0.8...v0.0.9) (2024-10-11)
 
 ### Features
