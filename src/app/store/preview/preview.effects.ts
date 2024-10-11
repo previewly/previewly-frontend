@@ -185,41 +185,46 @@ const updatePreviews = (
     switchMap(action =>
       concat(
         ...action.urls.map((url: PreviewItem) =>
-          api.getPreview({ token: action.token, url: url.url }).pipe(
-            map(result => result.data.preview),
-            map((preview): PreviewItem => {
-              let returnPreview: PreviewItem = {
-                url: url.url,
-                updateAttempts: url.updateAttempts,
-                error: url.error,
-                status: preview?.status || url.status,
-                data: null,
-              };
-              if (preview) {
-                returnPreview = {
-                  ...returnPreview,
-                  data: {
-                    ...url.data,
-                    preview: preview.image,
-                  },
+          api
+            .getPreview(
+              { token: action.token, url: url.url },
+              { fetchPolicy: 'no-cache' }
+            )
+            .pipe(
+              map(result => result.data.preview),
+              map((preview): PreviewItem => {
+                let returnPreview: PreviewItem = {
+                  url: url.url,
+                  updateAttempts: url.updateAttempts,
+                  error: url.error,
+                  status: preview?.status || url.status,
+                  data: null,
                 };
-                try {
+                if (preview) {
                   returnPreview = {
                     ...returnPreview,
-                    urlObject: new URL(returnPreview.url),
+                    data: {
+                      ...url.data,
+                      preview: preview.image,
+                    },
                   };
-                } catch {
-                  returnPreview = {
-                    ...returnPreview,
-                  };
+                  try {
+                    returnPreview = {
+                      ...returnPreview,
+                      urlObject: new URL(returnPreview.url),
+                    };
+                  } catch {
+                    returnPreview = {
+                      ...returnPreview,
+                    };
+                  }
+                } else {
+                  returnPreview = { ...returnPreview, error: 'No preview' };
                 }
-              } else {
-                returnPreview = { ...returnPreview, error: 'No preview' };
-              }
 
-              return returnPreview;
-            })
-          )
+                return returnPreview;
+              })
+            )
         )
       ).pipe(toArray())
     ),
