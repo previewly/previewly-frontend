@@ -35,17 +35,19 @@ export class PreviewContainerComponent {
   previews = input.required<PreviewItem[]>();
 
   views: Signal<ViewPreview[]> = computed(() =>
-    this.previews().map((preview): ViewPreview => {
-      return {
-        preview: preview.data?.preview,
-        title: preview.data?.title,
-        description: preview.data?.description,
-        shortUrl: preview.urlObject?.host || preview.url,
-        isError: preview.status === 'error',
-        isLoading: preview.status === 'pending',
-        href: preview.url.toString(),
-        previewAltTitle: preview.data?.title || preview.url.toString(),
-      };
-    })
+    this.previews()
+      .map((preview): ViewPreview => {
+        return {
+          preview: preview.data?.preview,
+          title: preview.data?.title,
+          description: preview.data?.description,
+          shortUrl: preview.urlObject?.host || preview.url,
+          isError: preview.status === 'error',
+          isLoading: preview.status === 'pending',
+          href: preview.url.toString(),
+          previewAltTitle: preview.data?.title || preview.url.toString(),
+        };
+      })
+      .reverse()
   );
 }
