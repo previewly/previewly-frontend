@@ -102,10 +102,15 @@ const addUrl = (
     map(data =>
       data?.preview
         ? PreviewActions.successAddNewUrl({
-            url: data.url,
-            status: data.status,
-            attempts: 0,
-            preview: { preview: data.preview.image },
+            urls: [
+              {
+                url: new URL(data.url),
+                status: data.status,
+                updateAttempts: 0,
+                data: { preview: data.preview.image },
+                error: null,
+              },
+            ],
           })
         : PreviewActions.emptyTokenOnAddingNewUrl()
     )
@@ -117,7 +122,7 @@ const addUrlToStorage = (
 ) =>
   actions$.pipe(
     ofType(PreviewActions.successAddNewUrl),
-    tap(({ url }) => storage.addUrl(url))
+    tap(({ urls }) => urls.forEach(url => storage.addUrl(url.url.toString())))
   );
 
 const addUrlsFromLocalStorage = (

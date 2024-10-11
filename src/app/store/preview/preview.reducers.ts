@@ -65,6 +65,7 @@ export const previewFeature = createFeature({
     ),
     on(
       PreviewActions.addUrlsFromLocalStorage,
+      PreviewActions.successAddNewUrl,
       (state, { urls }): PreviewState => ({
         ...state,
         previews: mergePreviews(state.previews, urls),
