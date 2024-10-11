@@ -37,11 +37,12 @@ export class PreviewContainerComponent {
   views: Signal<ViewPreview[]> = computed(() =>
     this.previews()
       .map((preview): ViewPreview => {
+        const url = this.createURL(preview.url);
         return {
           preview: preview.data?.preview,
           title: preview.data?.title,
           description: preview.data?.description,
-          shortUrl: preview.urlObject?.host || preview.url,
+          shortUrl: url?.host || preview.url,
           isError: preview.status === 'error',
           isLoading: preview.status === 'pending',
           href: preview.url.toString(),
@@ -50,4 +51,11 @@ export class PreviewContainerComponent {
       })
       .reverse()
   );
+  private createURL(url: string): URL | undefined {
+    try {
+      return new URL(url);
+    } catch {
+      return undefined;
+    }
+  }
 }

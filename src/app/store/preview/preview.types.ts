@@ -2,7 +2,6 @@ import { Loadable } from '../../app.types';
 
 export interface PreviewItem {
   url: string;
-  urlObject?: URL;
   status: string;
   updateAttempts: number;
   data: PreviewData | null;
