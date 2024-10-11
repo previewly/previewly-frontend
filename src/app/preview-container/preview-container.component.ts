@@ -26,6 +26,7 @@ interface ViewPreview {
   selector: 'app-preview-container',
   standalone: true,
   templateUrl: './preview-container.component.html',
+  styleUrl: './preview-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, SubTitleComponent, NgIconComponent],
   viewProviders: [provideIcons({ phosphorCloudWarningDuotone })],
