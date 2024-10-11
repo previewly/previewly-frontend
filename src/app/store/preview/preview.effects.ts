@@ -116,7 +116,7 @@ const addUrl = (
               {
                 url: data.url,
                 status: data.status,
-                updateAttempts: 0,
+                updateAttempts: 1,
                 data: { preview: data.preview.image },
                 error: null,
               },
@@ -152,24 +152,17 @@ const addUrlsFromLocalStorage = (
             }
           })
           .map(({ url, urlObject }): PreviewItem => {
-            if (urlObject) {
-              return {
-                url: url?.toString(),
-                urlObject: urlObject,
-                status: 'pending',
-                updateAttempts: 0,
-                data: null,
-                error: null,
-              };
-            } else {
-              return {
-                url: url,
-                status: 'error',
-                updateAttempts: 0,
-                data: null,
-                error: 'Wrong URL',
-              };
-            }
+            const preview: PreviewItem = {
+              url: url,
+              status: 'pending',
+              updateAttempts: 1,
+              data: null,
+              error: null,
+            };
+
+            return urlObject
+              ? { ...preview, urlObject: urlObject }
+              : { ...preview, status: 'error', error: 'Wrong URL' };
           }),
       })
     )
