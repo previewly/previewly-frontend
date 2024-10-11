@@ -16,6 +16,7 @@ interface ViewPreview {
   href: string;
   previewAltTitle: string;
   isError: boolean;
+  isLoading: boolean;
   title: string | undefined;
   description: string | undefined;
   preview: string | undefined;
@@ -31,7 +32,6 @@ interface ViewPreview {
 })
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
-  isLoading = input<boolean>(false);
   previews = input.required<PreviewItem[]>();
 
   views: Signal<ViewPreview[]> = computed(() =>
@@ -42,6 +42,7 @@ export class PreviewContainerComponent {
         description: preview.data?.description,
         shortUrl: preview.url.host,
         isError: preview.status === 'error',
+        isLoading: preview.status === 'pending',
         href: preview.url.toString(),
         previewAltTitle: preview.data?.title || preview.url.toString(),
       };
