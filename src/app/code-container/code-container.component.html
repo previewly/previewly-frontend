@@ -26,8 +26,7 @@
     name="type_tab"
     role="tab"
     class="tab"
-    aria-label="REST"
-    checked="checked" />
+    aria-label="REST" />
   <div role="tabpanel" class="tab-content p-10">
     <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
       <pre>
@@ -43,14 +42,11 @@
     name="type_tab"
     role="tab"
     class="tab"
-    aria-label="GraphQL" />
+    aria-label="GraphQL"
+    checked="checked" />
   <div role="tabpanel" class="tab-content p-10">
-    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-      <pre>
-        <code>
-          &lt;img src=&quot;{{ gqlUrl() }}
-        </code>
-      </pre>
-    </div>
+    <p>GraphQL endpoint: {{ gqlUrl() }}</p>
+    <p>Queries:</p>
+    <p>Mutations:</p>
   </div>
 </div>
