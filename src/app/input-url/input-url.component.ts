@@ -28,10 +28,10 @@ export class InputUrlComponent {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
 
-  urlInput = new FormControl('', [
-    Validators.required,
-    Validators.pattern(URL_REGEXP),
-  ]);
+  urlInput = new FormControl(
+    'https://stackoverflow.com/questions/10415133/hash-keys-values-as-array',
+    [Validators.required, Validators.pattern(URL_REGEXP)]
+  );
   url = output<string>();
   constructor() {
     effect(() => {
