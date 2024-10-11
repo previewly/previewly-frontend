@@ -11,7 +11,7 @@ export class StoragePreviewService {
 
   initState(token: string) {
     this.saveToken(token);
-    this.saveUrls([]);
+    this.saveUrls({});
   }
 
   readState(): LocalStorageState {
@@ -27,15 +27,15 @@ export class StoragePreviewService {
 
   addUrl(url: string) {
     const urls = this.getStorageUrls();
-    urls.push(url);
+    urls[url] = url;
     this.saveUrls(urls);
   }
 
-  private getStorageUrls(): string[] {
-    return JSON.parse(localStorage.getItem(this.urlsKey) || '[]');
+  private getStorageUrls() {
+    return JSON.parse(localStorage.getItem(this.urlsKey) || '{}');
   }
 
-  private saveUrls(urls: string[]) {
+  private saveUrls(urls: Record<string, string>) {
     localStorage.setItem(this.urlsKey, JSON.stringify(urls));
   }
 }
