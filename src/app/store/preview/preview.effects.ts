@@ -7,14 +7,25 @@ import {
 } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
-import { catchError, exhaustMap, map, of, tap } from 'rxjs';
+import {
+  catchError,
+  exhaustMap,
+  map,
+  of,
+  switchMap,
+  tap,
+  timer,
+  toArray,
+  concat,
+} from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { StoragePreviewService } from '../../service/storage-preview.service';
 import { PreviewActions } from './preview.actions';
-import { previewFeature } from './preview.reducers';
+import { previewFeature } from './previewFeature';
 import { PreviewItem } from './preview.types';
+import { Observable } from '@apollo/client/utilities';
 
 const initState = (
   actions$ = inject(Actions),
@@ -165,7 +176,55 @@ const addUrlsFromLocalStorage = (
       })
     )
   );
+const updatePreviews = (
+  actions$ = inject(Actions),
+  store = inject(Store),
+  api = inject(ApiClient)
+) => {
+  return actions$.pipe(
+    ofType(PreviewActions.updatePreviews),
+    concatLatestFrom(() => store.select(previewFeature.selectToken)),
+    map(([{ urls }, token]) => {
+      if (token) {
+        return { urls, token };
+      } else {
+        throw Error('No token');
+      }
+    }),
+    switchMap(action =>
+      concat(
+        ...action.urls.map((url: PreviewItem) =>
+          api.getPreview({ token: action.token, url: url.url }).pipe(
+            map(result => result.data.preview),
+            map((preview): PreviewItem => {
+              let returnPreview: PreviewItem = {
+                url: url.url,
+                updateAttempts: url.updateAttempts,
+                error: url.error,
+                status: preview?.status || url.status,
+                data: null,
+              };
+              if (preview) {
+                returnPreview = {
+                  ...returnPreview,
+                  data: {
+                    ...url.data,
+                    preview: preview.image,
+                  },
+                };
+              } else {
+                returnPreview = { ...returnPreview, error: 'No preview' };
+              }
 
+              return returnPreview;
+            })
+          )
+        )
+      ).pipe(toArray())
+    ),
+    map(urls => PreviewActions.successUpdatePreviews({ urls: urls }))
+  );
+};
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
@@ -178,4 +237,6 @@ export const previewEffects = {
     addUrlsFromLocalStorage,
     StoreDispatchEffect
   ),
+
+  updatePreviews: createEffect(updatePreviews, StoreDispatchEffect),
 };
