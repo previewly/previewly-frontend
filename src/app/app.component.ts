@@ -38,7 +38,7 @@ export class AppComponent {
   isLoading = this.store.selectSignal(previewFeature.selectIsLoading);
 
   constructor() {
-    interval(1000)
+    interval(3000)
       .pipe(
         takeUntilDestroyed(),
         concatLatestFrom(() =>
