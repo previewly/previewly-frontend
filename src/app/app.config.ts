@@ -15,7 +15,7 @@ import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
 import { previewEffects } from './store/preview/preview.effects';
-import { previewFeature } from './store/preview/previewFeature';
+import { previewFeature } from './store/preview/preview.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
