@@ -1,4 +1,4 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 
 import { PreviewActions } from './preview.actions';
 import { PreviewItem, PreviewState } from './preview.types';
@@ -66,10 +66,29 @@ export const previewFeature = createFeature({
     on(
       PreviewActions.addUrlsFromLocalStorage,
       PreviewActions.successAddNewUrl,
+      PreviewActions.successUpdatePreviews,
       (state, { urls }): PreviewState => ({
         ...state,
         previews: mergePreviews(state.previews, urls),
       })
+    ),
+    on(
+      PreviewActions.updatePreviews,
+      (state, { urls }): PreviewState => ({
+        ...state,
+        previews: state.previews.map(preview =>
+          urls.findIndex(url => url.url === preview.url) != -1
+            ? { ...preview, updateAttempts: preview.updateAttempts + 1 }
+            : preview
+        ),
+      })
     )
   ),
+  extraSelectors: ({ selectPreviews }) => ({
+    selectShouldUpdate: createSelector(selectPreviews, previews =>
+      previews.filter(
+        preview => preview.status == 'pending' && preview.updateAttempts < 10
+      )
+    ),
+  }),
 });
