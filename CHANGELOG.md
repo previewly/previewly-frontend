@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.11](https://github.com/wert2all/previewly-frontend/compare/v0.0.10...v0.0.11) (2024-10-11)
+
+### Features
+
+- add test to GQL code ([013b22f](https://github.com/wert2all/previewly-frontend/commit/013b22f480a16378b5bc04709b2cf306a6f1756b))
+
+### Bug Fixes
+
+- add scrollbar for preview container ([dd5a3a8](https://github.com/wert2all/previewly-frontend/commit/dd5a3a8017d843c71e7eabe0bfde8f8ae5980d37))
+- fir showing short URL ([92a41eb](https://github.com/wert2all/previewly-frontend/commit/92a41eb412cc44b832607866cff80ae01132821d))
+- fix preview ordering ([6e92f31](https://github.com/wert2all/previewly-frontend/commit/6e92f313cfa9ead7a67f12db68a88f3b360748fd))
+
 ## [0.0.10](https://github.com/wert2all/previewly-frontend/compare/v0.0.9...v0.0.10) (2024-10-11)
 
 ### Bug Fixes
