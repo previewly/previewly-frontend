@@ -9,23 +9,21 @@ import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
 import {
   catchError,
+  concat,
   exhaustMap,
   map,
   of,
   switchMap,
   tap,
-  timer,
   toArray,
-  concat,
 } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { StoragePreviewService } from '../../service/storage-preview.service';
 import { PreviewActions } from './preview.actions';
-import { previewFeature } from './previewFeature';
+import { previewFeature } from './preview.reducers';
 import { PreviewItem } from './preview.types';
-import { Observable } from '@apollo/client/utilities';
 
 const initState = (
   actions$ = inject(Actions),
