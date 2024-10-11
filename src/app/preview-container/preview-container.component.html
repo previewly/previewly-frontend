@@ -5,7 +5,9 @@
     class="carousel carousel-center w-full space-x-4 rounded-box bg-neutral p-4">
     @for (view of views(); track $index) {
       <div class="carousel-item">
-        <div class="card card-compact w-96 bg-base-100 shadow-xl">
+        <div
+          class="card card-compact w-96 bg-base-100 shadow-xl"
+          [class.skeleton]="view.isLoading">
           <figure>
             @if (view.isError) {
               <ng-icon
@@ -13,7 +15,12 @@
                 size="128"
                 class="my-14 text-error"></ng-icon>
             } @else {
-              <img [src]="view.preview" [alt]="view.previewAltTitle" />
+              @if (view.isLoading) {
+                <span
+                  class="loading loading-spinner loading-lg my-28 text-primary"></span>
+              } @else {
+                <img [src]="view.preview" [alt]="view.previewAltTitle" />
+              }
             }
           </figure>
           <div class="card-body">
