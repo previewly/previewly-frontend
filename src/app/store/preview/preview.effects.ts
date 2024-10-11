@@ -188,6 +188,15 @@ const updatePreview = (
     catchError(err => of(PreviewActions.errorUpdatePreview({ error: err })))
   );
 
+const addUrlToStorage = (
+  actions$ = inject(Actions),
+  storage = inject(StoragePreviewService)
+) =>
+  actions$.pipe(
+    ofType(PreviewActions.successAddNewUrl),
+    tap(({ url }) => storage.addUrl(url))
+  );
+
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
@@ -201,6 +210,7 @@ export const previewEffects = {
     startTimerForUpdatePreviewAfterAdding,
     StoreDispatchEffect
   ),
+  addUrlToStorage: createEffect(addUrlToStorage, StoreUnDispatchEffect),
 
   updatePreview: createEffect(updatePreview, StoreDispatchEffect),
 };
