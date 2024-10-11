@@ -1,9 +1,5 @@
 import { Loadable } from '../../app.types';
 
-export interface LocalStorageState {
-  token: string | undefined;
-  urls: string[];
-}
 export interface PreviewItem {
   url: URL;
   status: string;

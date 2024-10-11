@@ -11,9 +11,9 @@ import { catchError, exhaustMap, map, of, tap, timer } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
+import { StoragePreviewService } from '../../service/storage-preview.service';
 import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
-import { StoragePreviewService } from './storage-preview.service';
 
 const shouldUpdatePreview = (status: string, attempts: number) =>
   status === 'pending' && attempts < 10;

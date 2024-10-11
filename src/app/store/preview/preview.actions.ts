@@ -1,6 +1,7 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
-import { LocalStorageState, PreviewData } from './preview.types';
+import { LocalStorageState } from '../../service/storage-preview.types';
+import { PreviewData } from './preview.types';
 
 export const PreviewActions = createActionGroup({
   source: 'Preview',

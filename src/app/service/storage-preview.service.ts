@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { LocalStorageState } from './preview.types';
+import { LocalStorageState } from './storage-preview.types';
 
 @Injectable({
   providedIn: 'root',
