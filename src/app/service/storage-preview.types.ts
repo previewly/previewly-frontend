@@ -1,4 +1,4 @@
 export interface LocalStorageState {
   token: string | undefined;
-  urls: string[];
+  urls: Record<string, string>;
 }
