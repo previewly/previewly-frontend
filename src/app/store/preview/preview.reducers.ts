@@ -16,7 +16,7 @@ export const previewFeature = createFeature({
     on(
       PreviewActions.successCreateToken,
       PreviewActions.emptyToken,
-      PreviewActions.applyInitialStateFromLocalStorage,
+      PreviewActions.applyTokenFromLocalStorage,
       PreviewActions.successAddNewUrl,
       (state): PreviewState => ({ ...state, isLoading: false })
     ),
@@ -28,12 +28,8 @@ export const previewFeature = createFeature({
     ),
 
     on(
-      PreviewActions.applyInitialStateFromLocalStorage,
-      (_, { state }): PreviewState => ({
-        ...state,
-        previews: [],
-        isLoading: false,
-      })
+      PreviewActions.applyTokenFromLocalStorage,
+      (storeState, { token }): PreviewState => ({ ...storeState, token: token })
     ),
 
     on(

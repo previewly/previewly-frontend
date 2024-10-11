@@ -1,6 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
-import { LocalStorageState } from '../../service/storage-preview.types';
 import { PreviewData } from './preview.types';
 
 export const PreviewActions = createActionGroup({
@@ -8,9 +7,7 @@ export const PreviewActions = createActionGroup({
   events: {
     'Check localStorage token': props<{ token: string }>(),
 
-    'Apply initial state from localStorage': props<{
-      state: LocalStorageState;
-    }>(),
+    'Apply token from local storage': props<{ token: string }>(),
     'Create new token': emptyProps(),
     'Success create token': props<{ token: string }>(),
 

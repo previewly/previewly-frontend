@@ -32,11 +32,7 @@ const initState = (
     )
   );
 
-const checkSavedToken = (
-  actions$ = inject(Actions),
-  api = inject(ApiClient),
-  storageService = inject(StoragePreviewService)
-) =>
+const checkSavedToken = (actions$ = inject(Actions), api = inject(ApiClient)) =>
   actions$.pipe(
     ofType(PreviewActions.checkLocalStorageToken),
     exhaustMap(({ token }) =>
@@ -44,9 +40,7 @@ const checkSavedToken = (
         map(result => result.data?.isValid || false),
         map(isValid =>
           isValid
-            ? PreviewActions.applyInitialStateFromLocalStorage({
-                state: { ...storageService.readState(), token: token },
-              })
+            ? PreviewActions.applyTokenFromLocalStorage({ token: token })
             : PreviewActions.createNewToken()
         )
       )
