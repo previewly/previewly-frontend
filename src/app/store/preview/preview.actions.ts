@@ -17,14 +17,16 @@ export const PreviewActions = createActionGroup({
     'Success add new url': props<{
       url: string;
       status: string;
+      attempts: number;
       preview: PreviewData;
     }>(),
 
-    'Update preview': props<{ url: string }>(),
+    'Update preview': props<{ url: string; attempt: number }>(),
     'Should not update preview': emptyProps(),
     'Success update preview': props<{
       url: string;
       status: string;
+      attempts: number;
       preview: PreviewData;
     }>(),
     'Error update preview': props<{ error: string }>(),

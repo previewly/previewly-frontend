@@ -7,6 +7,7 @@ export interface LocalStorageState {
 export interface PreviewItem {
   url: URL;
   status: string;
+  updateAttempts: number;
   data: PreviewData | null;
   error: string | null;
 }

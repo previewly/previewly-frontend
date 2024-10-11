@@ -39,7 +39,7 @@ export const previewFeature = createFeature({
     on(
       PreviewActions.successAddNewUrl,
       PreviewActions.successUpdatePreview,
-      (state, { url, status, preview }) => {
+      (state, { url, status, attempts, preview }) => {
         const isEqual = (previewItem: PreviewItem, url: string) =>
           previewItem.url.toString() == url;
 
@@ -48,6 +48,7 @@ export const previewFeature = createFeature({
           data: {
             ...preview,
           },
+          updateAttempts: attempts,
           status: status,
           error: null,
         };

@@ -15,7 +15,8 @@ import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
 import { StoragePreviewService } from './storage-preview.service';
 
-const shouldUpdatePreview = (status: string) => status === 'pending';
+const shouldUpdatePreview = (status: string, attempts: number) =>
+  status === 'pending' && attempts < 10;
 
 const initState = (
   actions$ = inject(Actions),
@@ -112,6 +113,7 @@ const addUrl = (
         ? PreviewActions.successAddNewUrl({
             url: data.url,
             status: data.status,
+            attempts: 0,
             preview: { preview: data.preview.image },
           })
         : PreviewActions.emptyTokenOnAddingNewUrl()
@@ -124,12 +126,17 @@ const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
       PreviewActions.successAddNewUrl,
       PreviewActions.successUpdatePreview
     ),
-    map(action => (shouldUpdatePreview(action.status) ? action : null)),
+    map(action =>
+      shouldUpdatePreview(action.status, action.attempts) ? action : null
+    ),
     exhaustMap(action =>
       timer(3000).pipe(
         map(() =>
           action
-            ? PreviewActions.updatePreview({ url: action.url })
+            ? PreviewActions.updatePreview({
+                url: action.url,
+                attempt: action.attempts + 1,
+              })
             : PreviewActions.shouldNotUpdatePreview()
         )
       )
@@ -144,14 +151,14 @@ const updatePreview = (
   actions$.pipe(
     ofType(PreviewActions.updatePreview),
     concatLatestFrom(() => store.select(previewFeature.selectToken)),
-    map(([{ url }, token]) => {
+    map(([{ url, attempt }, token]) => {
       if (token) {
-        return { url, token };
+        return { url, attempt, token };
       } else {
         throw Error('No token');
       }
     }),
-    exhaustMap(({ url, token }) =>
+    exhaustMap(({ url, attempt, token }) =>
       api.getPreview({ url: url, token: token }).pipe(
         map(result => result.data.preview),
         map(preview => {
@@ -170,6 +177,7 @@ const updatePreview = (
           PreviewActions.successUpdatePreview({
             url,
             status: preview.status,
+            attempts: attempt,
             preview: {
               preview: preview.image,
             },
