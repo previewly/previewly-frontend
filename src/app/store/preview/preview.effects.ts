@@ -7,7 +7,7 @@ import {
 } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
-import { catchError, exhaustMap, map, of, tap, timer } from 'rxjs';
+import { catchError, exhaustMap, map, of, switchMap, tap, timer } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
@@ -191,6 +191,17 @@ const addUrlToStorage = (
     tap(({ url }) => storage.addUrl(url))
   );
 
+const addLocalStorageUrls = (
+  actions$ = inject(Actions),
+  storage = inject(StoragePreviewService)
+) =>
+  actions$.pipe(
+    ofType(PreviewActions.applyTokenFromLocalStorage),
+    switchMap(() =>
+      storage.readState().urls.map(url => PreviewActions.addNewUrl({ url }))
+    )
+  );
+
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
@@ -205,6 +216,6 @@ export const previewEffects = {
     StoreDispatchEffect
   ),
   addUrlToStorage: createEffect(addUrlToStorage, StoreUnDispatchEffect),
-
   updatePreview: createEffect(updatePreview, StoreDispatchEffect),
+  addLocalStorageUrls: createEffect(addLocalStorageUrls, StoreDispatchEffect),
 };
