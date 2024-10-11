@@ -210,6 +210,16 @@ const updatePreviews = (
                     preview: preview.image,
                   },
                 };
+                try {
+                  returnPreview = {
+                    ...returnPreview,
+                    urlObject: new URL(returnPreview.url),
+                  };
+                } catch {
+                  returnPreview = {
+                    ...returnPreview,
+                  };
+                }
               } else {
                 returnPreview = { ...returnPreview, error: 'No preview' };
               }
