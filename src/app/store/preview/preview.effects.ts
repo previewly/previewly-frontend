@@ -7,16 +7,13 @@ import {
 } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
-import { catchError, exhaustMap, map, of, tap, timer } from 'rxjs';
+import { catchError, exhaustMap, map, of, tap } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { StoragePreviewService } from '../../service/storage-preview.service';
 import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
-
-const shouldUpdatePreview = (status: string, attempts: number) =>
-  status === 'pending' && attempts < 10;
 
 const initState = (
   actions$ = inject(Actions),
@@ -114,29 +111,6 @@ const addUrl = (
     )
   );
 
-const startTimerForUpdatePreviewAfterAdding = (actions$ = inject(Actions)) =>
-  actions$.pipe(
-    ofType(
-      PreviewActions.successAddNewUrl,
-      PreviewActions.successUpdatePreview
-    ),
-    map(action =>
-      shouldUpdatePreview(action.status, action.attempts) ? action : null
-    ),
-    exhaustMap(action =>
-      timer(3000).pipe(
-        map(() =>
-          action
-            ? PreviewActions.updatePreview({
-                url: action.url,
-                attempt: action.attempts + 1,
-              })
-            : PreviewActions.shouldNotUpdatePreview()
-        )
-      )
-    )
-  );
-
 const updatePreview = (
   actions$ = inject(Actions),
   store = inject(Store),
@@ -191,37 +165,29 @@ const addUrlToStorage = (
     tap(({ url }) => storage.addUrl(url))
   );
 
-const addLocalStorageUrls = (
+const addUrlsFromLocalStorage = (
   actions$ = inject(Actions),
-  storage = inject(StoragePreviewService),
-  store = inject(Store)
-) =>
-  actions$.pipe(
+  storage = inject(StoragePreviewService)
+) => {
+  return actions$.pipe(
     ofType(PreviewActions.applyTokenFromLocalStorage),
-    tap(() => {
-      const urls: Record<string, string> = storage.readState().urls;
-      let key: keyof typeof urls;
-      for (key in urls) {
-        console.log(urls[key]);
-        store.dispatch(PreviewActions.addNewUrl({ url: urls[key] }));
-      }
+    map(() => Object.keys(storage.readState().urls)),
+    tap(urls => {
+      console.log(urls);
     })
   );
-
+};
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
   checkSavedToken: createEffect(checkSavedToken, StoreDispatchEffect),
   createNewToke: createEffect(createNewToken, StoreDispatchEffect),
   successCreateToken: createEffect(successCreateToken, StoreUnDispatchEffect),
-
   addUrl: createEffect(addUrl, StoreDispatchEffect),
-
-  successAddUrl: createEffect(
-    startTimerForUpdatePreviewAfterAdding,
-    StoreDispatchEffect
-  ),
   addUrlToStorage: createEffect(addUrlToStorage, StoreUnDispatchEffect),
   updatePreview: createEffect(updatePreview, StoreDispatchEffect),
-  addLocalStorageUrls: createEffect(addLocalStorageUrls, StoreUnDispatchEffect),
+  addUrlsFromLocalStorage: createEffect(
+    addUrlsFromLocalStorage,
+    StoreUnDispatchEffect
+  ),
 };
