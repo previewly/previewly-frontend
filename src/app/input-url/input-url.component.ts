@@ -28,7 +28,7 @@ export class InputUrlComponent {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
 
-  urlInput = new FormControl('https://rpm.kiev.ua/', [
+  urlInput = new FormControl('', [
     Validators.required,
     Validators.pattern(URL_REGEXP),
   ]);
@@ -45,6 +45,7 @@ export class InputUrlComponent {
   createPreview() {
     if (this.urlInput.valid && this.urlInput.value) {
       this.url.emit(this.urlInput.value);
+      this.urlInput.setValue('')
     }
   }
 }
