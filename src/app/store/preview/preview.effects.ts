@@ -111,51 +111,6 @@ const addUrl = (
     )
   );
 
-const updatePreview = (
-  actions$ = inject(Actions),
-  store = inject(Store),
-  api = inject(ApiClient)
-) =>
-  actions$.pipe(
-    ofType(PreviewActions.updatePreview),
-    concatLatestFrom(() => store.select(previewFeature.selectToken)),
-    map(([{ url, attempt }, token]) => {
-      if (token) {
-        return { url, attempt, token };
-      } else {
-        throw Error('No token');
-      }
-    }),
-    exhaustMap(({ url, attempt, token }) =>
-      api.getPreview({ url: url, token: token }).pipe(
-        map(result => result.data.preview),
-        map(preview => {
-          if (preview) {
-            return {
-              id: preview.id,
-              url: new URL(url),
-              status: preview.status.toString(),
-              image: preview.image,
-            };
-          } else {
-            throw Error('No preview');
-          }
-        }),
-        map(preview =>
-          PreviewActions.successUpdatePreview({
-            url,
-            status: preview.status,
-            attempts: attempt,
-            preview: {
-              preview: preview.image,
-            },
-          })
-        )
-      )
-    ),
-    catchError(err => of(PreviewActions.errorUpdatePreview({ error: err })))
-  );
-
 const addUrlToStorage = (
   actions$ = inject(Actions),
   storage = inject(StoragePreviewService)
@@ -168,15 +123,24 @@ const addUrlToStorage = (
 const addUrlsFromLocalStorage = (
   actions$ = inject(Actions),
   storage = inject(StoragePreviewService)
-) => {
-  return actions$.pipe(
+) =>
+  actions$.pipe(
     ofType(PreviewActions.applyTokenFromLocalStorage),
-    map(() => Object.keys(storage.readState().urls)),
-    tap(urls => {
-      console.log(urls);
-    })
+    map(() =>
+      PreviewActions.addUrlsFromLocalStorage({
+        urls: Object.keys(storage.readState().urls)
+          .map(url => new URL(url))
+          .map(url => ({
+            url: url,
+            status: 'pending',
+            updateAttempts: 0,
+            data: null,
+            error: null,
+          })),
+      })
+    )
   );
-};
+
 export const previewEffects = {
   initState: createEffect(initState, StoreDispatchEffect),
 
@@ -185,9 +149,8 @@ export const previewEffects = {
   successCreateToken: createEffect(successCreateToken, StoreUnDispatchEffect),
   addUrl: createEffect(addUrl, StoreDispatchEffect),
   addUrlToStorage: createEffect(addUrlToStorage, StoreUnDispatchEffect),
-  updatePreview: createEffect(updatePreview, StoreDispatchEffect),
   addUrlsFromLocalStorage: createEffect(
     addUrlsFromLocalStorage,
-    StoreUnDispatchEffect
+    StoreDispatchEffect
   ),
 };
