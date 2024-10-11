@@ -14,6 +14,7 @@ import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
 import { StoragePreviewService } from '../../service/storage-preview.service';
 import { PreviewActions } from './preview.actions';
 import { previewFeature } from './preview.reducers';
+import { PreviewItem } from './preview.types';
 
 const initState = (
   actions$ = inject(Actions),
@@ -104,7 +105,7 @@ const addUrl = (
         ? PreviewActions.successAddNewUrl({
             urls: [
               {
-                url: new URL(data.url),
+                url: data.url,
                 status: data.status,
                 updateAttempts: 0,
                 data: { preview: data.preview.image },
@@ -134,14 +135,33 @@ const addUrlsFromLocalStorage = (
     map(() =>
       PreviewActions.addUrlsFromLocalStorage({
         urls: Object.keys(storage.readState().urls)
-          .map(url => new URL(url))
-          .map(url => ({
-            url: url,
-            status: 'pending',
-            updateAttempts: 0,
-            data: null,
-            error: null,
-          })),
+          .map(url => {
+            try {
+              return { url: url, urlObject: new URL(url) };
+            } catch {
+              return { url: url, urlObject: null };
+            }
+          })
+          .map(({ url, urlObject }): PreviewItem => {
+            if (urlObject) {
+              return {
+                url: url?.toString(),
+                urlObject: urlObject,
+                status: 'pending',
+                updateAttempts: 0,
+                data: null,
+                error: null,
+              };
+            } else {
+              return {
+                url: url,
+                status: 'error',
+                updateAttempts: 0,
+                data: null,
+                error: 'Wrong URL',
+              };
+            }
+          }),
       })
     )
   );

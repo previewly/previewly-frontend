@@ -40,7 +40,7 @@ export class PreviewContainerComponent {
         preview: preview.data?.preview,
         title: preview.data?.title,
         description: preview.data?.description,
-        shortUrl: preview.url.host,
+        shortUrl: preview.urlObject?.host || preview.url,
         isError: preview.status === 'error',
         isLoading: preview.status === 'pending',
         href: preview.url.toString(),

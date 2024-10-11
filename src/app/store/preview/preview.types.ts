@@ -1,7 +1,8 @@
 import { Loadable } from '../../app.types';
 
 export interface PreviewItem {
-  url: URL;
+  url: string;
+  urlObject?: URL;
   status: string;
   updateAttempts: number;
   data: PreviewData | null;
