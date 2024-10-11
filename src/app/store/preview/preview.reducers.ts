@@ -9,6 +9,30 @@ const initialState: PreviewState = {
   isLoading: true,
 };
 
+const mergePreviews = (
+  statePreviews: PreviewItem[],
+  updatePreviews: PreviewItem[]
+): PreviewItem[] => {
+  const stateKeys = statePreviews.map(url => url.url.toString());
+  const updateKeys = updatePreviews.map(url => url.url.toString());
+
+  const updatedState = statePreviews.map(url => {
+    const updateIndex = updateKeys.indexOf(url.url.toString());
+    return updateIndex != -1 ? updatePreviews[updateIndex] || url : url;
+  });
+  updateKeys.forEach(updatedUrl => {
+    if (stateKeys.indexOf(updatedUrl) == -1) {
+      const shouldAdd = updatePreviews.find(
+        url => url.url.toString() == updatedUrl
+      );
+      if (shouldAdd) {
+        updatedState.push(shouldAdd);
+      }
+    }
+  });
+  return updatedState;
+};
+
 export const previewFeature = createFeature({
   name: 'preview',
   reducer: createReducer(
@@ -33,40 +57,17 @@ export const previewFeature = createFeature({
     ),
 
     on(
-      PreviewActions.successAddNewUrl,
-      PreviewActions.successUpdatePreview,
-      (state, { url, status, attempts, preview }) => {
-        const isEqual = (previewItem: PreviewItem, url: string) =>
-          previewItem.url.toString() == url;
-
-        const updatedPreview: PreviewItem = {
-          url: new URL(url),
-          data: {
-            ...preview,
-          },
-          updateAttempts: attempts,
-          status: status,
-          error: null,
-        };
-
-        const updatedPreviews = state.previews.map(item =>
-          isEqual(item, url) ? { ...item, ...updatedPreview } : item
-        );
-
-        return {
-          ...state,
-          previews: updatedPreviews.findIndex(item => isEqual(item, url))
-            ? [...updatedPreviews, updatedPreview]
-            : updatedPreviews,
-        };
-      }
-    ),
-
-    on(
       PreviewActions.successCreateToken,
       (state, { token }): PreviewState => ({
         ...state,
         token: token,
+      })
+    ),
+    on(
+      PreviewActions.addUrlsFromLocalStorage,
+      (state, { urls }): PreviewState => ({
+        ...state,
+        previews: mergePreviews(state.previews, urls),
       })
     )
   ),
