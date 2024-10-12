@@ -11,7 +11,6 @@ import { NgIconComponent } from '@ng-icons/core';
 import { ApiUrlService } from '../service/api-url.service';
 import { TitleComponent } from '../share/content/title/title.component';
 import { CopyToClipboardComponent } from '../share/tools/copy-to-clipboard/copy-to-clipboard.component';
-import { CodeAndResultComponent } from './code-and-result/code-and-result.component';
 import { GqlContentComponent } from './gql-content/gql-content.component';
 
 @Component({
@@ -24,7 +23,6 @@ import { GqlContentComponent } from './gql-content/gql-content.component';
     CommonModule,
     CopyToClipboardComponent,
     TitleComponent,
-    CodeAndResultComponent,
     GqlContentComponent,
   ],
 })
