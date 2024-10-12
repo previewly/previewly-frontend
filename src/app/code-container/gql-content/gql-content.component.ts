@@ -12,4 +12,5 @@ import { CodeAndResultComponent } from '../code-and-result/code-and-result.compo
 })
 export class GqlContentComponent {
   gqlUrl = input.required<string>();
+  token = input.required<string>();
 }

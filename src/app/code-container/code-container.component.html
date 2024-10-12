@@ -12,7 +12,7 @@
       aria-label="GraphQL"
       checked="checked" />
     <div role="tabpanel" class="tab-content pt-2 lg:p-10">
-      <app-gql-content [gqlUrl]="gqlUrl()" />
+      <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
     </div>
 
     <input
@@ -23,7 +23,7 @@
       class="tab"
       aria-label="REST (comming soon)" />
     <div role="tabpanel" class="tab-content pt-2 lg:p-10">
-      <app-gql-content [gqlUrl]="gqlUrl()" />
+      <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
     </div>
 
     <input
@@ -34,7 +34,7 @@
       disabled="disabled"
       aria-label="Image (comming soon)" />
     <div role="tabpanel" class="tab-content pt-2 lg:p-10">
-      <app-gql-content [gqlUrl]="gqlUrl()" />
+      <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
     </div>
   </div>
 </div>
