@@ -15,9 +15,9 @@
 
 <app-code-and-result>
   <pre class="gql">
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+    <span class="operation">mutation</span> {{'{'}}
         createToken
-    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+    {{'}'}}
   </pre>
 
   <pre result class="json">
@@ -37,17 +37,17 @@
 
 <app-code-and-result>
   <pre class="gql">
-    <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
-        addUrl<span style="color: rgb(201, 209, 217); font-weight: 400;">(</span>
-          <span style="color: rgb(255, 166, 87); font-weight: 400;">token</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"your token"</span>,
-          <span style="color: rgb(255, 166, 87); font-weight: 400;">url</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"https://www.google.com/"</span>
-        <span style="color: rgb(201, 209, 217); font-weight: 400;">)</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+    <span class="operation">mutation</span> {{'{'}}
+        addUrl (
+          <span class="variable">token</span>: <span class="value" >"your token"</span>,
+          <span class="variable">url</span>: <span class="value" >"https://www.google.com/"</span>
+        ) {{'{'}}
             id
             image
             status
             url
-        <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
-    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+        {{'}'}}
+    {{'}'}}
   </pre>
   <pre result class="json">
     <span result class="json">{{'{'}}
