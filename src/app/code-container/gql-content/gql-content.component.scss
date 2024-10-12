@@ -8,4 +8,12 @@ pre.json {
   font-family: monospace;
   color: rgb(201, 209, 217);
   font-weight: 400;
+
+  span.key {
+    color: rgb(121, 192, 255);
+  }
+
+  span.value {
+    color: rgb(165, 214, 255);
+  }
 }

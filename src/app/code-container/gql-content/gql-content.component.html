@@ -12,6 +12,7 @@
   First of all, yous should get a token for your application by mutation
   `createToken`
 </p>
+
 <app-code-and-result>
   <pre class="gql">
     <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
@@ -20,10 +21,44 @@
   </pre>
 
   <pre result class="json">
-    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
-      <span style="color: rgb(121, 192, 255); font-weight: 400;">"data"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
-        <span style="color: rgb(121, 192, 255); font-weight: 400;">"createToken"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"sometoken"</span>
-      <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+    <span result class="json">{{'{'}}
+        <span class="key" >"data"</span>: {{'{'}}
+            <span class="key">"createToken"</span>: <span class="value">"your token"</span>
+        {{'}'}}
+    {{'}'}}</span>
+  </pre>
+</app-code-and-result>
+
+<h3 class="bg-neutral p-2 text-xl font-bold">2. Add URL of website</h3>
+<p class="pt-2">
+  Should add an URL of website by `addUrl` mutation. Previewly will return a
+  pre-flight info about site preview and start grab the image.
+</p>
+
+<app-code-and-result>
+  <pre class="gql">
+    <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+        addUrl<span style="color: rgb(201, 209, 217); font-weight: 400;">(</span>
+          <span style="color: rgb(255, 166, 87); font-weight: 400;">token</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"your token"</span>,
+          <span style="color: rgb(255, 166, 87); font-weight: 400;">url</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"https://www.google.com/"</span>
+        <span style="color: rgb(201, 209, 217); font-weight: 400;">)</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+            id
+            image
+            status
+            url
+        <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
     <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+  </pre>
+  <pre result class="json">
+    <span result class="json">{{'{'}}
+        <span class="key" >"data"</span>: {{'{'}}
+            <span class="key">"addUrl"</span>: {{'{'}}
+                <span class="key">"id"</span>: <span class="value">1</span>,
+                <span class="key">"image"</span>: <span class="value">"https://previewly.top/assets/loader-200px-200px.gif"</span>,
+                <span class="key">"status"</span>: <span class="value">"pending"</span>,
+                <span class="key">"url"</span>: <span class="value">"https://www.google.com/"</span>,
+            {{'}'}}
+        {{'}'}}
+    {{'}'}}</span>
   </pre>
 </app-code-and-result>
