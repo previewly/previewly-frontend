@@ -12,22 +12,9 @@
       aria-label="GraphQL"
       checked="checked" />
     <div role="tabpanel" class="tab-content pt-2 lg:p-10">
-      <h3 class="bg-neutral p-2 text-xl font-bold">GraphQL endpoint</h3>
-      <p class="flex items-center py-2 ps-4">
-        {{ gqlUrl() }}
-        <app-copy-to-clipboard
-          position="right"
-          [value]="gqlUrl()"
-          class="ms-8"></app-copy-to-clipboard>
-      </p>
-      <div class="divider"></div>
-      <h3 class="bg-neutral p-2 text-xl font-bold">1. Get a token</h3>
-      <p>
-        First of all, yous should get a token for your application by mutation
-        `createToken`
-      </p>
-      <app-code-and-result> </app-code-and-result>
+      <app-gql-content [gqlUrl]="gqlUrl()" />
     </div>
+
     <input
       type="radio"
       name="type_tab"
@@ -35,14 +22,8 @@
       disabled="disabled"
       class="tab"
       aria-label="REST (comming soon)" />
-    <div role="tabpanel" class="tab-content p-10">
-      <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-        <pre>
-        <code>
-          &lt;img src=&quot;{{ jsonUrl() }}&lt;site-url&gt;&quot;&gt;
-        </code>
-      </pre>
-      </div>
+    <div role="tabpanel" class="tab-content pt-2 lg:p-10">
+      <app-gql-content [gqlUrl]="gqlUrl()" />
     </div>
 
     <input
@@ -52,14 +33,8 @@
       class="tab"
       disabled="disabled"
       aria-label="Image (comming soon)" />
-    <div role="tabpanel" class="tab-content p-10">
-      <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-        <pre>
-        <code>
-          &lt;img src=&quot;{{ imgUrl() }}&lt;site-url&gt;&quot;&gt;
-        </code>
-      </pre>
-      </div>
+    <div role="tabpanel" class="tab-content pt-2 lg:p-10">
+      <app-gql-content [gqlUrl]="gqlUrl()" />
     </div>
   </div>
 </div>
