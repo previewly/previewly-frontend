@@ -6,17 +6,25 @@ import {
   inject,
   input,
 } from '@angular/core';
+import { NgIconComponent } from '@ng-icons/core';
 
 import { ApiUrlService } from '../service/api-url.service';
 import { TitleComponent } from '../share/content/title/title.component';
 import { CopyToClipboardComponent } from '../share/tools/copy-to-clipboard/copy-to-clipboard.component';
+import { CodeAndResultComponent } from './code-and-result/code-and-result.component';
 
 @Component({
   selector: 'app-code-container',
   standalone: true,
   templateUrl: './code-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, CopyToClipboardComponent, TitleComponent],
+  imports: [
+    NgIconComponent,
+    CommonModule,
+    CopyToClipboardComponent,
+    TitleComponent,
+    CodeAndResultComponent,
+  ],
 })
 export class CodeContainerComponent {
   private readonly apiUrlService = inject(ApiUrlService);

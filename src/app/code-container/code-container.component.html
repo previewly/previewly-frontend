@@ -11,7 +11,7 @@
       class="tab"
       aria-label="GraphQL"
       checked="checked" />
-    <div role="tabpanel" class="tab-content p-10">
+    <div role="tabpanel" class="tab-content pt-2 lg:p-10">
       <h3 class="bg-neutral p-2 text-xl font-bold">GraphQL endpoint</h3>
       <p class="flex items-center py-2 ps-4">
         {{ gqlUrl() }}
@@ -26,8 +26,8 @@
         First of all, yous should get a token for your application by mutation
         `createToken`
       </p>
+      <app-code-and-result> </app-code-and-result>
     </div>
-
     <input
       type="radio"
       name="type_tab"
