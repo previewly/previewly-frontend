@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.1](https://github.com/wert2all/previewly-frontend/compare/v0.1.0...v0.1.1) (2024-10-12)
+
+### Features
+
+- add token to GQL code container ([9017390](https://github.com/wert2all/previewly-frontend/commit/90173902e44141eadd108dacdf1a4e6e2a92144a))
+- add zed editor support ([6da5261](https://github.com/wert2all/previewly-frontend/commit/6da52610ee21e8d757e14cb39b575abf85cff869))
+- create component for copy to clipboard ([459b48b](https://github.com/wert2all/previewly-frontend/commit/459b48b96cabfc3066efc17a2522b234ec258571))
+- create GQL code clock ([9b93b89](https://github.com/wert2all/previewly-frontend/commit/9b93b89f5f7860aeaf27860ee80a701b2aacabf6))
+
+### Bug Fixes
+
+- add GQL code generation for GQL description ([b376995](https://github.com/wert2all/previewly-frontend/commit/b376995539a694c58db8b38078d230db62d21492))
+- add more to GQL description ([3a186cf](https://github.com/wert2all/previewly-frontend/commit/3a186cf93cc08516fc025a7563234fdf7644dd56))
+- add some description to GQL code ([1485329](https://github.com/wert2all/previewly-frontend/commit/1485329ffbf010d09365be7c41cda9b5c4ea6899))
+- extract GQL code to separate component ([f3ed6b2](https://github.com/wert2all/previewly-frontend/commit/f3ed6b2239614432644399a89dea48ead45b6eca))
+- fix code highlight ([0e187de](https://github.com/wert2all/previewly-frontend/commit/0e187de95e17ea55d2a09073dd9bd9783ce8aa51))
+- fix coping code of GQL ([319c323](https://github.com/wert2all/previewly-frontend/commit/319c3231b7d635b35aa2c0f6591434bf39b0fa63))
+- fix font of title ([9ceab63](https://github.com/wert2all/previewly-frontend/commit/9ceab635fe11b2dc16a854d89a065d2bc6579e6c))
+- fix styles for GQL highlight code ([5939065](https://github.com/wert2all/previewly-frontend/commit/59390659e1be9d8857a354325ba81b5624790262))
+- revert index page component ([22709d2](https://github.com/wert2all/previewly-frontend/commit/22709d285214c3cc6491bf02999080532826df0b))
+- update code for createToken GQL mutation ([810a1f1](https://github.com/wert2all/previewly-frontend/commit/810a1f195c58a8be652def2bce43fa207c1c46d5))
+- update GQL description ([199ccf7](https://github.com/wert2all/previewly-frontend/commit/199ccf7c2344f6c55a0c6b7de87d5688364cc0c2))
+- update text and design of application ([8831826](https://github.com/wert2all/previewly-frontend/commit/88318269da735b40ef34ef909d0ed1df2c62512f))
+
 ## [0.1.0](https://github.com/wert2all/previewly-frontend/compare/v0.0.11...v0.1.0) (2024-10-11)
 
 ## [0.0.11](https://github.com/wert2all/previewly-frontend/compare/v0.0.10...v0.0.11) (2024-10-11)
