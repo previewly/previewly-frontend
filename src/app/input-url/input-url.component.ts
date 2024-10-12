@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   effect,
+  ElementRef,
   input,
   output,
+  ViewChild,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -26,7 +29,7 @@ const URL_REGEXP =
     }),
   ],
 })
-export class InputUrlComponent {
+export class InputUrlComponent implements AfterViewInit {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
 
@@ -34,6 +37,9 @@ export class InputUrlComponent {
     (Validators.required, Validators.pattern(URL_REGEXP)),
   ]);
   url = output<string>();
+
+  @ViewChild('url') urlInputRef: ElementRef | undefined;
+
   constructor() {
     effect(() => {
       if (!this.token()) {
@@ -43,6 +49,13 @@ export class InputUrlComponent {
       }
     });
   }
+
+  ngAfterViewInit(): void {
+    if (this.urlInputRef) {
+      this.urlInputRef.nativeElement.focus();
+    }
+  }
+
   createPreview() {
     if (this.urlInput.valid && this.urlInput.value) {
       this.url.emit(this.urlInput.value);
