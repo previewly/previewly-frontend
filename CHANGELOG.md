@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/wert2all/previewly-frontend/compare/v0.1.1...v0.1.2) (2024-10-12)
+
+### Bug Fixes
+
+- fix component ([dee2161](https://github.com/wert2all/previewly-frontend/commit/dee21618a28f5f3491eadf5caaca6e204b23e4af))
+- make result container smaller ([e8cc8ab](https://github.com/wert2all/previewly-frontend/commit/e8cc8ab89604d4c2cc56fb2d70ced1a5f2452649))
+- remove tabs from code container ([61d1113](https://github.com/wert2all/previewly-frontend/commit/61d1113522473a03cbfeb6a7c60d51721aa2c234))
+
 ## [0.1.1](https://github.com/wert2all/previewly-frontend/compare/v0.1.0...v0.1.1) (2024-10-12)
 
 ### Features
