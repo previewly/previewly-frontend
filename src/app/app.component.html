@@ -1,18 +1,10 @@
 <div class="container mx-auto shadow-lg lg:mt-16">
   <app-logo />
   <div class="p-4">
-    <app-share-content-sub-title>
-      website screenshot and stats
-    </app-share-content-sub-title>
-
-    <div class="lg:mt-8"></div>
-
     <app-input-url
       [token]="token()"
       (url)="addUrl($event)"
       [isLoading]="isLoading()" />
-
-    <div class="mt-4 lg:mt-16"></div>
 
     <app-preview-container [previews]="userPreviews()" [token]="token()" />
 

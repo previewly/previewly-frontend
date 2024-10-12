@@ -1,10 +1,19 @@
 <app-share-content-title>Try it!</app-share-content-title>
 
-<app-share-content-sub-title>
-  Website preview image only
-</app-share-content-sub-title>
-
 <div role="tablist" class="tabs tabs-bordered tabs-lg">
+  <input
+    type="radio"
+    name="type_tab"
+    role="tab"
+    class="tab"
+    aria-label="GraphQL"
+    checked="checked" />
+  <div role="tabpanel" class="tab-content p-10">
+    <p>GraphQL endpoint: {{ gqlUrl() }}</p>
+    <p>Queries:</p>
+    <p>Mutations:</p>
+  </div>
+
   <input
     type="radio"
     name="type_tab"
@@ -35,18 +44,5 @@
         </code>
       </pre>
     </div>
-  </div>
-
-  <input
-    type="radio"
-    name="type_tab"
-    role="tab"
-    class="tab"
-    aria-label="GraphQL"
-    checked="checked" />
-  <div role="tabpanel" class="tab-content p-10">
-    <p>GraphQL endpoint: {{ gqlUrl() }}</p>
-    <p>Queries:</p>
-    <p>Mutations:</p>
   </div>
 </div>

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 
 import { ApiUrlService } from '../service/api-url.service';
-import { SubTitleComponent } from '../share/content/title/sub-title.component';
 import { TitleComponent } from '../share/content/title/title.component';
 
 @Component({
@@ -16,7 +15,7 @@ import { TitleComponent } from '../share/content/title/title.component';
   standalone: true,
   templateUrl: './code-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TitleComponent, SubTitleComponent],
+  imports: [CommonModule, TitleComponent],
 })
 export class CodeContainerComponent {
   private readonly apiUrlService = inject(ApiUrlService);

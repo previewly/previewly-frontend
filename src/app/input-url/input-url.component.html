@@ -1,3 +1,6 @@
+<div class="mb-8 mt-24">
+  <h2 class="text-3xl text-warning">Input an URL here</h2>
+</div>
 <div
   class="rounded-xl bg-neutral p-2"
   [class.skeleton]="isLoading() || !token()">
@@ -16,7 +19,7 @@
       class="btn btn-primary"
       (click)="createPreview()"
       [attr.disabled]="!this.urlInput.valid || isLoading() ? true : null">
-      create
+      go!
     </button>
   </div>
 </div>
