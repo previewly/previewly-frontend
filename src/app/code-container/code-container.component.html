@@ -2,17 +2,17 @@
   <app-share-content-title
     >Intergrate with your application!</app-share-content-title
   >
+  <div class="join join-horizontal my-4 lg:mb-8">
+    <button class="btn btn-accent join-item">GraphQL</button>
 
-  <div role="tablist" class="tabs tabs-bordered tabs-lg mt-12">
-    <input
-      type="radio"
-      name="type_tab"
-      role="tab"
-      class="tab"
-      aria-label="GraphQL"
-      checked="checked" />
-    <div role="tabpanel" class="tab-content pt-2 lg:p-10">
-      <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
+    <div class="tooltip" data-tip="coming soon">
+      <button class="btn join-item" disabled="disabled">REST</button>
     </div>
+    <div class="tooltip" data-tip="coming soon">
+      <button class="btn join-item" disabled="disabled">Image</button>
+    </div>
+  </div>
+  <div class="pt-2">
+    <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
   </div>
 </div>
