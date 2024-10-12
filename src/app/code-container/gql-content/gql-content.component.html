@@ -13,7 +13,7 @@
   `createToken`
 </p>
 
-<app-code-and-result>
+<app-code-and-result codeValue="mutation { createToken }">
   <pre class="gql">
     <span class="operation">mutation</span> {{'{'}}
         createToken
@@ -35,7 +35,8 @@
   pre-flight info about site preview and start grab the image.
 </p>
 
-<app-code-and-result>
+<app-code-and-result
+  codeValue="mutation { addUrl(token: 'you token', url: 'url') { id image status url }}">
   <pre class="gql">
     <span class="operation">mutation</span> {{'{'}}
         addUrl (
