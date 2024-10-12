@@ -1,6 +1,6 @@
 <div class="my-4 flex w-full flex-col lg:flex-row">
   <div class="grid flex-grow rounded-box bg-neutral">
-    <app-code-container title="Request" codeValue="mutation { createToken }">
+    <app-code-container title="Request" [codeValue]="codeValue()">
       <ng-content></ng-content>
     </app-code-container>
   </div>

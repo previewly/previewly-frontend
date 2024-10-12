@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   phosphorArrowFatLineDown,
@@ -17,4 +17,6 @@ import { CodeContainerComponent } from '../code-container/code-container.compone
     provideIcons({ phosphorArrowFatLineRight, phosphorArrowFatLineDown }),
   ],
 })
-export class CodeAndResultComponent {}
+export class CodeAndResultComponent {
+  codeValue = input.required<string>();
+}
