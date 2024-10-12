@@ -15,29 +15,7 @@
     class="ms-8"></app-copy-to-clipboard>
 </p>
 <div class="divider"></div>
-<h3 class="bg-neutral p-2 text-xl font-bold">1. Get a token</h3>
-<p class="pt-2">
-  First of all, yous should get a token for your application by mutation
-  `createToken`
-</p>
-
-<app-code-and-result codeValue="mutation { createToken }">
-  <pre class="gql">
-    <span class="operation">mutation</span> {{'{'}}
-        createToken
-    {{'}'}}
-  </pre>
-
-  <pre result class="json">
-    <span result class="json">{{'{'}}
-        <span class="key" >"data"</span>: {{'{'}}
-            <span class="key">"createToken"</span>: <span class="value">"your token"</span>
-        {{'}'}}
-    {{'}'}}</span>
-  </pre>
-</app-code-and-result>
-
-<h3 class="bg-neutral p-2 text-xl font-bold">2. Add URL of website</h3>
+<h3 class="bg-neutral p-2 text-xl font-bold">1. Add URL of website</h3>
 <p class="pt-2">
   Should add an URL of website by `addUrl` mutation. Previewly will return a
   pre-flight info about site preview and start grab the image.
@@ -48,7 +26,7 @@
   <pre class="gql">
     <span class="operation">mutation</span> {{'{'}}
         addUrl (
-          <span class="variable">token</span>: <span class="value" >"your token"</span>,
+          <span class="variable">token</span>: <span class="value" >"{{ token() }}"</span>,
           <span class="variable">url</span>: <span class="value" >"https://www.google.com/"</span>
         ) {{'{'}}
             id
@@ -67,6 +45,25 @@
                 <span class="key">"status"</span>: <span class="value">"pending"</span>,
                 <span class="key">"url"</span>: <span class="value">"https://www.google.com/"</span>,
             {{'}'}}
+        {{'}'}}
+    {{'}'}}</span>
+  </pre>
+</app-code-and-result>
+
+<h3 class="bg-neutral p-2 text-xl font-bold">2. Greate a token</h3>
+<p class="pt-2">Also you can create a new token by method `createToken`.</p>
+
+<app-code-and-result codeValue="mutation { createToken }">
+  <pre class="gql">
+    <span class="operation">mutation</span> {{'{'}}
+        createToken
+    {{'}'}}
+  </pre>
+
+  <pre result class="json">
+    <span result class="json">{{'{'}}
+        <span class="key" >"data"</span>: {{'{'}}
+            <span class="key">"createToken"</span>: <span class="value">"your new token"</span>
         {{'}'}}
     {{'}'}}</span>
   </pre>
