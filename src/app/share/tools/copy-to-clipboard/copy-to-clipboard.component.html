@@ -1,0 +1,9 @@
+<div
+  class="tooltip tooltip-accent"
+  [class.tooltip-left]="position() === 'left'"
+  [class.tooltip-right]="position() === 'right'"
+  [attr.data-tip]="tooltipText()">
+  <button class="btn btn-circle btn-neutral btn-sm" (click)="copy()">
+    <ng-icon name="phosphorClipboardTextDuotone" size="22"></ng-icon>
+  </button>
+</div>
