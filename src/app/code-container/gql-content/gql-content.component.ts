@@ -7,6 +7,7 @@ import { CodeAndResultComponent } from '../code-and-result/code-and-result.compo
   standalone: true,
   selector: 'app-gql-content',
   templateUrl: './gql-content.component.html',
+  styleUrls: ['./gql-content.component.scss'],
   imports: [CopyToClipboardComponent, CodeAndResultComponent],
 })
 export class GqlContentComponent {
