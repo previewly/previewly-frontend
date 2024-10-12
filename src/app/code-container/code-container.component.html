@@ -12,9 +12,16 @@
       aria-label="GraphQL"
       checked="checked" />
     <div role="tabpanel" class="tab-content p-10">
-      <p>GraphQL endpoint: {{ gqlUrl() }}</p>
-      <p>Queries:</p>
-      <p>Mutations:</p>
+      <h3 class="bg-neutral p-2 text-xl font-bold">GraphQL endpoint</h3>
+      <p class="py-2 ps-4">
+        {{ gqlUrl() }}
+      </p>
+      <div class="divider"></div>
+      <h3 class="bg-neutral p-2 text-xl font-bold">1. Get a token</h3>
+      <p>
+        First of all, yous should get a token for your application by mutation
+        `createToken`
+      </p>
     </div>
 
     <input
