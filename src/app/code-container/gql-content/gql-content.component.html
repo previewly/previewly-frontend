@@ -1,13 +1,14 @@
 <h3 class="bg-neutral p-2 text-xl font-bold">GraphQL endpoint</h3>
-<p class="flex items-center py-2 ps-4">
+<p class="flex items-center py-2">
   {{ gqlUrl() }}
   <app-copy-to-clipboard
     position="right"
     [value]="gqlUrl()"
     class="ms-8"></app-copy-to-clipboard>
 </p>
+
 <h3 class="bg-neutral p-2 text-xl font-bold">Token</h3>
-<p class="flex items-center py-2 ps-4">
+<p class="flex items-center py-2">
   {{ token() }}
   <app-copy-to-clipboard
     position="right"

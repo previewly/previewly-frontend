@@ -4,11 +4,11 @@ import { CopyToClipboardComponent } from '../../share/tools/copy-to-clipboard/co
 
 @Component({
   standalone: true,
-  selector: 'app-code-container',
-  templateUrl: './code-container.component.html',
+  selector: 'app-code-wrapper',
+  templateUrl: './code-wrapper.component.html',
   imports: [CopyToClipboardComponent],
 })
-export class CodeContainerComponent {
+export class CodeWrapperComponent {
   title = input.required<string>();
   codeValue = input.required<string>();
   showCopyButton = input<boolean>(true);
