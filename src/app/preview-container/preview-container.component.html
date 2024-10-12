@@ -1,6 +1,8 @@
-@if (views().length > 0 && token()) {
-  <app-share-content-sub-title>Your last previews</app-share-content-sub-title>
+<div class="mb-10 mt-24">
+  <h2 class="text-2xl text-warning">and will get a site screenshot here!</h2>
+</div>
 
+@if (views().length > 0 && token()) {
   <div
     class="carousel carousel-center w-full space-x-4 rounded-box bg-neutral p-4">
     @for (view of views(); track $index) {
