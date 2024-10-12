@@ -12,4 +12,18 @@
   First of all, yous should get a token for your application by mutation
   `createToken`
 </p>
-<app-code-and-result> </app-code-and-result>
+<app-code-and-result>
+  <pre class="gql">
+    <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+        createToken
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+  </pre>
+
+  <pre result class="json">
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+      <span style="color: rgb(121, 192, 255); font-weight: 400;">"data"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+        <span style="color: rgb(121, 192, 255); font-weight: 400;">"createToken"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"sometoken"</span>
+      <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+  </pre>
+</app-code-and-result>
