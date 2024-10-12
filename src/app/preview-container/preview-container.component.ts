@@ -9,6 +9,7 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorCloudWarningDuotone } from '@ng-icons/phosphor-icons/duotone';
 
+import { SubTitleComponent } from '../share/content/title/sub-title.component';
 import { PreviewItem } from '../store/preview/preview.types';
 interface ViewPreview {
   shortUrl: string;
@@ -27,7 +28,7 @@ interface ViewPreview {
   templateUrl: './preview-container.component.html',
   styleUrl: './preview-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgIconComponent],
+  imports: [CommonModule, NgIconComponent, SubTitleComponent],
   viewProviders: [provideIcons({ phosphorCloudWarningDuotone })],
 })
 export class PreviewContainerComponent {

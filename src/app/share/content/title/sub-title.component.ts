@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-share-content-sub-title',
   standalone: true,
   imports: [CommonModule],
-  template: `<h1 class="default-font-bold mb-2 lg:text-2xl">
+  template: `<h1 class="yanone-kaffeesatz-400 mb-2 lg:text-2xl">
     <ng-content></ng-content>
   </h1>`,
   changeDetection: ChangeDetectionStrategy.OnPush,

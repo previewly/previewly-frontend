@@ -1,48 +1,54 @@
-<app-share-content-title>Try it!</app-share-content-title>
+<div class="mt-44">
+  <app-share-content-title
+    >Intergrate with your application!</app-share-content-title
+  >
 
-<div role="tablist" class="tabs tabs-bordered tabs-lg">
-  <input
-    type="radio"
-    name="type_tab"
-    role="tab"
-    class="tab"
-    aria-label="GraphQL"
-    checked="checked" />
-  <div role="tabpanel" class="tab-content p-10">
-    <p>GraphQL endpoint: {{ gqlUrl() }}</p>
-    <p>Queries:</p>
-    <p>Mutations:</p>
-  </div>
-
-  <input
-    type="radio"
-    name="type_tab"
-    role="tab"
-    class="tab"
-    aria-label="Image" />
-  <div role="tabpanel" class="tab-content p-10">
-    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-      <pre>
-        <code>
-          &lt;img src=&quot;{{ imgUrl() }}&lt;site-url&gt;&quot;&gt;
-        </code>
-      </pre>
+  <div role="tablist" class="tabs tabs-bordered tabs-lg mt-12">
+    <input
+      type="radio"
+      name="type_tab"
+      role="tab"
+      class="tab"
+      aria-label="GraphQL"
+      checked="checked" />
+    <div role="tabpanel" class="tab-content p-10">
+      <p>GraphQL endpoint: {{ gqlUrl() }}</p>
+      <p>Queries:</p>
+      <p>Mutations:</p>
     </div>
-  </div>
 
-  <input
-    type="radio"
-    name="type_tab"
-    role="tab"
-    class="tab"
-    aria-label="REST" />
-  <div role="tabpanel" class="tab-content p-10">
-    <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
-      <pre>
+    <input
+      type="radio"
+      name="type_tab"
+      role="tab"
+      disabled="disabled"
+      class="tab"
+      aria-label="REST (comming soon)" />
+    <div role="tabpanel" class="tab-content p-10">
+      <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
+        <pre>
         <code>
           &lt;img src=&quot;{{ jsonUrl() }}&lt;site-url&gt;&quot;&gt;
         </code>
       </pre>
+      </div>
+    </div>
+
+    <input
+      type="radio"
+      name="type_tab"
+      role="tab"
+      class="tab"
+      disabled="disabled"
+      aria-label="Image (comming soon)" />
+    <div role="tabpanel" class="tab-content p-10">
+      <div class="mockup-code" [class.skeleton]="!token() || isLoading()">
+        <pre>
+        <code>
+          &lt;img src=&quot;{{ imgUrl() }}&lt;site-url&gt;&quot;&gt;
+        </code>
+      </pre>
+      </div>
     </div>
   </div>
 </div>
