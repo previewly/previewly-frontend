@@ -5,14 +5,14 @@ import {
   phosphorArrowFatLineRight,
 } from '@ng-icons/phosphor-icons/regular';
 
-import { CodeContainerComponent } from '../code-container/code-container.component';
+import { CodeWrapperComponent } from '../code-wrapper/code-wrapper.component';
 
 @Component({
   standalone: true,
   selector: 'app-code-and-result',
   templateUrl: './code-and-result.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIconComponent, CodeContainerComponent],
+  imports: [NgIconComponent, CodeWrapperComponent],
   viewProviders: [
     provideIcons({ phosphorArrowFatLineRight, phosphorArrowFatLineDown }),
   ],
