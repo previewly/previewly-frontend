@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 import { CopyToClipboardComponent } from '../../share/tools/copy-to-clipboard/copy-to-clipboard.component';
 import { CodeAndResultComponent } from '../code-and-result/code-and-result.component';
@@ -13,4 +13,9 @@ import { CodeAndResultComponent } from '../code-and-result/code-and-result.compo
 export class GqlContentComponent {
   gqlUrl = input.required<string>();
   token = input.required<string>();
+
+  getAddUrlCode = computed(
+    () =>
+      `mutation { addUrl(token: "${this.token()}", url: "https://google.com/") { id image status url }}`
+  );
 }
