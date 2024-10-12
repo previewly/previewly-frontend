@@ -1,7 +1,17 @@
 <div class="my-4 flex w-full flex-col lg:flex-row">
   <div class="grid flex-grow rounded-box bg-neutral">
-    <h3>Request</h3>
-    <p>code</p>
+    <app-code-container title="Request" codeValue="mutation { createToken }">
+      <pre
+        style="
+          font-family: monospace;
+          color: rgb(201, 209, 217);
+          font-weight: 400;
+        ">
+    <span style="color: rgb(255, 123, 114); font-weight: 400;">mutation</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+        createToken
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{ '}'}}</span>
+      </pre>
+    </app-code-container>
   </div>
   <div class="mx-4 hidden place-items-center lg:grid">
     <ng-icon name="phosphorArrowFatLineRight" size="18"></ng-icon>
@@ -10,7 +20,21 @@
     <ng-icon name="phosphorArrowFatLineDown" size="18"></ng-icon>
   </div>
   <div class="grid flex-grow rounded-box bg-neutral">
-    <h3>Result</h3>
-    <p>result</p>
+    <app-code-container
+      title="Result"
+      codeValue="result code"
+      [showCopyButton]="false">
+      <pre
+        style="
+          font-family: monospace;
+          color: rgb(201, 209, 217);
+          font-weight: 400;
+        ">
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+      <span style="color: rgb(121, 192, 255); font-weight: 400;">"data"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'{'}}</span>
+        <span style="color: rgb(121, 192, 255); font-weight: 400;">"createToken"</span><span style="color: rgb(201, 209, 217); font-weight: 400;">:</span> <span style="color: rgb(165, 214, 255); font-weight: 400;">"sometoken"</span>
+      <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span>
+    <span style="color: rgb(201, 209, 217); font-weight: 400;">{{'}'}}</span></pre>
+    </app-code-container>
   </div>
 </div>
