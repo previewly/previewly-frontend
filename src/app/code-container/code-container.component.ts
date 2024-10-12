@@ -9,13 +9,14 @@ import {
 
 import { ApiUrlService } from '../service/api-url.service';
 import { TitleComponent } from '../share/content/title/title.component';
+import { CopyToClipboardComponent } from '../share/tools/copy-to-clipboard/copy-to-clipboard.component';
 
 @Component({
   selector: 'app-code-container',
   standalone: true,
   templateUrl: './code-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, TitleComponent],
+  imports: [CommonModule, CopyToClipboardComponent, TitleComponent],
 })
 export class CodeContainerComponent {
   private readonly apiUrlService = inject(ApiUrlService);
