@@ -199,7 +199,16 @@ const updatePreviews = (
                 }
 
                 return returnPreview;
-              })
+              }),
+              catchError(exception =>
+                of({
+                  url: url.url,
+                  updateAttempts: url.updateAttempts,
+                  error: exception,
+                  status: 'error',
+                  data: null,
+                })
+              )
             )
         )
       ).pipe(toArray())
