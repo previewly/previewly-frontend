@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.4](https://github.com/wert2all/previewly-frontend/compare/v0.1.3...v0.1.4) (2024-10-13)
+
+### Features
+
+- add modal window with preview stats ([4ce5602](https://github.com/wert2all/previewly-frontend/commit/4ce560253e1ebba135c2d815200dd9ca51258cd4))
+
+### Bug Fixes
+
+- fix opening modal window on esc pressed ([b8ed22c](https://github.com/wert2all/previewly-frontend/commit/b8ed22c87cb3c1901658988c40e3a64f86c06520))
+- fix showing bottom scroll ([df49c0a](https://github.com/wert2all/previewly-frontend/commit/df49c0a2bee6cb5a45b98abc41f8edffb1b9bf31))
+- fix showing preview after api error ([55e10f9](https://github.com/wert2all/previewly-frontend/commit/55e10f9fdf667d396ade727137fb1237ed4f3351))
+
 ## [0.1.3](https://github.com/wert2all/previewly-frontend/compare/v0.1.2...v0.1.3) (2024-10-13)
 
 ### Features
