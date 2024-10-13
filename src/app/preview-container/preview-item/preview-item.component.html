@@ -2,7 +2,7 @@
   tabindex="1"
   class="relative h-52 w-96 rounded-xl bg-base-100 shadow-xl"
   [class.cursor-pointer]="preview().status === 'success'"
-  (keyup)="click()"
+  (keyup)="keyUp($event)"
   (click)="click()">
   <div class="grid h-full w-full place-items-center rounded-xl bg-base-200">
     @switch (preview().status) {
