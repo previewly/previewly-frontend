@@ -5,11 +5,10 @@
       [token]="token()"
       (url)="addUrl($event)"
       [isLoading]="isLoading()" />
+  </div>
+  <app-preview-container [previews]="userPreviews()" [token]="token()" />
 
-    <app-preview-container [previews]="userPreviews()" [token]="token()" />
-
-    <div class="mt-4 lg:mt-16"></div>
-
+  <div class="p-4">
     <app-code-container [token]="token()" [isLoading]="isLoading()" />
   </div>
   <app-footer />

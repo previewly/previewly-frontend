@@ -1,11 +1,11 @@
-<div class="mb-10 mt-24">
+<div class="mb-8 mt-16 px-4">
   <app-share-content-sub-title class="text-warning">
     and will get a site screenshot here!
   </app-share-content-sub-title>
 </div>
 
 <div
-  class="carousel carousel-center w-full space-x-4 rounded-box bg-neutral p-4">
+  class="carousel carousel-center w-full gap-4 bg-neutral p-4 lg:mx-4 lg:rounded-xl">
   @if (views().length > 0 && token()) {
     @for (view of views(); track $index) {
       <app-preview-item [preview]="view"></app-preview-item>

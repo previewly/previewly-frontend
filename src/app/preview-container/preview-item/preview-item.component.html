@@ -1,36 +1,38 @@
 <div
-  class="card card-compact w-96 cursor-pointer bg-base-100 shadow-xl"
+  class="relative h-52 w-96 cursor-pointer rounded-xl bg-base-100 shadow-xl"
   [class.skeleton]="preview().status === 'loading'">
-  <figure>
+  <div class="grid h-full w-full place-items-center rounded-xl bg-base-200">
     @switch (preview().status) {
       @case ('loading') {
-        <span
-          class="loading loading-spinner loading-lg my-28 text-primary"></span>
+        <span class="loading loading-spinner loading-lg text-primary"></span>
       }
       @case ('error') {
         <ng-icon
           name="phosphorCloudWarningDuotone"
           size="128"
-          class="my-14 text-error"></ng-icon>
+          class="text-error"></ng-icon>
+        <h2 class="text-center text-sm text-warning">{{ preview().error }}</h2>
       }
       @case ('success') {
         @if (preview().data?.preview) {
           <img
+            class="block h-full w-full rounded-xl object-cover"
             [src]="preview().data?.preview"
             [alt]="preview().data?.previewAltTitle || ''" />
         }
       }
-      @default {
-        <div class="m-4 h-48 w-full rounded bg-base-200"></div>
-      }
+      @default {}
     }
-  </figure>
-  <div class="card-body">
-    @if (preview().error && preview().status === 'error') {
-      <h2 class="text-center text-xl text-warning">{{ preview().error }}</h2>
-    }
+  </div>
+
+  <div
+    class="absolute left-0 top-0 rounded-tl-xl px-2"
+    [class.bg-warning]="preview().status === 'error'"
+    [class.text-warning-content]="preview().status === 'error'"
+    [class.bg-success]="preview().status === 'success'"
+    [class.text-success-content]="preview().status === 'success'">
     @if (preview().data?.shortUrl) {
-      <h2 class="card-title">{{ preview().data?.shortUrl }}</h2>
+      <h2 class="text-sm">{{ preview().data?.shortUrl }}</h2>
     }
   </div>
 </div>
