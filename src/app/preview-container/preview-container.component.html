@@ -8,7 +8,35 @@
   class="carousel carousel-center w-full gap-4 bg-neutral p-4 lg:mx-4 lg:rounded-xl">
   @if (views().length > 0 && token()) {
     @for (view of views(); track $index) {
-      <app-preview-item [preview]="view"></app-preview-item>
+      <app-preview-item
+        [preview]="view"
+        (openStat)="openStat(view)"></app-preview-item>
     }
   }
 </div>
+
+<app-modal
+  [emitEvent]="modalInEvent()"
+  (modalOutputEvent)="modalOutEvent($event)">
+  @if (showPreview()?.data) {
+    <img
+      class="w-full"
+      src="{{ showPreview()?.data?.preview }}"
+      [alt]="showPreview()?.data?.previewAltTitle || ''" />
+    <div class="preview-stat mx-4 rounded-b-xl bg-neutral p-4 lg:mx-4 lg:mb-4">
+      <p>
+        <a href="{{ showPreview()?.data?.url }}" target="_blank" class="link">
+          {{ showPreview()?.data?.shortUrl }}</a
+        >
+      </p>
+      <ul class="ms-4">
+        <li>
+          preview url:
+          <a href="{{ showPreview()?.data?.preview }}" class="link">{{
+            showPreview()?.data?.preview
+          }}</a>
+        </li>
+      </ul>
+    </div>
+  }
+</app-modal>
