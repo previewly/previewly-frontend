@@ -1,0 +1,36 @@
+<div
+  class="card card-compact w-96 cursor-pointer bg-base-100 shadow-xl"
+  [class.skeleton]="preview().status === 'loading'">
+  <figure>
+    @switch (preview().status) {
+      @case ('loading') {
+        <span
+          class="loading loading-spinner loading-lg my-28 text-primary"></span>
+      }
+      @case ('error') {
+        <ng-icon
+          name="phosphorCloudWarningDuotone"
+          size="128"
+          class="my-14 text-error"></ng-icon>
+      }
+      @case ('success') {
+        @if (preview().data?.preview) {
+          <img
+            [src]="preview().data?.preview"
+            [alt]="preview().data?.previewAltTitle || ''" />
+        }
+      }
+      @default {
+        <div class="m-4 h-48 w-full rounded bg-base-200"></div>
+      }
+    }
+  </figure>
+  <div class="card-body">
+    @if (preview().error && preview().status === 'error') {
+      <h2 class="text-center text-xl text-warning">{{ preview().error }}</h2>
+    }
+    @if (preview().data?.shortUrl) {
+      <h2 class="card-title">{{ preview().data?.shortUrl }}</h2>
+    }
+  </div>
+</div>

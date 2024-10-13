@@ -5,68 +5,10 @@
 </div>
 
 <div
-  class="carousel carousel-center w-full space-x-4 overflow-x-scroll rounded-box bg-neutral p-4">
+  class="carousel carousel-center w-full space-x-4 rounded-box bg-neutral p-4">
   @if (views().length > 0 && token()) {
     @for (view of views(); track $index) {
-      <div class="carousel-item">
-        <div
-          class="card card-compact w-96 bg-base-100 shadow-xl"
-          [class.skeleton]="view.isLoading">
-          <figure>
-            @if (view.isError) {
-              <ng-icon
-                name="phosphorCloudWarningDuotone"
-                size="128"
-                class="my-14 text-error"></ng-icon>
-            } @else {
-              @if (view.isLoading) {
-                <span
-                  class="loading loading-spinner loading-lg my-28 text-primary"></span>
-              } @else {
-                <img [src]="view.preview" [alt]="view.previewAltTitle" />
-              }
-            }
-          </figure>
-          <div class="card-body">
-            @if (view.title) {
-              <h2 class="card-title">{{ view.title }}</h2>
-            }
-            @if (view.description) {
-              <p>{{ view.description }}</p>
-            }
-            <p>
-              <a [href]="view.href" class="link" target="_blank">
-                {{ view.shortUrl }}
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <app-preview-item [preview]="view"></app-preview-item>
     }
-  } @else {
-    <div class="carousel-item">
-      <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure>
-          <div class="m-4 h-48 w-full rounded bg-base-200"></div>
-        </figure>
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure>
-          <div class="m-4 h-48 w-full rounded bg-base-200"></div>
-        </figure>
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure>
-          <div class="m-4 h-48 w-full rounded bg-base-200"></div>
-        </figure>
-        <div class="card-body"></div>
-      </div>
-    </div>
   }
 </div>
