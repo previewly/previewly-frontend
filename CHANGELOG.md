@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/wert2all/previewly-frontend/compare/v0.1.2...v0.1.3) (2024-10-13)
+
+### Features
+
+- add fake preview if user do not addan URLs yet ([6bdcf57](https://github.com/wert2all/previewly-frontend/commit/6bdcf57642bc308ad385ed7a9ba3b86d4a9bb6ee))
+- update preview item design ([a2eb25f](https://github.com/wert2all/previewly-frontend/commit/a2eb25fee9d96a1ae74857c7c06293563c77c1d2))
+
+### Bug Fixes
+
+- fix input focus ([1cd4017](https://github.com/wert2all/previewly-frontend/commit/1cd4017d5273b7158507aff3d95825adf992f1f9))
+- make preview item consistent ([c294d6c](https://github.com/wert2all/previewly-frontend/commit/c294d6c4ed846c9ef752f38b1d0f7a05a08de60c))
+
 ## [0.1.2](https://github.com/wert2all/previewly-frontend/compare/v0.1.1...v0.1.2) (2024-10-12)
 
 ### Bug Fixes
