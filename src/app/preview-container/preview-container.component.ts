@@ -79,7 +79,6 @@ export class PreviewContainerComponent {
 
   modalOutEvent($event: ModalEventOutput) {
     if ($event === ModalEventOutput.onClose) {
-      console.log($event);
       this.modalInEvent.set(ModalEventInput.close);
     }
   }
