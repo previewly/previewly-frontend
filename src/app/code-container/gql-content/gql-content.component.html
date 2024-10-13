@@ -96,10 +96,37 @@
 <h3 class="bg-neutral p-2 text-xl font-bold">2. Expose website preview</h3>
 <p class="pt-2">
   To retrieve the complete preview information, including the generated image
-  and any available website statistics, call the `getPreview` method with the
-  website URL.
+  and any available website statistics, call the `getPreviewData` method with
+  the website URL.
 </p>
 
+<app-code-and-result [codeValue]="getAddUrlCode()">
+  <pre class="gql">
+    <span class="operation">query</span> {{'{'}}
+        getPreviewData (
+          <span class="variable">token</span>: <span class="value" >"{{ token() }}"</span>,
+          <span class="variable">url</span>: <span class="value" >"https://www.google.com/"</span>
+        ) {{'{'}}
+            id
+            image
+            status
+            url
+        {{'}'}}
+    {{'}'}}
+  </pre>
+  <pre result class="json">
+    <span result class="json">{{'{'}}
+        <span class="key" >"data"</span>: {{'{'}}
+            <span class="key">"getPreviewData"</span>: {{'{'}}
+                <span class="key">"id"</span>: <span class="value">1</span>,
+                <span class="key">"image"</span>: <span class="value">"https://previewly.top/assets/loader-200px-200px.gif"</span>,
+                <span class="key">"status"</span>: <span class="value">"pending"</span>,
+                <span class="key">"url"</span>: <span class="value">"https://www.google.com/"</span>,
+            {{'}'}}
+        {{'}'}}
+    {{'}'}}</span>
+  </pre>
+</app-code-and-result>
 <h3 class="bg-neutral p-2 text-xl font-bold">3. (Optional) Greate a token</h3>
 <p class="pt-2">Also you can create a new token by method `createToken`.</p>
 
