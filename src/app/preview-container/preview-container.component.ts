@@ -6,21 +6,17 @@ import {
   input,
   Signal,
 } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { phosphorCloudWarningDuotone } from '@ng-icons/phosphor-icons/duotone';
 
 import { SubTitleComponent } from '../share/content/title/sub-title.component';
 import { PreviewItem } from '../store/preview/preview.types';
-interface ViewPreview {
-  shortUrl: string;
-  href: string;
-  previewAltTitle: string;
-  isError: boolean;
-  isLoading: boolean;
-  title: string | undefined;
-  description: string | undefined;
-  preview: string | undefined;
-}
+import { PreviewItemComponent } from './preview-item/preview-item.component';
+import {
+  createDumpPreviewItem,
+  createErrorPreviewItem,
+  createLoadedPreviewItem,
+  ViewPreviewData,
+  ViewPreviewItem,
+} from './preview-item/preview-item.types';
 
 @Component({
   selector: 'app-preview-container',
@@ -28,35 +24,63 @@ interface ViewPreview {
   templateUrl: './preview-container.component.html',
   styleUrl: './preview-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, NgIconComponent, SubTitleComponent],
-  viewProviders: [provideIcons({ phosphorCloudWarningDuotone })],
+  imports: [CommonModule, SubTitleComponent, PreviewItemComponent],
 })
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
   previews = input.required<PreviewItem[]>();
 
-  views: Signal<ViewPreview[]> = computed(() =>
-    this.previews()
-      .map((preview): ViewPreview => {
-        const url = this.createURL(preview.url);
-        return {
-          preview: preview.data?.preview,
-          title: preview.data?.title,
-          description: preview.data?.description,
-          shortUrl: url?.host || preview.url,
-          isError: preview.status === 'error',
-          isLoading: preview.status === 'pending',
-          href: preview.url.toString(),
-          previewAltTitle: preview.data?.title || preview.url.toString(),
-        };
-      })
-      .reverse()
+  views: Signal<ViewPreviewItem[]> = computed(() =>
+    this.previews().length > 0
+      ? this.previews()
+          .map((preview): ViewPreviewItem => {
+            switch (preview.status) {
+              case 'pending':
+                return createLoadedPreviewItem(this.createData(preview));
+              case 'error':
+                return createErrorPreviewItem(
+                  preview.error || undefined,
+                  this.createData(preview)
+                );
+              case 'success':
+                return {
+                  status: 'success',
+                  error: undefined,
+                  data: this.createData(preview),
+                };
+              default:
+                return createErrorPreviewItem(
+                  'something went wrong',
+                  this.createData(preview)
+                );
+            }
+          })
+          .reverse()
+      : this.createDumpPreviews()
   );
+
   private createURL(url: string): URL | undefined {
     try {
       return new URL(url);
     } catch {
       return undefined;
     }
+  }
+
+  private createData(preview: PreviewItem): ViewPreviewData {
+    return {
+      url: preview.url,
+      shortUrl: this.createURL(preview.url)?.hostname,
+      preview: preview.data?.preview,
+      previewAltTitle: preview.data?.title || preview.url.toString(),
+    };
+  }
+
+  private createDumpPreviews(): ViewPreviewItem[] {
+    return [
+      createDumpPreviewItem(),
+      createDumpPreviewItem(),
+      createDumpPreviewItem(),
+    ];
   }
 }
