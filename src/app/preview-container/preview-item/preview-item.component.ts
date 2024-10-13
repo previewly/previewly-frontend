@@ -27,4 +27,10 @@ export class PreviewItemComponent {
       this.openStat.emit();
     }
   }
+
+  keyUp($event: KeyboardEvent) {
+    if ($event.key === 'Enter') {
+      this.click();
+    }
+  }
 }
