@@ -5,10 +5,16 @@ import {
   computed,
   input,
   Signal,
+  signal,
 } from '@angular/core';
 
 import { SubTitleComponent } from '../share/content/title/sub-title.component';
 import { PreviewItem } from '../store/preview/preview.types';
+import {
+  ModalComponent,
+  ModalEventInput,
+  ModalEventOutput,
+} from './modal/modal.component';
 import { PreviewItemComponent } from './preview-item/preview-item.component';
 import {
   createDumpPreviewItem,
@@ -22,9 +28,13 @@ import {
   selector: 'app-preview-container',
   standalone: true,
   templateUrl: './preview-container.component.html',
-  styleUrl: './preview-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, SubTitleComponent, PreviewItemComponent],
+  imports: [
+    CommonModule,
+    SubTitleComponent,
+    PreviewItemComponent,
+    ModalComponent,
+  ],
 })
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
@@ -58,6 +68,20 @@ export class PreviewContainerComponent {
           .reverse()
       : this.createDumpPreviews()
   );
+
+  modalInEvent = signal<ModalEventInput>(ModalEventInput.close);
+  showPreview = signal<ViewPreviewItem | undefined>(undefined);
+
+  openStat(previewItem: ViewPreviewItem) {
+    this.showPreview.set(previewItem);
+    this.modalInEvent.set(ModalEventInput.open);
+  }
+
+  modalOutEvent($event: ModalEventOutput) {
+    if ($event === ModalEventOutput.onClose) {
+      this.modalInEvent.set(ModalEventInput.close);
+    }
+  }
 
   private createURL(url: string): URL | undefined {
     try {

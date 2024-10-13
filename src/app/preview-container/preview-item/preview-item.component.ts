@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorCloudWarningDuotone } from '@ng-icons/phosphor-icons/duotone';
 
@@ -15,4 +20,11 @@ import { ViewPreviewItem } from './preview-item.types';
 })
 export class PreviewItemComponent {
   preview = input.required<ViewPreviewItem>();
+  openStat = output();
+
+  click() {
+    if (this.preview().status === 'success') {
+      this.openStat.emit();
+    }
+  }
 }
