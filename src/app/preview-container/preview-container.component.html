@@ -4,15 +4,17 @@
   </app-share-content-sub-title>
 </div>
 
-<div
-  class="carousel carousel-center w-full gap-4 bg-neutral p-4 lg:mx-4 lg:rounded-xl">
-  @if (views().length > 0 && token()) {
-    @for (view of views(); track $index) {
-      <app-preview-item
-        [preview]="view"
-        (openStat)="openStat(view)"></app-preview-item>
+<div class="lg:mx-4">
+  <div
+    class="carousel carousel-center w-full gap-4 bg-neutral p-4 lg:rounded-xl">
+    @if (views().length > 0 && token()) {
+      @for (view of views(); track $index) {
+        <app-preview-item
+          [preview]="view"
+          (openStat)="openStat(view)"></app-preview-item>
+      }
     }
-  }
+  </div>
 </div>
 
 <app-modal
