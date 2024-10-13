@@ -27,19 +27,27 @@
       [alt]="showPreview()?.data?.previewAltTitle || ''" />
     <div
       class="preview-stat absolute bottom-0 left-0 right-0 mx-4 overflow-hidden rounded-t-xl bg-neutral p-4">
-      <p>
-        <a href="{{ showPreview()?.data?.url }}" target="_blank" class="link">
-          {{ showPreview()?.data?.shortUrl }}</a
-        >
-      </p>
-      <ul class="ms-4">
-        <li>
-          preview url:
-          <a href="{{ showPreview()?.data?.preview }}" class="link">{{
-            showPreview()?.data?.preview
-          }}</a>
-        </li>
-      </ul>
+      <div class="flex">
+        <div class="grow">
+          <a href="{{ showPreview()?.data?.url }}" target="_blank" class="link">
+            {{ showPreview()?.data?.shortUrl }}</a
+          >
+          <ul class="ms-4 hidden lg:block">
+            <li>
+              preview url:
+              <a href="{{ showPreview()?.data?.preview }}" class="link">{{
+                showPreview()?.data?.preview
+              }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tooltip tooltip-left tooltip-accent" data-tip="show more">
+          <button class="btn btn-circle btn-ghost">
+            <ng-icon name="phosphorArrowCircleDownDuotone" size="24" />
+          </button>
+        </div>
+      </div>
     </div>
   }
 </app-modal>
