@@ -25,7 +25,8 @@
       class="w-frull"
       src="{{ showPreview()?.data?.preview }}"
       [alt]="showPreview()?.data?.previewAltTitle || ''" />
-    <div class="preview-stat mx-4 rounded-b-xl bg-neutral p-4 lg:mx-4 lg:mb-4">
+    <div
+      class="preview-stat absolute bottom-0 left-0 right-0 mx-4 overflow-hidden rounded-t-xl bg-neutral p-4">
       <p>
         <a href="{{ showPreview()?.data?.url }}" target="_blank" class="link">
           {{ showPreview()?.data?.shortUrl }}</a
