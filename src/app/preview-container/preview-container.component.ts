@@ -30,6 +30,7 @@ import {
   selector: 'app-preview-container',
   standalone: true,
   templateUrl: './preview-container.component.html',
+  styleUrls: ['./preview-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
