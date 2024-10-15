@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.5](https://github.com/wert2all/previewly-frontend/compare/v0.1.4...v0.1.5) (2024-10-15)
+
+### Features
+
+- add button which show more stat (design only) ([fef4a0d](https://github.com/wert2all/previewly-frontend/commit/fef4a0d370a7838115b23822dfafeb44e6772964))
+- add preview title ([8120e34](https://github.com/wert2all/previewly-frontend/commit/8120e34a47bed7ee617bc62542adab434b74d34c))
+
+### Bug Fixes
+
+- fix modal height ([5e8a8b3](https://github.com/wert2all/previewly-frontend/commit/5e8a8b38e735d3f0c7ae6c0990da6fa948e0c720))
+- fix preview container scroll ([5390456](https://github.com/wert2all/previewly-frontend/commit/5390456adb8d1aa82fb53cb8ef64e71e2bd029a0))
+- fix sorting items after load from local storage ([5fb8621](https://github.com/wert2all/previewly-frontend/commit/5fb8621b5f1f9a86e6c765d16d4fc29e036fab19))
+- remove console.log ([d5f190c](https://github.com/wert2all/previewly-frontend/commit/d5f190c73c33d560061678cd693fad50f0e80b2c))
+- remove scrollbar on full preview ([d214e88](https://github.com/wert2all/previewly-frontend/commit/d214e88fbb060b938ce5e0d8fafd901d1582eb5b))
+- update GQL properties on integration description ([0a8b828](https://github.com/wert2all/previewly-frontend/commit/0a8b828a54c345feeda31cdcfe275c24642bd43e))
+- update stat container ([12602af](https://github.com/wert2all/previewly-frontend/commit/12602af31d9edf18a3bc5265429e4228cc17f2e7))
+
 ## [0.1.4](https://github.com/wert2all/previewly-frontend/compare/v0.1.3...v0.1.4) (2024-10-13)
 
 ### Features
