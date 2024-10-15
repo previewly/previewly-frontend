@@ -1,0 +1,11 @@
+/* for Firefox */
+.carousel {
+  scrollbar-width: initial;
+}
+/* for Chrome, Safari, Edge, etc */
+.carousel::-webkit-scrollbar {
+  @apply block h-2 rounded-full;
+}
+.carousel::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-base-content/60;
+}
