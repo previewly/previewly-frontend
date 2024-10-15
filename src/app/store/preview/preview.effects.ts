@@ -143,13 +143,15 @@ const addUrlsFromLocalStorage = (
     ofType(PreviewActions.applyTokenFromLocalStorage),
     map(() =>
       PreviewActions.addUrlsFromLocalStorage({
-        urls: Object.keys(storage.readState().urls).map(url => ({
-          url: url,
-          status: 'pending',
-          updateAttempts: 1,
-          data: null,
-          error: null,
-        })),
+        urls: Object.keys(storage.readState().urls)
+          .map(url => ({
+            url: url,
+            status: 'pending',
+            updateAttempts: 1,
+            data: null,
+            error: null,
+          }))
+          .reverse(),
       })
     )
   );
