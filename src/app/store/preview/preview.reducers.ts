@@ -69,18 +69,10 @@ export const previewFeature = createFeature({
       PreviewActions.successUpdatePreviews,
       (state, { urls }): PreviewState => ({
         ...state,
-        previews: mergePreviews(state.previews, urls),
-      })
-    ),
-    on(
-      PreviewActions.updatePreviews,
-      (state, { urls }): PreviewState => ({
-        ...state,
-        previews: state.previews.map(preview =>
-          urls.findIndex(url => url.url === preview.url) != -1
-            ? { ...preview, updateAttempts: preview.updateAttempts + 1 }
-            : preview
-        ),
+        previews: mergePreviews(state.previews, urls).map(url => ({
+          ...url,
+          updateAttempts: url.updateAttempts + 1,
+        })),
       })
     )
   ),
