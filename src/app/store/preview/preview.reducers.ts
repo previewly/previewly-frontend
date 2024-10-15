@@ -4,6 +4,7 @@ import { PreviewActions } from './preview.actions';
 import { PreviewItem, PreviewState } from './preview.types';
 
 const MAX_COUNT = 10;
+const MAX_ATTEMPTS = 10;
 
 const initialState: PreviewState = {
   token: undefined,
@@ -83,7 +84,8 @@ export const previewFeature = createFeature({
   extraSelectors: ({ selectPreviews }) => ({
     selectShouldUpdate: createSelector(selectPreviews, previews =>
       previews.filter(
-        preview => preview.status == 'pending' && preview.updateAttempts < 10
+        preview =>
+          preview.status == 'pending' && preview.updateAttempts < MAX_ATTEMPTS
       )
     ),
   }),
