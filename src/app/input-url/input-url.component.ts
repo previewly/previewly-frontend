@@ -53,13 +53,18 @@ export class InputUrlComponent implements AfterViewInit {
   }
 
   createPreview() {
-    if (this.urlInput.valid && this.urlInput.value) {
+    if (
+      !this.isLoading() &&
+      this.token() &&
+      this.urlInput.valid &&
+      this.urlInput.value
+    )
       this.url.emit(
         this.urlInput.value.indexOf('://') === -1
           ? 'https://' + this.urlInput.value
           : this.urlInput.value
       );
-      this.urlInput.setValue('');
-    }
+    this.urlInput.setValue('');
+    return false;
   }
 }

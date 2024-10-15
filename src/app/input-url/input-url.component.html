@@ -3,9 +3,10 @@
     Input an URL
   </app-share-content-title>
 </div>
-<div
+<form
   class="rounded-xl bg-neutral p-2"
-  [class.skeleton]="isLoading() || !token()">
+  [class.skeleton]="isLoading() || !token()"
+  (submit)="createPreview()">
   <div class="flex gap-4">
     <label class="input input-bordered flex w-full items-center gap-2">
       <ng-icon name="phosphorLinkSimpleBold" size="24" />
@@ -18,11 +19,11 @@
     </label>
 
     <button
+      type="submit"
       [class.skeleton]="isLoading()"
       class="btn btn-primary"
-      (click)="createPreview()"
       [attr.disabled]="!this.urlInput.value || isLoading() ? true : null">
       go!
     </button>
   </div>
-</div>
+</form>
