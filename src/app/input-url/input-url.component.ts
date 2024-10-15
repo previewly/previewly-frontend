@@ -14,8 +14,6 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorLinkSimpleBold } from '@ng-icons/phosphor-icons/bold';
 
 import { TitleComponent } from '../share/content/title/title.component';
-const URL_REGEXP =
-  /^[A-Za-z][A-Za-z\d.+-]*:\/*(?:\w+(?::\w+)?@)?[^\s/]+(?::\d+)?(?:\/[\w#!:.?+=&%@\-/]*)?$/;
 
 @Component({
   selector: 'app-input-url',
@@ -33,9 +31,7 @@ export class InputUrlComponent implements AfterViewInit {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
 
-  urlInput = new FormControl('', [
-    (Validators.required, Validators.pattern(URL_REGEXP)),
-  ]);
+  urlInput = new FormControl('', [Validators.required]);
   url = output<string>();
 
   @ViewChild('url') urlInputRef: ElementRef | undefined;
@@ -58,7 +54,11 @@ export class InputUrlComponent implements AfterViewInit {
 
   createPreview() {
     if (this.urlInput.valid && this.urlInput.value) {
-      this.url.emit(this.urlInput.value);
+      this.url.emit(
+        this.urlInput.value.indexOf('://') === -1
+          ? 'https://' + this.urlInput.value
+          : this.urlInput.value
+      );
       this.urlInput.setValue('');
     }
   }
