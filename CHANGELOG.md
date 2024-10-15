@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.6](https://github.com/wert2all/previewly-frontend/compare/v0.1.5...v0.1.6) (2024-10-15)
+
+### Bug Fixes
+
+- adding URl should be easy ([4c55adf](https://github.com/wert2all/previewly-frontend/commit/4c55adf85b55c8e13b2e9ac750d559fe3076ebf6))
+- submit url after enter was pressed ([0d534e7](https://github.com/wert2all/previewly-frontend/commit/0d534e73244b317093f44c20ebb29b9e84e4c1fc))
+
 ## [0.1.5](https://github.com/wert2all/previewly-frontend/compare/v0.1.4...v0.1.5) (2024-10-15)
 
 ### Features
