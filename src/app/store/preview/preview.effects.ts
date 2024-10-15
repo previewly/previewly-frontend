@@ -192,6 +192,7 @@ const updatePreviews = (
                     data: {
                       ...url.data,
                       preview: preview.image,
+                      title: preview.title || undefined,
                     },
                   };
                 } else {

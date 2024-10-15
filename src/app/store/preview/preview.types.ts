@@ -10,7 +10,6 @@ export interface PreviewItem {
 export interface PreviewData {
   preview: string;
   title?: string;
-  description?: string;
 }
 
 export interface PreviewState extends Loadable {

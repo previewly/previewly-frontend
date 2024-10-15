@@ -10,6 +10,7 @@ export interface ViewPreviewData {
   shortUrl: string | undefined;
   preview: string | undefined;
   previewAltTitle: string | undefined;
+  title: string | undefined;
 }
 
 export interface ViewPreviewItem {

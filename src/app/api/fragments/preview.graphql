@@ -3,4 +3,6 @@ fragment Preview on PreviewData {
   url
   status
   image
+  error
+  title
 }
