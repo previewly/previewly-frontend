@@ -42,6 +42,8 @@ export type Preview = {
   url: string;
   status: Status;
   image: string;
+  error?: string | null;
+  title?: string | null;
 };
 
 export type CreateTokenVariables = Exact<{ [key: string]: never }>;
@@ -74,6 +76,8 @@ export const Preview = gql`
     url
     status
     image
+    error
+    title
   }
 `;
 export const CreateTokenDocument = gql`

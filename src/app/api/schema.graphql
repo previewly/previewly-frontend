@@ -12,9 +12,11 @@ type Mutation {
 }
 
 type PreviewData {
+  error: String
   id: Int!
   image: String!
   status: Status!
+  title: String
   url: String!
 }
 

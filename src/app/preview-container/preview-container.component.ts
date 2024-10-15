@@ -101,6 +101,7 @@ export class PreviewContainerComponent {
       shortUrl: this.createURL(preview.url)?.hostname,
       preview: preview.data?.preview,
       previewAltTitle: preview.data?.title || preview.url.toString(),
+      title: preview.data?.title,
     };
   }
 
