@@ -1,18 +1,5 @@
 <div class="container mx-auto shadow-lg lg:mt-16">
   <app-logo />
-  <div class="p-4">
-    <h1 class="yanone-kaffeesatz-400 text-2xl lg:text-4xl">
-      Generate website previews for <span class="text-accent">free!</span>
-    </h1>
-    <app-input-url
-      [token]="token()"
-      (url)="addUrl($event)"
-      [isLoading]="isLoading()" />
-  </div>
-  <app-preview-container [previews]="userPreviews()" [token]="token()" />
-
-  <div class="p-4">
-    <app-code-container [token]="token()" [isLoading]="isLoading()" />
-  </div>
+  <router-outlet></router-outlet>
   <app-footer />
 </div>
