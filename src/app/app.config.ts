@@ -5,13 +5,11 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
-import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
 import { previewEffects } from './store/preview/preview.effects';
@@ -35,7 +33,6 @@ export const appConfig: ApplicationConfig = {
     }),
     provideHttpClient(),
     provideApollo(),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
   ],
 };
