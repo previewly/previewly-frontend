@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  input,
   output,
   signal,
 } from '@angular/core';
@@ -23,13 +24,14 @@ import {
   ],
 })
 export class UploadFormComponent {
+  canUpload = input(true);
+
   selectedFiles = output<File[]>();
 
   protected readonly isDropActive = signal(false);
 
   handleFileSelect(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(input);
     if (input.files) {
       this.selectedFiles.emit(Array.from(input.files));
     }

@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  signal,
+} from '@angular/core';
 import { FeatureFlagComponent } from '../../feature-flag/feature-flag.component';
 import { UploadFilelistComponent } from './components/upload-filelist/upload-filelist.component';
 import { FileItem } from './components/upload-filelist/upload-filelist.types';
@@ -22,6 +27,8 @@ import { UploadFormComponent } from './components/upload-form/upload-form.compon
 })
 export class UploadPageComponent {
   protected readonly uploadFiles = signal<FileItem[]>([]);
+
+  canUpload = computed(() => this.uploadFiles().length == 0);
 
   selectedFiles(files: File[]) {
     this.uploadFiles.set(

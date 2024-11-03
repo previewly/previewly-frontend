@@ -5,6 +5,7 @@
     (dragenter)="handleDragOver($event)"
     (drop)="handleDrop($event)"
     class="body bg-base-200 px-0 pb-7 pt-14 text-center"
+    [class.disableUpload]="!canUpload()"
     [class.active]="isDropActive()">
     <ng-icon name="phosphorImagesDuotone" size="72" />
     <p class="pointer-none pt-8">

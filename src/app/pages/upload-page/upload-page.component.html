@@ -1,7 +1,10 @@
 <app-feature-flag feature="upload_pictures">
   <div class="relative m-auto mt-4 w-full justify-center lg:w-2/3">
     <app-upload-form-header />
-    <app-upload-form (selectedFiles)="selectedFiles($event)" />
+    <app-upload-form
+      (selectedFiles)="selectedFiles($event)"
+      [canUpload]="canUpload()" />
+
     <app-upload-filelist [files]="uploadFiles()" />
   </div>
 </app-feature-flag>
