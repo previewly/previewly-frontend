@@ -1,0 +1,51 @@
+$skin: #4db6ac;
+
+footer {
+  .list-files {
+    margin: 0 auto;
+    margin-top: 15px;
+    padding-left: 5px;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 210px;
+
+    .file {
+      animation: fade 0.35s ease both;
+
+      .name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .done {
+        transform: scale(0);
+
+        &.anim {
+          animation: done1 0.5s ease forwards;
+        }
+      }
+
+      @keyframes done1 {
+        50% {
+          transform: scale(0.5);
+          opacity: 1;
+        }
+        80% {
+          transform: scale(0.25);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0.5);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}

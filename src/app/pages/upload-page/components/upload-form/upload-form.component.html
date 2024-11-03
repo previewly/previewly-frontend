@@ -1,0 +1,30 @@
+<div class="upload opacity-0">
+  <div
+    (dragleave)="handleDragLeave($event)"
+    (dragover)="handleDragOver($event)"
+    (dragenter)="handleDragOver($event)"
+    (drop)="handleDrop($event)"
+    class="body bg-base-200 px-0 pb-7 pt-14 text-center"
+    [class.active]="isDropActive()">
+    <ng-icon name="phosphorImagesDuotone" size="72" />
+    <p class="pointer-none pt-8">
+      <b>Drag and drop</b> images here <br />
+      or
+      <a
+        class="link"
+        tabindex="0"
+        (keyup)="images.click()"
+        (click)="images.click()">
+        browse</a
+      >
+      to begin the upload
+    </p>
+    <input
+      #images
+      type="file"
+      multiple="multiple"
+      class="hidden"
+      accept="image/*"
+      (change)="handleFileSelect($event)" />
+  </div>
+</div>
