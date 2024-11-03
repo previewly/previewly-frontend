@@ -1,0 +1,59 @@
+$drop-icon-shadow-back-color: oklch(var(--n));
+$drop-icon-shadow-border-color: oklch(var(--nc));
+
+//upload component
+.upload {
+  animation: fadeup 0.5s 0.5s ease both;
+  transform: translateY(20px);
+
+  .body {
+    @apply border-4 border-dashed border-base-100;
+
+    &.active {
+      @apply border-neutral;
+
+      ng-icon {
+        box-shadow:
+          0 0 0 -3px $drop-icon-shadow-back-color,
+          0 0 0 $drop-icon-shadow-border-color,
+          0 0 0 -3px $drop-icon-shadow-back-color,
+          0 0 0 $drop-icon-shadow-border-color;
+
+        animation: file 0.5s ease both;
+      }
+      @keyframes file {
+        50% {
+          box-shadow:
+            -8px 8px 0 -3px $drop-icon-shadow-back-color,
+            -8px 8px 0 $drop-icon-shadow-border-color,
+            -8px 8px 0 -3px $drop-icon-shadow-back-color,
+            -8px 8px 0 $drop-icon-shadow-border-color;
+        }
+        75%,
+        100% {
+          box-shadow:
+            -8px 8px 0 -3px $drop-icon-shadow-back-color,
+            -8px 8px 0 $drop-icon-shadow-border-color,
+            -16px 16px 0 -3px $drop-icon-shadow-back-color,
+            -16px 16px 0 $drop-icon-shadow-border-color;
+        }
+      }
+      .pointer-none {
+        pointer-events: none;
+      }
+    }
+  }
+
+  @keyframes fadeup {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    to {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+header {
+  p {
+    ng-icon {
+      transform: translateY(20px);
+      animation: fadeup 0.5s 1s ease both;
+    }
+
+    .up {
+      transform: translateX(-20px);
+      animation: faderight 0.5s 1.5s ease both;
+    }
+
+    .load {
+      transform: translateX(-20px);
+      animation: faderight 1s 1.5s ease both;
+    }
+  }
+}
+
+@keyframes fadeup {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes faderight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
