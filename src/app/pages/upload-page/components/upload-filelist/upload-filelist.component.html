@@ -5,7 +5,14 @@
     <h1 class="pb-2 pt-4 text-xl">Images</h1>
   </div>
 
-  <div class="list-files">
+  <div class="mx-4" [class.hidden]="error() === undefined">
+    <div role="alert" class="alert alert-error">
+      <ng-icon name="phosphorXCircle" class="hidden lg:block" size="24" />
+      <span>{{ error() }}</span>
+    </div>
+  </div>
+
+  <div class="list-files" [class.hidden]="error() !== undefined">
     @for (file of files(); track $index) {
       <div class="file mx-2 grid grid-cols-12">
         <div class="name col-span-4 me-1 place-content-center text-end">

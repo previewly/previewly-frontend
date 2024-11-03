@@ -16,6 +16,8 @@ import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
 import { previewEffects } from './store/preview/preview.effects';
 import { previewFeature } from './store/preview/preview.reducers';
+import { uploadEffects } from './store/upload/upload.effects';
+import { uploadFeature } from './store/upload/upload.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,8 +25,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({
       [previewFeature.name]: previewFeature.reducer,
+      [uploadFeature.name]: uploadFeature.reducer,
     }),
-    provideEffects([previewEffects]),
+    provideEffects([previewEffects, uploadEffects]),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

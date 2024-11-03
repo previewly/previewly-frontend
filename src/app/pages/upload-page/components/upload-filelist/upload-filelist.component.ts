@@ -5,7 +5,8 @@ import {
   phosphorCheckCircleDuotone,
   phosphorImagesDuotone,
 } from '@ng-icons/phosphor-icons/duotone';
-import { FileItem } from './upload-filelist.types';
+import { phosphorXCircle } from '@ng-icons/phosphor-icons/regular';
+import { FileItem } from '../../../../store/upload/upload.types';
 
 @Component({
   selector: 'app-upload-filelist',
@@ -15,9 +16,14 @@ import { FileItem } from './upload-filelist.types';
   styleUrls: ['./upload-filelist.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
-    provideIcons({ phosphorImagesDuotone, phosphorCheckCircleDuotone }),
+    provideIcons({
+      phosphorImagesDuotone,
+      phosphorCheckCircleDuotone,
+      phosphorXCircle,
+    }),
   ],
 })
 export class UploadFilelistComponent {
   files = input<FileItem[]>([]);
+  error = input<string | undefined>();
 }
