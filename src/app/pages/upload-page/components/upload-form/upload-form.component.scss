@@ -8,6 +8,11 @@ $drop-icon-shadow-border-color: oklch(var(--nc));
 
   .body {
     @apply border-4 border-dashed border-base-100;
+    transition: opacity 0.5s 500ms;
+
+    &.disableUpload {
+      opacity: 0;
+    }
 
     &.active {
       @apply border-neutral;
@@ -47,12 +52,6 @@ $drop-icon-shadow-border-color: oklch(var(--nc));
   @keyframes fadeup {
     to {
       transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade {
-    to {
       opacity: 1;
     }
   }
