@@ -3,11 +3,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  signal,
+  inject,
 } from '@angular/core';
 import { FeatureFlagComponent } from '../../feature-flag/feature-flag.component';
 import { UploadFilelistComponent } from './components/upload-filelist/upload-filelist.component';
-import { FileItem } from './components/upload-filelist/upload-filelist.types';
+
+import { Store } from '@ngrx/store';
+import { UploadActions } from '../../store/upload/upload.actions';
+import { uploadFeature } from '../../store/upload/upload.reducers';
 import { UploadFormHeaderComponent } from './components/upload-form-header/upload-form-header.component';
 import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
@@ -26,16 +29,20 @@ import { UploadFormComponent } from './components/upload-form/upload-form.compon
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UploadPageComponent {
-  protected readonly uploadFiles = signal<FileItem[]>([]);
+  private readonly store = inject(Store);
 
-  canUpload = computed(() => this.uploadFiles().length == 0);
+  protected readonly uploadFiles = this.store.selectSignal(
+    uploadFeature.selectFiles
+  );
+  protected readonly uploadError = this.store.selectSignal(
+    uploadFeature.selectError
+  );
+
+  protected readonly canUpload = computed(
+    () => this.uploadFiles().length == 0 || this.uploadError() !== undefined
+  );
 
   selectedFiles(files: File[]) {
-    this.uploadFiles.set(
-      files.map(file => ({
-        name: file.name,
-        isLoading: true,
-      }))
-    );
+    this.store.dispatch(UploadActions.uploadImages({ files }));
   }
 }

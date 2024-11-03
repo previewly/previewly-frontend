@@ -5,6 +5,6 @@
       (selectedFiles)="selectedFiles($event)"
       [canUpload]="canUpload()" />
 
-    <app-upload-filelist [files]="uploadFiles()" />
+    <app-upload-filelist [files]="uploadFiles()" [error]="uploadError()" />
   </div>
 </app-feature-flag>
