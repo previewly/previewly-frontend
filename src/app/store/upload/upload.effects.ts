@@ -3,11 +3,13 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of } from 'rxjs';
 import { StoreDispatchEffect } from '../../app.types';
+import { ApiUrlService } from '../../service/api-url.service';
 import { UploadActions } from './upload.actions';
 
 const uploadFiles = (
   actions$ = inject(Actions),
-  httpClient = inject(HttpClient)
+  httpClient = inject(HttpClient),
+  apiUrlService = inject(ApiUrlService)
 ) =>
   actions$.pipe(
     ofType(UploadActions.uploadImages),
@@ -19,7 +21,7 @@ const uploadFiles = (
       return formData;
     }),
     exhaustMap(formData =>
-      httpClient.post('/upload', formData).pipe(
+      httpClient.post(apiUrlService.createApiUploadUrl(), formData).pipe(
         map(() => {
           return UploadActions.successUploadImages({ files: [] });
         })

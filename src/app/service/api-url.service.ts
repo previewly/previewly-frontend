@@ -20,6 +20,10 @@ export class ApiUrlService {
     return [this.baseUrl, 'graphql'].join('/') + '/';
   }
 
+  createApiUploadUrl(): string {
+    return [this.baseUrl, 'upload'].join('/') + '/';
+  }
+
   private createUrl(type: string, token: string): string {
     return [this.baseUrl, type, token].join('/') + '/';
   }
