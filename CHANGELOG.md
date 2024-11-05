@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.7](https://github.com/previewly/previewly-frontend/compare/v0.1.6...v0.1.7) (2024-11-05)
+
+### Features
+
+- add description for website ([009d925](https://github.com/previewly/previewly-frontend/commit/009d925ad24ea05f6a981865cab249137cc40221))
+- add feature flag component ([b43155a](https://github.com/previewly/previewly-frontend/commit/b43155a42a55b646e51cda334ccef5a14509de8b))
+- add form for upload ([30d7962](https://github.com/previewly/previewly-frontend/commit/30d7962970d9e6810163a99cf60a62e5c30bd96a))
+- add upload route ([c24f1e5](https://github.com/previewly/previewly-frontend/commit/c24f1e59e6d4971149e7fb46f958f625728ed930))
+- upload files to server ([dfbff8a](https://github.com/previewly/previewly-frontend/commit/dfbff8aaed7b88408f3a2b19efacc7f3c7db06db))
+
+### Bug Fixes
+
+- add const for max update preview attemps ([49900ab](https://github.com/previewly/previewly-frontend/commit/49900abb1fd5a8fa4ca577cb51eb7b68e659b82e))
+- add hover to github button ([2d5ec16](https://github.com/previewly/previewly-frontend/commit/2d5ec16e9cf5ec1af161292c572d93c39f95d632))
+- fix count of attemps ([30b0166](https://github.com/previewly/previewly-frontend/commit/30b016617ce5f7d3cca48f7963964adc5c2d26e7))
+- hide upload form after select a files ([89c5748](https://github.com/previewly/previewly-frontend/commit/89c574863efa8bb1b511efa4815a504daedfb09c))
+- remove over 10 preview from state ([e58bca9](https://github.com/previewly/previewly-frontend/commit/e58bca97b426e5fffbac88927f616183123d66ae))
+- use api url service for upload images ([17cfa95](https://github.com/previewly/previewly-frontend/commit/17cfa951caeb4182ae55aaa905e9f0384208ebe7))
+
 ## [0.1.6](https://github.com/wert2all/previewly-frontend/compare/v0.1.5...v0.1.6) (2024-10-15)
 
 ### Bug Fixes
