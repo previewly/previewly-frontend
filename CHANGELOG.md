@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.8](https://github.com/previewly/previewly-frontend/compare/v0.1.7...v0.1.8) (2024-11-13)
+
+### Features
+
+- add privacy policy page ([a780e28](https://github.com/previewly/previewly-frontend/commit/a780e286192141622302879c75481c9f13ab9a64))
+- add terms of service ([0b4a2e5](https://github.com/previewly/previewly-frontend/commit/0b4a2e55feaa73fa05d2197f6cbdb2d723a5e201))
+
+### Bug Fixes
+
+- add link to root path to logo button ([0327afc](https://github.com/previewly/previewly-frontend/commit/0327afc3d271f4858d7577c515fc4a617be22f18))
+
 ## [0.1.7](https://github.com/previewly/previewly-frontend/compare/v0.1.6...v0.1.7) (2024-11-05)
 
 ### Features
