@@ -23,7 +23,7 @@ const mergePreviews = (
     const updateIndex = updateKeys.indexOf(url.url.toString());
     return updateIndex != -1 ? updatePreviews[updateIndex] || url : url;
   });
-  updateKeys.reverse().forEach(updatedUrl => {
+  [...updateKeys].reverse().forEach(updatedUrl => {
     if (stateKeys.indexOf(updatedUrl) == -1) {
       const shouldAdd = updatePreviews.find(
         url => url.url.toString() == updatedUrl
