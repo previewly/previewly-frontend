@@ -29,6 +29,7 @@ export interface Scalars {
   Boolean: { input: boolean; output: boolean };
   Int: { input: number; output: number };
   Float: { input: number; output: number };
+  Upload: { input: undefined; output: undefined };
 }
 
 export enum Status {
@@ -46,6 +47,12 @@ export type Preview = {
   title?: string | null;
 };
 
+export type UploadImageStatus = {
+  id: number;
+  status: Status;
+  error?: string | null;
+};
+
 export type CreateTokenVariables = Exact<{ [key: string]: never }>;
 
 export type CreateToken = { token: string };
@@ -56,6 +63,12 @@ export type AddUrlVariables = Exact<{
 }>;
 
 export type AddUrl = { preview?: Preview | null };
+
+export type UploadImagesVariables = Exact<{
+  images: Array<Scalars['Upload']['input']> | Scalars['Upload']['input'];
+}>;
+
+export type UploadImages = { upload: Array<UploadImageStatus> };
 
 export type VerifyTokenVariables = Exact<{
   token: Scalars['String']['input'];
@@ -78,6 +91,13 @@ export const Preview = gql`
     image
     error
     title
+  }
+`;
+export const UploadImageStatus = gql`
+  fragment UploadImageStatus on UploadImageStatus {
+    id
+    status
+    error
   }
 `;
 export const CreateTokenDocument = gql`
@@ -113,6 +133,28 @@ export const AddUrlDocument = gql`
 })
 export class AddUrlMutation extends Apollo.Mutation<AddUrl, AddUrlVariables> {
   override document = AddUrlDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
+export const UploadImagesDocument = gql`
+  mutation UploadImages($images: [Upload!]!) {
+    upload(images: $images) {
+      ...UploadImageStatus
+    }
+  }
+  ${UploadImageStatus}
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UploadImagesMutation extends Apollo.Mutation<
+  UploadImages,
+  UploadImagesVariables
+> {
+  override document = UploadImagesDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);
@@ -176,6 +218,7 @@ export class ApiClient {
   constructor(
     private createTokenMutation: CreateTokenMutation,
     private addUrlMutation: AddUrlMutation,
+    private uploadImagesMutation: UploadImagesMutation,
     private verifyTokenQuery: VerifyTokenQuery,
     private getPreviewQuery: GetPreviewQuery
   ) {}
@@ -192,6 +235,13 @@ export class ApiClient {
     options?: MutationOptionsAlone<AddUrl, AddUrlVariables>
   ) {
     return this.addUrlMutation.mutate(variables, options);
+  }
+
+  uploadImages(
+    variables: UploadImagesVariables,
+    options?: MutationOptionsAlone<UploadImages, UploadImagesVariables>
+  ) {
+    return this.uploadImagesMutation.mutate(variables, options);
   }
 
   verifyToken(

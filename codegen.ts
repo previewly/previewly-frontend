@@ -36,7 +36,9 @@ const config: cli.CodegenConfig = {
           enumValues: 'keep',
         },
         strictScalars: true,
-        scalars: {},
+        scalars: {
+          Upload: File,
+        },
       },
     },
   },
