@@ -1,30 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of } from 'rxjs';
+import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect } from '../../app.types';
-import { ApiUrlService } from '../../service/api-url.service';
 import { UploadActions } from './upload.actions';
 
-const uploadFiles = (
-  actions$ = inject(Actions),
-  httpClient = inject(HttpClient),
-  apiUrlService = inject(ApiUrlService)
-) =>
+const uploadFiles = (actions$ = inject(Actions), api = inject(ApiClient)) =>
   actions$.pipe(
     ofType(UploadActions.uploadImages),
-    map(({ files }) => {
-      const formData = new FormData();
-      files.forEach((file: File) => {
-        formData.append('files', file, file.name);
-      });
-      return formData;
-    }),
-    exhaustMap(formData =>
-      httpClient.post(apiUrlService.createApiUploadUrl(), formData).pipe(
-        map(() => {
-          return UploadActions.successUploadImages({ files: [] });
-        })
+    exhaustMap(({ files }) =>
+      api.uploadImages({ images: files }).pipe(
+        map(result => result.data?.upload),
+        map(result =>
+          UploadActions.successUploadImages({ result: result || [] })
+        )
       )
     ),
     catchError(() =>
