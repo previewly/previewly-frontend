@@ -6,11 +6,9 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { NgIconComponent } from '@ng-icons/core';
 
 import { ApiUrlService } from '../service/api-url.service';
 import { TitleComponent } from '../share/content/title/title.component';
-import { CopyToClipboardComponent } from '../share/tools/copy-to-clipboard/copy-to-clipboard.component';
 import { GqlContentComponent } from './gql-content/gql-content.component';
 
 @Component({
@@ -18,13 +16,7 @@ import { GqlContentComponent } from './gql-content/gql-content.component';
   standalone: true,
   templateUrl: './code-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    NgIconComponent,
-    CommonModule,
-    CopyToClipboardComponent,
-    TitleComponent,
-    GqlContentComponent,
-  ],
+  imports: [CommonModule, TitleComponent, GqlContentComponent],
 })
 export class CodeContainerComponent {
   private readonly apiUrlService = inject(ApiUrlService);
