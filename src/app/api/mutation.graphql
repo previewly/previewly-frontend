@@ -7,3 +7,9 @@ mutation AddUrl($token: String!, $url: String!) {
     ...Preview
   }
 }
+
+mutation UploadImages($images: [Upload!]!) {
+  upload(images: $images) {
+    ...UploadImageStatus
+  }
+}
