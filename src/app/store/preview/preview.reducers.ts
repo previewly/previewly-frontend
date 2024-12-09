@@ -46,6 +46,7 @@ export const previewFeature = createFeature({
       PreviewActions.successCreateToken,
       PreviewActions.emptyToken,
       PreviewActions.applyTokenFromLocalStorage,
+      PreviewActions.cannotCreateAToken,
       PreviewActions.successAddNewUrl,
       (state): PreviewState => ({ ...state, isLoading: false })
     ),
