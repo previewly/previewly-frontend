@@ -90,36 +90,36 @@ const addUrl = (
     exhaustMap(([{ url }, token]) =>
       token
         ? api.addUrl({ token: token, url: url }).pipe(
-          map(result => result.data?.preview),
-          map(preview => {
-            if (!preview) {
-              throw Error('No preview');
-            }
-            return {
-              url: url,
-              status: preview.status,
-              preview: {
-                id: preview.id,
-                image: preview.image,
-              },
-            };
-          })
-        )
+            map(result => result.data?.preview),
+            map(preview => {
+              if (!preview) {
+                throw Error('No preview');
+              }
+              return {
+                url: url,
+                status: preview.status,
+                preview: {
+                  id: preview.id,
+                  image: preview.image,
+                },
+              };
+            })
+          )
         : of(undefined)
     ),
     map(data =>
       data?.preview
         ? PreviewActions.successAddNewUrl({
-          urls: [
-            {
-              url: data.url,
-              status: data.status,
-              updateAttempts: 1,
-              data: { preview: data.preview.image },
-              error: null,
-            },
-          ],
-        })
+            urls: [
+              {
+                url: data.url,
+                status: data.status,
+                updateAttempts: 1,
+                data: { preview: data.preview.image },
+                error: null,
+              },
+            ],
+          })
         : PreviewActions.emptyTokenOnAddingNewUrl()
     )
   );
