@@ -4,6 +4,7 @@ import * as Apollo from 'apollo-angular';
 import { gql } from 'apollo-angular';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
+
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
@@ -29,7 +30,7 @@ export interface Scalars {
   Boolean: { input: boolean; output: boolean };
   Int: { input: number; output: number };
   Float: { input: number; output: number };
-  Upload: { input: undefined; output: undefined };
+  Upload: { input: File; output: File };
 }
 
 export enum Status {

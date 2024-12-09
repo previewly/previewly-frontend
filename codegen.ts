@@ -37,7 +37,7 @@ const config: cli.CodegenConfig = {
         },
         strictScalars: true,
         scalars: {
-          Upload: File,
+          Upload: 'File',
         },
       },
     },
