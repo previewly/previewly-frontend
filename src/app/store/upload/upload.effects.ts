@@ -11,9 +11,10 @@ const uploadFiles = (actions$ = inject(Actions), api = inject(ApiClient)) =>
     exhaustMap(({ files }) =>
       api.uploadImages({ images: files }).pipe(
         map(result => result.data?.upload),
-        map(result =>
-          UploadActions.successUploadImages({ result: result || [] })
-        ),
+        map(result => {
+          console.log(result);
+          return UploadActions.successUploadImages({ result: result || [] });
+        }),
         catchError(() =>
           of(
             UploadActions.errorUploadingImages({
