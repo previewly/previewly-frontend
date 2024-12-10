@@ -4,7 +4,6 @@ import * as Apollo from 'apollo-angular';
 import { gql } from 'apollo-angular';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
@@ -50,6 +49,7 @@ export type Preview = {
 
 export type UploadImageStatus = {
   id: number;
+  name: string;
   status: Status;
   error?: string | null;
 };
@@ -97,6 +97,7 @@ export const Preview = gql`
 export const UploadImageStatus = gql`
   fragment UploadImageStatus on UploadImageStatus {
     id
+    name
     status
     error
   }
