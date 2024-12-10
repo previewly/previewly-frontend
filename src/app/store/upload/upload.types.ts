@@ -1,8 +1,10 @@
-import { Loadable } from '../../app.types';
+export type FileItemStatus = 'loading' | 'success' | 'error';
 
-export type FileItem = Loadable & {
+export interface FileItem {
   name: string;
-};
+  status: FileItemStatus;
+  error: string | undefined;
+}
 
 export interface UploadState {
   files: FileItem[];

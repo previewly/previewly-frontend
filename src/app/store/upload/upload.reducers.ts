@@ -1,6 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { UploadActions } from './upload.actions';
-import { UploadState } from './upload.types';
+import { FileItem, UploadState } from './upload.types';
 
 const initialState: UploadState = {
   files: [],
@@ -11,15 +11,34 @@ export const uploadFeature = createFeature({
   reducer: createReducer(
     initialState,
 
-    on(UploadActions.uploadImages, (state, { files }) => ({
-      ...state,
-      files: files.map(file => ({ name: file.name, isLoading: true })),
-    })),
+    on(
+      UploadActions.uploadImages,
+      (state, { files }): UploadState => ({
+        ...state,
+        error: undefined,
+        files: [
+          ...state.files,
+          ...files.map(
+            (file): FileItem => ({
+              name: file.name,
+              status: 'loading',
+              error: undefined,
+            })
+          ),
+        ],
+      })
+    ),
 
     on(
       UploadActions.errorUploadingImages,
-      (state, { error }): UploadState => ({
+      (state, { error, files }): UploadState => ({
         ...state,
+        files: state.files.map(file => ({
+          ...file,
+          ...(files.find(f => f.uuid === file.name)
+            ? { status: 'error', error }
+            : undefined),
+        })),
         error: error,
       })
     )

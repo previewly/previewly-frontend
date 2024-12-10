@@ -26,4 +26,17 @@ import { FileItem } from '../../../../store/upload/upload.types';
 export class UploadFilelistComponent {
   files = input<FileItem[]>([]);
   error = input<string | undefined>();
+
+  isFileLoading(file: FileItem) {
+    return file.status === 'loading';
+  }
+
+  isSuccess(file: FileItem) {
+    return file.status === 'success';
+  }
+
+  uploadAgain(file: FileItem) {
+    console.error(file);
+    throw new Error('Method not implemented.');
+  }
 }
