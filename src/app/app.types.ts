@@ -4,6 +4,10 @@ export interface Loadable {
   isLoading: boolean;
 }
 
+export interface Unique {
+  uuid: string;
+}
+
 export const StoreDispatchEffect: EffectConfig & {
   functional: true;
   dispatch?: true;

@@ -13,14 +13,15 @@ const uploadFiles = (actions$ = inject(Actions), api = inject(ApiClient)) =>
         map(result => result.data?.upload),
         map(result =>
           UploadActions.successUploadImages({ result: result || [] })
+        ),
+        catchError(() =>
+          of(
+            UploadActions.errorUploadingImages({
+              error: 'Could not upload images',
+              files: files.map(file => ({ uuid: file.name })),
+            })
+          )
         )
-      )
-    ),
-    catchError(() =>
-      of(
-        UploadActions.errorUploadingImages({
-          error: 'Could not upload images',
-        })
       )
     )
   );

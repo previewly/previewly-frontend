@@ -12,22 +12,40 @@
     </div>
   </div>
 
-  <div class="list-files" [class.hidden]="error() !== undefined">
+  <div class="list-files">
     @for (file of files(); track $index) {
       <div class="file mx-2 grid grid-cols-12">
         <div class="name col-span-4 me-1 place-content-center text-end">
-          <span>{{ file.name }}</span>
+          @if (isSuccess(file)) {
+            <span>{{ file.name }}</span>
+          } @else {
+            <span>{{ file.name }}</span>
+          }
         </div>
         <div class="col-span-7 place-content-center">
           <progress
             class="progress"
-            [attr.value]="file.isLoading ? null : 100"
+            [attr.value]="isFileLoading(file) ? null : 100"
             max="100"></progress>
         </div>
-        <div
-          class="done text-start text-success"
-          [class.anim]="!file.isLoading">
-          <ng-icon name="phosphorCheckCircleDuotone" size="42" />
+        <div class="done text-start" [class.anim]="!isFileLoading(file)">
+          @if (isSuccess(file)) {
+            <ng-icon
+              name="phosphorCheckCircleDuotone"
+              size="42"
+              class="text-success" />
+          } @else {
+            <div class="tooltip" data-tip="upload again">
+              <ng-icon
+                (click)="uploadAgain(file)"
+                name="phosphorXCircle"
+                size="42"
+                class="cursor-pointer text-error" />
+            </div>
+          }
+        </div>
+        <div class="col-span-12 text-sm text-error">
+          {{ file.error }}
         </div>
       </div>
     }
