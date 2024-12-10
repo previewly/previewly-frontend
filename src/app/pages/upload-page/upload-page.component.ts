@@ -39,7 +39,8 @@ export class UploadPageComponent {
   );
 
   protected readonly canUpload = computed(
-    () => this.uploadFiles().length == 0 || this.uploadError() !== undefined
+    () =>
+      this.uploadFiles().filter(file => file.status === 'loading').length == 0
   );
 
   selectedFiles(files: File[]) {
