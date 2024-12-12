@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import {
-  phosphorCheckCircleDuotone,
-  phosphorImagesDuotone,
-} from '@ng-icons/phosphor-icons/duotone';
+import { phosphorCheckCircleDuotone } from '@ng-icons/phosphor-icons/duotone';
 import { phosphorXCircle } from '@ng-icons/phosphor-icons/regular';
 import { FileItem } from '../../../../store/upload/upload.types';
 
@@ -17,7 +14,6 @@ import { FileItem } from '../../../../store/upload/upload.types';
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     provideIcons({
-      phosphorImagesDuotone,
       phosphorCheckCircleDuotone,
       phosphorXCircle,
     }),
@@ -33,10 +29,5 @@ export class UploadFilelistComponent {
 
   isSuccess(file: FileItem) {
     return file.status === 'success';
-  }
-
-  uploadAgain(file: FileItem) {
-    console.error(file);
-    throw new Error('Method not implemented.');
   }
 }
