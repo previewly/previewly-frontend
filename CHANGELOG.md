@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.9](https://github.com/previewly/previewly-frontend/compare/v0.1.8...v0.1.9) (2024-12-12)
+
+### Features
+
+- add upload image mutation ([dd7ab70](https://github.com/previewly/previewly-frontend/commit/dd7ab7037b142f664608a9be2a9ecce72a3600a9))
+
+### Bug Fixes
+
+- add exception for fail of creation of token ([af9c2af](https://github.com/previewly/previewly-frontend/commit/af9c2af8fb463aef7c22f8a26322949b05290303))
+- add status of uploaded files for separate errors ([a25f470](https://github.com/previewly/previewly-frontend/commit/a25f4705784bcda1f97dbef0e3c415770dc1cb85))
+- disable upload form ([bbb541e](https://github.com/previewly/previewly-frontend/commit/bbb541e14bb565f627c3a162ec336a6211850086))
+- fix reversed array ([9fc0614](https://github.com/previewly/previewly-frontend/commit/9fc061477525d74b8fb1afc4057b4aadd7c01c95))
+- fix showing success status of uploaded file ([b221a1e](https://github.com/previewly/previewly-frontend/commit/b221a1e16b288a90432540472f4378da168607f7))
+- fix showing upload form after images was uploaded ([6427e43](https://github.com/previewly/previewly-frontend/commit/6427e4308dbb6566261c0a6f565a195114099625))
+- fix upload form ([7b19dbe](https://github.com/previewly/previewly-frontend/commit/7b19dbec2ad58098c7a2ace1101454eb8438d821))
+- fix upload fragment ([9450dff](https://github.com/previewly/previewly-frontend/commit/9450dffa52a40b5200771c5277e43f99ae5de445))
+- fix useless code imports ([1fbfcc9](https://github.com/previewly/previewly-frontend/commit/1fbfcc9c0f11a37ce9adbe5b7adc460b5b58cf7b))
+- upload images by GQL ([be01ef7](https://github.com/previewly/previewly-frontend/commit/be01ef7a5a2f3bc3dcb2d9cb4c933948726e5211))
+
 ## [0.1.8](https://github.com/previewly/previewly-frontend/compare/v0.1.7...v0.1.8) (2024-11-13)
 
 ### Features
