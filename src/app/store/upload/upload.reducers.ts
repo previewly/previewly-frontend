@@ -61,6 +61,11 @@ export const uploadFeature = createFeature({
         })),
         error: error,
       })
+    ),
+
+    on(
+      UploadActions.emptyToken,
+      (state): UploadState => ({ ...state, error: 'Empty token' })
     )
   ),
 });
