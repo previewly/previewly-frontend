@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.10](https://github.com/previewly/previewly-frontend/compare/v0.1.9...v0.1.10) (2024-12-13)
+
+### Bug Fixes
+
+- add token for upload image mutation ([8583658](https://github.com/previewly/previewly-frontend/commit/8583658e654f449ba54e2e94ba1aec00f1f03511))
+
 ## [0.1.9](https://github.com/previewly/previewly-frontend/compare/v0.1.8...v0.1.9) (2024-12-12)
 
 ### Features
