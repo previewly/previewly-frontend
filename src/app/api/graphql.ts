@@ -66,6 +66,7 @@ export type AddUrlVariables = Exact<{
 export type AddUrl = { preview?: Preview | null };
 
 export type UploadImagesVariables = Exact<{
+  token: Scalars['String']['input'];
   images: Array<Scalars['Upload']['input']> | Scalars['Upload']['input'];
 }>;
 
@@ -141,8 +142,8 @@ export class AddUrlMutation extends Apollo.Mutation<AddUrl, AddUrlVariables> {
   }
 }
 export const UploadImagesDocument = gql`
-  mutation UploadImages($images: [Upload!]!) {
-    upload(images: $images) {
+  mutation UploadImages($token: String!, $images: [Upload!]!) {
+    upload(token: $token, images: $images) {
       ...UploadImageStatus
     }
   }
