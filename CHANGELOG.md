@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.11](https://github.com/previewly/previewly-frontend/compare/v0.1.10...v0.1.11) (2025-01-08)
+
+### Bug Fixes
+
+- fix github url ([4f9c975](https://github.com/previewly/previewly-frontend/commit/4f9c975f9fc92a2d0b3d21eb9db7f38914607b3b))
+
 ## [0.1.10](https://github.com/previewly/previewly-frontend/compare/v0.1.9...v0.1.10) (2024-12-13)
 
 ### Bug Fixes
