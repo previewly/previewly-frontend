@@ -1,37 +1,25 @@
-// @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const eslintConfigPrettier = require('eslint-config-prettier');
-const sonarjs = require('eslint-plugin-sonarjs');
-const unusedImports = require('eslint-plugin-unused-imports');
-const ngrx = require('@ngrx/eslint-plugin/v9');
+import eslint from '@eslint/js';
+import ngrx from '@ngrx/eslint-plugin/v9';
+import angular from 'angular-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import sonarjs from 'eslint-plugin-sonarjs';
+import tseslint from 'typescript-eslint';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   {
     files: ['**/*.ts'],
-    ignores: ['src/app/api/graphql.ts'],
+    ignores: ['**/graphql.ts'],
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
       ...ngrx.configs.all,
-      ...ngrx.configs.store,
-      ...ngrx.configs.effects,
-      ...ngrx.configs.componentStore,
-      ...ngrx.configs.operators,
-      ...ngrx.configs.signals,
     ],
-    plugins: {
-      sonarjs,
-      'unused-imports': unusedImports,
-    },
+    plugins: { sonarjs },
     processor: angular.processInlineTemplates,
     rules: {
-      ...eslintConfigPrettier.rules,
       ...sonarjs.configs.recommended.rules,
-
       '@angular-eslint/directive-selector': [
         'error',
         {
@@ -57,5 +45,6 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {},
-  }
+  },
+  eslintConfigPrettier
 );
