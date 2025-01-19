@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.12](https://github.com/wert2all/previewly-frontend/compare/v0.1.11...v0.1.12) (2025-01-19)
+
+### Features
+
+- add extra to GQL ([25a1ad9](https://github.com/wert2all/previewly-frontend/commit/25a1ad90f8af16ccc923021f57d0f6ed430976b2))
+
 ## [0.1.11](https://github.com/previewly/previewly-frontend/compare/v0.1.10...v0.1.11) (2025-01-08)
 
 ### Bug Fixes
