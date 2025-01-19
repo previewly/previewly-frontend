@@ -3,4 +3,5 @@ fragment UploadImageStatus on UploadImageStatus {
   name
   status
   error
+  extra
 }

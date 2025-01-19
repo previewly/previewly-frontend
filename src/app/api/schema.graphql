@@ -13,7 +13,6 @@ type ImageData {
 
 type ImageProcess {
   error: String
-  id: Int!
   image: ImageData
   processes: [OneImageProcess!]!
   status: Status!
@@ -46,7 +45,7 @@ type Mutation {
     processes: [ImageProcessesInput!]!
     token: String!
   ): ImageProcess
-  upload(images: [Upload!]!, token: String!): [UploadImageStatus!]!
+  upload(images: [UploadInput!]!, token: String!): [UploadImageStatus!]!
 }
 
 type OneImageProcess {
@@ -78,7 +77,14 @@ scalar Upload
 
 type UploadImageStatus {
   error: String
+  extra: String
   id: Int!
   name: String!
   status: Status!
+}
+
+input UploadInput {
+  extra: String
+  image: Upload!
+  name: String
 }
