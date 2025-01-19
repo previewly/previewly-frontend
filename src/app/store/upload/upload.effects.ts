@@ -16,7 +16,15 @@ const uploadFiles = (
   actions$.pipe(
     ofType(UploadActions.uploadImages),
     concatLatestFrom(() => store.select(previewFeature.selectToken)),
-    exhaustMap(([{ files }, token]) => {
+    map(([{ files }, token]) => ({
+      files: files.map(file => ({
+        image: file,
+        name: file.name,
+        extra: 'test',
+      })),
+      token,
+    })),
+    exhaustMap(({ files, token }) => {
       return token
         ? api.uploadImages({ images: files, token }).pipe(
             map(result => result.data?.upload),
