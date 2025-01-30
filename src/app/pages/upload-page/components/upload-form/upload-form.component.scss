@@ -7,7 +7,7 @@ $drop-icon-shadow-border-color: oklch(var(--nc));
   transform: translateY(20px);
 
   .body {
-    @apply border-base-100;
+    border-color: var(--color-base-300);
     transition: opacity 0.5s 500ms;
     border-style: dashed;
     border-width: 4px;
@@ -17,8 +17,7 @@ $drop-icon-shadow-border-color: oklch(var(--nc));
     }
 
     &.active {
-      @apply border-neutral;
-
+      border-color: var(--color-neutral);
       ng-icon {
         box-shadow:
           0 0 0 -3px $drop-icon-shadow-back-color,
