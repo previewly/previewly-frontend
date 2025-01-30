@@ -4,8 +4,10 @@
 }
 /* for Chrome, Safari, Edge, etc */
 .carousel::-webkit-scrollbar {
-  @apply block h-2 rounded-full;
+  height: 0.5rem;
+  display: block;
+  border-radius: 9999px;
 }
 .carousel::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-base-content/60;
+  border-radius: 9999px;
 }

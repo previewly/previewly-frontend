@@ -7,8 +7,10 @@ $drop-icon-shadow-border-color: oklch(var(--nc));
   transform: translateY(20px);
 
   .body {
-    @apply border-4 border-dashed border-base-100;
+    @apply border-base-100;
     transition: opacity 0.5s 500ms;
+    border-style: dashed;
+    border-width: 4px;
 
     &.disableUpload {
       opacity: 0;
