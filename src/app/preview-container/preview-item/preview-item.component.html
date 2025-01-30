@@ -1,10 +1,10 @@
 <div
   tabindex="1"
-  class="relative h-52 w-96 rounded-xl bg-base-100 shadow-xl"
+  class="bg-base-100 relative h-52 w-96 rounded-xl shadow-xl"
   [class.cursor-pointer]="preview().status === 'success'"
   (keyup)="keyUp($event)"
   (click)="click()">
-  <div class="grid h-full w-full place-items-center rounded-xl bg-base-200">
+  <div class="bg-base-200 grid h-full w-full place-items-center rounded-xl">
     @switch (preview().status) {
       @case ('loading') {
         <span class="loading loading-spinner loading-lg text-primary"></span>
@@ -14,7 +14,7 @@
           name="phosphorCloudWarningDuotone"
           size="128"
           class="text-error"></ng-icon>
-        <h2 class="text-center text-sm text-warning">{{ preview().error }}</h2>
+        <h2 class="text-warning text-center text-sm">{{ preview().error }}</h2>
       }
       @case ('success') {
         @if (preview().data?.preview) {
@@ -29,7 +29,7 @@
   </div>
 
   <div
-    class="absolute left-0 top-0 rounded-tl-xl px-2"
+    class="absolute top-0 left-0 rounded-tl-xl px-2"
     [class.bg-warning]="preview().status === 'error'"
     [class.text-warning-content]="preview().status === 'error'"
     [class.bg-success]="preview().status === 'success'"
