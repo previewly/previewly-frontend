@@ -1,10 +1,10 @@
-<div class="mb-8 mt-24">
+<div class="mt-24 mb-8">
   <app-share-content-title class="text-warning">
     Input an URL
   </app-share-content-title>
 </div>
 <form
-  class="rounded-xl bg-neutral p-2"
+  class="bg-neutral rounded-xl p-2"
   [class.skeleton]="isLoading() || !token()"
   (submit)="createPreview()">
   <div class="flex gap-4">

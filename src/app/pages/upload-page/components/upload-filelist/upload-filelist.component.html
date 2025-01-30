@@ -2,7 +2,7 @@
   [class.hasFiles]="files().length > 0"
   class="bg-neutral pb-4 text-center">
   <div class="title" [class.hasFiles]="files().length > 0">
-    <h1 class="pb-2 pt-4 text-xl">Images</h1>
+    <h1 class="pt-4 pb-2 text-xl">Images</h1>
   </div>
 
   <div class="mx-4" [class.hidden]="error() === undefined">
@@ -34,7 +34,7 @@
             <ng-icon name="phosphorXCircle" size="42" class="text-error" />
           }
         </div>
-        <div class="col-span-12 text-sm text-error">
+        <div class="text-error col-span-12 text-sm">
           {{ file.error }}
         </div>
       </div>
