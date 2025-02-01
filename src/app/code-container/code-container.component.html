@@ -3,16 +3,29 @@
     >Intergrate with your application!</app-share-content-title
   >
   <div class="join join-horizontal my-4 lg:mb-8">
-    <button class="btn btn-accent join-item">GraphQL</button>
-
-    <div class="tooltip" data-tip="coming soon">
-      <button class="btn join-item" disabled="disabled">REST</button>
-    </div>
+    <button
+      class="btn join-item"
+      [class.btn-accent]="activeTab() === 0"
+      (click)="activeTab.set(0)">
+      GraphQL
+    </button>
+    <button
+      class="btn join-item"
+      [class.btn-accent]="activeTab() === 1"
+      (click)="activeTab.set(1)">
+      REST
+    </button>
     <div class="tooltip" data-tip="coming soon">
       <button class="btn join-item" disabled="disabled">Image</button>
     </div>
   </div>
   <div class="pt-2">
-    <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
+    @if (activeTab() === 0) {
+      <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
+    }
+
+    @if (activeTab() === 1) {
+      <app-rest-content [restUrl]="restUrl()" [token]="token() || ''" />
+    }
   </div>
 </div>

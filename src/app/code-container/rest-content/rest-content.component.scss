@@ -1,0 +1,30 @@
+pre.rest {
+  font-family: monospace;
+  color: rgb(201, 209, 217);
+  font-weight: 400;
+
+  span.operation {
+    color: rgb(255, 123, 114);
+  }
+
+  span.url {
+    color: rgb(255, 166, 87);
+  }
+  span.value {
+    color: rgb(165, 214, 255);
+  }
+}
+
+pre.json {
+  font-family: monospace;
+  color: rgb(201, 209, 217);
+  font-weight: 400;
+
+  span.key {
+    color: rgb(121, 192, 255);
+  }
+
+  span.value {
+    color: rgb(165, 214, 255);
+  }
+}

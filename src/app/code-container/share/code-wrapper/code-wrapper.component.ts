@@ -10,6 +10,6 @@ import { CopyToClipboardComponent } from '../../../share/tools/copy-to-clipboard
 })
 export class CodeWrapperComponent {
   title = input.required<string>();
-  codeValue = input.required<string>();
   showCopyButton = input<boolean>(true);
+  codeValue = input<string | null>(null);
 }

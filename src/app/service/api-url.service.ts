@@ -12,8 +12,8 @@ export class ApiUrlService {
     return this.createUrl('image', token);
   }
 
-  createApiJsonUrl(token: string): string {
-    return this.createUrl('json', token);
+  createApiJsonUrl(): string {
+    return [this.baseUrl, 'json'].join('/') + '/';
   }
 
   createApiGqlUrl(): string {
