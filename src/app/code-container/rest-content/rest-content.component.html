@@ -1,0 +1,126 @@
+<h3 class="bg-neutral p-2 text-xl font-bold">REST endpoint</h3>
+<p class="flex items-center py-2">
+  {{ restUrl() }}
+  <app-copy-to-clipboard
+    position="right"
+    [value]="restUrl()"
+    class="ms-8"></app-copy-to-clipboard>
+</p>
+
+<h3 class="bg-neutral p-2 text-xl font-bold">Token</h3>
+<p class="flex items-center py-2">
+  {{ token() }}
+  <app-copy-to-clipboard
+    position="right"
+    [value]="token()"
+    class="ms-8"></app-copy-to-clipboard>
+</p>
+<div class="divider"></div>
+<h3 class="bg-neutral p-2 text-xl font-bold">1. Add URL of website</h3>
+<p class="pt-2">
+  Our service empowers you to effortlessly add website URLs and generate
+  previews. Simply use the `add-url` operation with your encoded website URL and
+  token to initiate the process.
+</p>
+
+<app-code-and-result
+  [codeValue]="
+    restUrl() + 'add-url/' + encodedGoogleUrl() + '/token/' + token() + '/'
+  ">
+  <pre class="rest">
+    <span class="operation">POST:</span>
+      <span class="url">{{restUrl()}}add-url/{{encodedGoogleUrl()}}/token/{{ token()}}/</span>
+  </pre>
+  <pre result class="json">
+    <span result class="json">{{'{'}}
+        <span class="key">"id"</span>: <span class="value">1</span>,
+        <span class="key">"image"</span>: <span class="value">"https://previewly.top/assets/loader-200px-200px.gif"</span>,
+        <span class="key">"status"</span>: <span class="value">"pending"</span>,
+        <span class="key">"url"</span>: <span class="value">"https://www.google.com/"</span>,
+        <span class="key">"title"</span>: <span class="value">"Google"</span>,
+        <span class="key">"error"</span>: <span class="value">null</span>,
+    {{'}'}}</span>
+  </pre>
+</app-code-and-result>
+
+<p class="mb-2 pt-2 font-bold">Here's how it works:</p>
+
+<ol class="ms-8">
+  <li class="list-decimal">
+    <span class="font-bold">Add Website URL:</span> Provide the URL of the
+    website you want to preview using the `add-url` operation.
+  </li>
+  <li class="list-decimal">
+    <span class="font-bold">Retrieve Preview Information:</span> Previewly will
+    return pre-flight information about the website and begin capturing a
+    preview image.
+  </li>
+  <li class="list-decimal">
+    <span class="font-bold">Track Preview Status:</span> The API exposes a
+    status property that indicates the preview generation progress:
+    <ul class="ms-8">
+      <li class="list-disc">
+        `pending`: This is the most common status while the preview image is
+        being created.
+      </li>
+      <li class="list-disc">
+        `success`: The preview image has been successfully generated.
+      </li>
+      <li class="list-disc">
+        `error`: An error occurred during preview generation.
+      </li>
+    </ul>
+  </li>
+</ol>
+<p class="mb-2 pt-2 font-bold">Preview Results:</p>
+<ul class="ms-8 mb-2">
+  <li class="list-disc">
+    <span class="font-bold">Image:</span> Upon successful preview generation
+    (`status: success`), the API will return the `image` property containing the
+    URL of the generated preview image.
+  </li>
+  <li class="list-disc">
+    <span class="font-bold">Loading Indicator:</span> While the preview is being
+    generated (`status: pending`), a simple loader will be displayed to the
+    user.
+  </li>
+</ul>
+<h3 class="bg-neutral p-2 text-xl font-bold">2. Expose website preview</h3>
+<p class="pt-2">
+  To retrieve the complete preview information, including the generated image
+  and any available website statistics, call the `get-preview` method with the
+  encoded website URL.
+</p>
+
+<app-code-and-result
+  [codeValue]="
+    restUrl() + 'get-preview/token/' + token() + '/?url=' + encodedGoogleUrl()
+  ">
+  <pre class="rest">
+    <span class="operation">GET: </span>
+    <span class="url">{{restUrl()}}get-preview/token/{{token()}}/?url={{encodedGoogleUrl()}}</span>
+  </pre>
+  <pre result class="json">
+    <span result class="json">{{'{'}}
+        <span class="key">"id"</span>: <span class="value">1</span>,
+        <span class="key">"image"</span>: <span class="value">"https://previewly.top/assets/loader-200px-200px.gif"</span>,
+        <span class="key">"status"</span>: <span class="value">"pending"</span>,
+        <span class="key">"url"</span>: <span class="value">"https://www.google.com/"</span>,
+        <span class="key">"title"</span>: <span class="value">"Google"</span>,
+        <span class="key">"error"</span>: <span class="value">null</span>,
+    {{'}'}}</span>
+  </pre>
+</app-code-and-result>
+<h3 class="bg-neutral p-2 text-xl font-bold">3. (Optional) Greate a token</h3>
+<p class="pt-2">Also you can create a new token by method `create-token`.</p>
+
+<app-code-and-result [codeValue]="restUrl() + 'create-token'">
+  <pre class="rest">
+    <span class="operation">POST:</span>
+    <span class="url">{{ restUrl() }}create-token</span>
+  </pre>
+
+  <pre result class="json">
+    <span class="value">"your new token"</span>
+  </pre>
+</app-code-and-result>

@@ -5,7 +5,9 @@
   <ng-content></ng-content>
 </div>
 @if (showCopyButton()) {
-  <div class="flex justify-end">
-    <app-copy-to-clipboard position="left" [value]="codeValue()" class="ms-8" />
-  </div>
+  @if (codeValue(); as value) {
+    <div class="flex justify-end">
+      <app-copy-to-clipboard position="left" [value]="value" class="ms-8" />
+    </div>
+  }
 }

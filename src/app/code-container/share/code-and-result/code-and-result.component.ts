@@ -18,5 +18,5 @@ import { CodeWrapperComponent } from '../code-wrapper/code-wrapper.component';
   ],
 })
 export class CodeAndResultComponent {
-  codeValue = input.required<string>();
+  codeValue = input<string | null>(null);
 }
