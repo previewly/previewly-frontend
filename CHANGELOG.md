@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.13](https://github.com/previewly/previewly-frontend/compare/v0.1.12...v0.1.13) (2025-02-03)
+
+### Features
+
+- create help content for REST API ([1a7286f](https://github.com/previewly/previewly-frontend/commit/1a7286f7241b70de997c9525998ab9c490e556af))
+- update tw and daizyui ([5801bbe](https://github.com/previewly/previewly-frontend/commit/5801bbef197eb84ee7fe5922201cd6791b2d7f7f))
+
 ## [0.1.12](https://github.com/wert2all/previewly-frontend/compare/v0.1.11...v0.1.12) (2025-01-19)
 
 ### Features
