@@ -10,4 +10,7 @@ export interface Environment {
   graphqlUrl: string;
   apiBase: string;
   firebase: FirebaseOptions;
+  sentry: {
+    dsn: string;
+  };
 }

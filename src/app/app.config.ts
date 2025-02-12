@@ -1,7 +1,10 @@
 import { provideHttpClient } from '@angular/common/http';
 import {
   ApplicationConfig,
+  inject,
   isDevMode,
+  makeEnvironmentProviders,
+  provideAppInitializer,
   provideZoneChangeDetection,
 } from '@angular/core';
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
@@ -11,6 +14,10 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+import { ErrorHandler } from '@angular/core';
+import { Router } from '@angular/router';
+import * as Sentry from '@sentry/angular';
+import { TraceService } from '@sentry/angular';
 import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
@@ -19,8 +26,17 @@ import { previewFeature } from './store/preview/preview.reducers';
 import { uploadEffects } from './store/upload/upload.effects';
 import { uploadFeature } from './store/upload/upload.reducers';
 
+const provideSentry = () =>
+  makeEnvironmentProviders([
+    { provide: ErrorHandler, useValue: Sentry.createErrorHandler() },
+    { provide: Sentry.TraceService, deps: [Router] },
+  ]);
+
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAppInitializer(() => {
+      inject(TraceService);
+    }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore({
@@ -40,5 +56,6 @@ export const appConfig: ApplicationConfig = {
     provideApollo(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
+    provideSentry(),
   ],
 };
