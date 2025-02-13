@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.14](https://github.com/wert2all/previewly-frontend/compare/v0.1.13...v0.1.14) (2025-02-13)
+
+### Features
+
+- add ko-fi ([4b27a19](https://github.com/wert2all/previewly-frontend/commit/4b27a19dc5d241d58410c585c50b2458940277ca))
+- add sentry ([993cb26](https://github.com/wert2all/previewly-frontend/commit/993cb26bfafc0962af98bebe9008ea13ae776a54))
+
 ## [0.1.13](https://github.com/previewly/previewly-frontend/compare/v0.1.12...v0.1.13) (2025-02-03)
 
 ### Features
