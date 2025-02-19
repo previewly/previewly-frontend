@@ -32,7 +32,7 @@
   (modalOutputEvent)="modalOutEvent($event)">
   @if (showPreview()?.data) {
     <img
-      class="w-frull"
+      class="min-h-[627px] w-full"
       src="{{ showPreview()?.data?.preview }}"
       [alt]="showPreview()?.data?.previewAltTitle || ''" />
     <div
