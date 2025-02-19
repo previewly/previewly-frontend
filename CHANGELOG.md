@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.15](https://github.com/wert2all/previewly-frontend/compare/v0.1.14...v0.1.15) (2025-02-19)
+
+### Bug Fixes
+
+- fix image height if image load issue ([2c17bb9](https://github.com/wert2all/previewly-frontend/commit/2c17bb94b30eed8ff311e896b0c4130bd43c4508))
+- update api docs ([361b693](https://github.com/wert2all/previewly-frontend/commit/361b69308fd9d635af07c7f372e39734315e2584))
+- update eslint ([b1b78e7](https://github.com/wert2all/previewly-frontend/commit/b1b78e72619da65da9e239db171a820861316307))
+- update scheme ([f6f48bb](https://github.com/wert2all/previewly-frontend/commit/f6f48bbb4b13fd8fdf566bf337372fd7b1ce47fa))
+
 ## [0.1.14](https://github.com/wert2all/previewly-frontend/compare/v0.1.13...v0.1.14) (2025-02-13)
 
 ### Features
