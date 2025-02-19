@@ -63,14 +63,14 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0(@angular/common@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@angular/router@19.1.6(@angular/common@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.6(@angular/animations@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1))(rxjs@7.8.1)
       '@sentry/cli':
-        specifier: ^2.42.0
-        version: 2.42.0(encoding@0.1.13)
+        specifier: ^2.42.1
+        version: 2.42.1(encoding@0.1.13)
       '@tailwindcss/postcss':
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.7
+        version: 4.0.7
       apollo-angular:
-        specifier: ^10.0.0
-        version: 10.0.0(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@apollo/client@3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0))(graphql@16.10.0)(rxjs@7.8.1)
+        specifier: ^10.0.1
+        version: 10.0.1(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@apollo/client@3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0))(graphql@16.10.0)(rxjs@7.8.1)
       apollo-upload-client:
         specifier: ^18.0.1
         version: 18.0.1(@apollo/client@3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0))(graphql@16.10.0)
@@ -81,8 +81,8 @@ importers:
         specifier: ~7.8.1
         version: 7.8.1
       tailwindcss:
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.7
+        version: 4.0.7
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -92,7 +92,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: ^19.1.7
-        version: 19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(lightningcss@1.29.1)(tailwindcss@4.0.6)(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.4)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(sass@1.83.1)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)
+        version: 19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(lightningcss@1.29.1)(tailwindcss@4.0.7)(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.4)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(sass@1.83.1)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)
       '@angular/cli':
         specifier: ^19.1.7
         version: 19.1.7(@types/node@22.13.4)(chokidar@4.0.3)
@@ -109,14 +109,14 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5(@parcel/watcher@2.5.1)(@types/node@22.13.4)(encoding@0.1.13)(enquirer@2.3.6)(graphql@16.10.0)(typescript@5.6.3)
       '@graphql-codegen/typescript':
-        specifier: ^4.1.3
-        version: 4.1.3(encoding@0.1.13)(graphql@16.10.0)
+        specifier: ^4.1.4
+        version: 4.1.4(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-codegen/typescript-apollo-angular':
         specifier: ^4.0.0
         version: 4.0.0(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-codegen/typescript-operations':
-        specifier: ^4.4.1
-        version: 4.4.1(encoding@0.1.13)(graphql@16.10.0)
+        specifier: ^4.5.0
+        version: 4.5.0(encoding@0.1.13)(graphql@16.10.0)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.4.1
         version: 4.4.1(prettier@3.5.1)
@@ -143,7 +143,7 @@ importers:
         version: 19.1.0(chokidar@4.0.3)(eslint@9.20.1(jiti@2.4.2))(typescript-eslint@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.6.3))(typescript@5.6.3)
       autoprefixer:
         specifier: ^10.4.20
-        version: 10.4.20(postcss@8.5.2)
+        version: 10.4.20(postcss@8.5.3)
       commit-and-tag-version:
         specifier: ^12.5.0
         version: 12.5.0
@@ -166,8 +166,8 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.24.1(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.6.3))(eslint@9.20.1(jiti@2.4.2))(typescript@5.6.3))(eslint@9.20.1(jiti@2.4.2))
       postcss:
-        specifier: ^8.5.2
-        version: 8.5.2
+        specifier: ^8.5.3
+        version: 8.5.3
       prettier:
         specifier: ^3.5.1
         version: 3.5.1
@@ -1137,12 +1137,12 @@ packages:
     resolution: {integrity: sha512-4B4OijXeVNOPZlYA2oEwWOTkzyltLao+xbotHQeqN++Rv27Y6s818+n2Qkp8q+Fxhn0t/5lA5X1Mxktud8eayQ==}
     engines: {node: '>=14.17.0'}
 
-  '@envelop/core@5.0.3':
-    resolution: {integrity: sha512-SE3JxL7odst8igN6x77QWyPpXKXz/Hs5o5Y27r+9Br6WHIhkW90lYYVITWIJQ/qYgn5PkpbaVgeFY9rgqQaZ/A==}
+  '@envelop/core@5.1.0':
+    resolution: {integrity: sha512-tH5bntVdGaV9ZKFI0a2U4bn6HgtkBscCPdvLqZRlXR2XRWKe+AAUjkYo4vQ4iZTAzBaKJlRe/hVWuad/vcftPw==}
     engines: {node: '>=18.0.0'}
 
-  '@envelop/types@5.0.0':
-    resolution: {integrity: sha512-IPjmgSc4KpQRlO4qbEDnBEixvtb06WDmjKfi/7fkZaryh5HuOmTtixe1EupQI5XfXO8joc3d27uUZ0QdC++euA==}
+  '@envelop/types@5.1.0':
+    resolution: {integrity: sha512-E6axHyHK8RALJ7+GRVQ3wQ44rP9enVaRc5JiYHIkyfKWKPeHGmTz6Pe/kbtHC5fjuD2QwYCVcCfCoUlw3Xf4xw==}
     engines: {node: '>=18.0.0'}
 
   '@esbuild/aix-ppc64@0.24.2':
@@ -1309,10 +1309,6 @@ packages:
     resolution: {integrity: sha512-GNKqxfHG2ySmJOBSHg7LxeUx4xpuCoFjacmlCoYWEbaPXLwvfIjixRI12xCQZeULksQb23uiA8F40w5TojpV7w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/core@0.10.0':
-    resolution: {integrity: sha512-gFHJ+xBOo4G3WRlR1e/3G8A6/KZAH6zcE/hkLRCZTi/B9avAG365QhFA8uOGzTMqgTghpn7/fSnscW++dpMSAw==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
   '@eslint/core@0.11.0':
     resolution: {integrity: sha512-DWUB2pksgNEb6Bz2fggIy1wh6fGgZP4Xyy/Mt0QZPiloKKXerbqq9D3SBQTlCRYOrcRPu4vuz+CGjwdfqxnoWA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1329,8 +1325,8 @@ packages:
     resolution: {integrity: sha512-RBMg5FRL0I0gs51M/guSAj5/e14VQ4tpZnQNWwuDT66P14I43ItmPfIZRhO9fUVIPOAQXU47atlywZ/czoqFPA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/plugin-kit@0.2.5':
-    resolution: {integrity: sha512-lB05FkqEdUg2AA0xEbUz0SnkXT1LcCTa438W4IWTUh4hdOnVbQyOJ81OrDXsJk/LSiJHubgGEFoR5EHq1NsH1A==}
+  '@eslint/plugin-kit@0.2.6':
+    resolution: {integrity: sha512-+0TjwR1eAUdZtvv/ir1mGX+v0tUoR3VEPB8Up0LLJC+whRW0GgBBtpbOkg/a/U4Dxa6l5a3l9AJ1aWIQVyoWJA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@firebase/analytics-compat@0.2.17':
@@ -1559,8 +1555,8 @@ packages:
       '@parcel/watcher':
         optional: true
 
-  '@graphql-codegen/client-preset@4.6.2':
-    resolution: {integrity: sha512-C7BihcGMSZq95ppLGi2HI0zt4w+n2FDoXzrP1/SUS32zbJlvb3Vod/fHdHTWcFZzlAZFCue7MNU3DbiuRjGYQg==}
+  '@graphql-codegen/client-preset@4.6.3':
+    resolution: {integrity: sha512-kmbXO0Z4eZ9zxo/oXxDF/KIi0LiyZwFUz4PTAMeY/WFjiPWuTADCwTKfGklzgFY4c4tC3nufhgGz1V7lTImf5Q==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1570,8 +1566,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/gql-tag-operations@4.0.14':
-    resolution: {integrity: sha512-/jyW6zbIt9xiLAmkLsLwJDegeFytg6n5yf79dEbkhOflclIM2t1YhEAXQxIuqgDgM/PQ34Zfu3wtgWSgUOReXg==}
+  '@graphql-codegen/gql-tag-operations@4.0.15':
+    resolution: {integrity: sha512-r0x20O0L/7VfKfvQd3NpJtZncAYOb3QNKZqrkHUhGty32tF9ovRcsY4CLDi6TxGlyP83cmm8Ay0Zi37F6z0TXA==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1597,8 +1593,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/typed-document-node@5.0.13':
-    resolution: {integrity: sha512-/r23W1WF9PKymIET3SdCDfyuZ6tHeflvbZF3mL3cMp4849M1fe1J2eWefeqn2MMbKATstNqRVxtrq6peJ3A/Ew==}
+  '@graphql-codegen/typed-document-node@5.0.14':
+    resolution: {integrity: sha512-QRVCmZJWnt3MKoB7j6RaLixEzPzGv/9cwKcuqzx9J7ZcvFXuDR1sBlwYOlTbrwIs8mRKvLnBSJt2yMblvieyTQ==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1609,14 +1605,14 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/typescript-operations@4.4.1':
-    resolution: {integrity: sha512-iqAdEe4wfxGPT9s/VD+EhehBzaTxvWdisbsqiM6dMfk+8FfjrOj8SDBsHzKwmkRcrpMK6h9gLr3XcuBPu0JoFg==}
+  '@graphql-codegen/typescript-operations@4.5.0':
+    resolution: {integrity: sha512-HIu9xB124MVAD1TTGM+iDeJbxtmm0dOolgEEr2uPEBH89i3ggmy+NsXGt7TrOQVDKumv5Df+6DTb59Hmc1qY7g==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/typescript@4.1.3':
-    resolution: {integrity: sha512-/7qNPj+owhxBZB3Kv0FuUILZq9A6Gl5P5wiIZGAmw500n6Vc8ceOFLRXeVkyvDccxTGWS/vJv+sUnl94T2Pu+A==}
+  '@graphql-codegen/typescript@4.1.4':
+    resolution: {integrity: sha512-I2h9DOPxfq3QB2/Y/FTxR46Hj8tY25eM53rxe9ZJ9Ple0slRavB8CzMqlZpaOSv5sYGOeOfiGBSnbJiYAGdkyQ==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1626,8 +1622,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/visitor-plugin-common@5.6.1':
-    resolution: {integrity: sha512-q+DkGWWS7pvSc1c4Hw1xD0RI+EplTe2PCyTCT0WuaswnodBytteKTqFOVVGadISLX0xhO25aANTFB4+TLwTBSA==}
+  '@graphql-codegen/visitor-plugin-common@5.7.0':
+    resolution: {integrity: sha512-fvtKYpnDFk5R+SM6emgWtViw70Sc4sMggGTUGIrfLSu91TQqTII5FLFz89qjQEEffwSsJCSq4glW/dN7gAuieA==}
     engines: {node: '>=16'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -1686,8 +1682,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/executor@1.3.14':
-    resolution: {integrity: sha512-tDk8bYIgbVmGNh7cYewi5/yNCq6UoVl9ugDU4rF//+E1R5TxkXNe9nu6AonE+j6XkA/z+FofVawOqCCiJhJ40g==}
+  '@graphql-tools/executor@1.4.0':
+    resolution: {integrity: sha512-sQN54cCDV9s0ur993/VtQF0hslOubSTMJlN0WaouiJCEgMqE5aXN27kmZvF0oXj0GxbWMC+bPNWEZH1TJVsLxw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -2277,8 +2273,8 @@ packages:
     resolution: {integrity: sha512-/xGlezI6xfGO9NwuJlnwz/K14qD1kCSAGtacBHnGzeAIuJGazcp45KP5NuyARXoKb7cwulAGWVsbeSxdG/cb0Q==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
-  '@npmcli/git@6.0.1':
-    resolution: {integrity: sha512-BBWMMxeQzalmKadyimwb2/VVQyJB01PH0HhVSNLHNBDZN/M/h/02P6f8fxedIiFhpMj11SO9Ep5tKTBE7zL2nw==}
+  '@npmcli/git@6.0.3':
+    resolution: {integrity: sha512-GUYESQlxZRAdhs3UhbB6pVRNUELQOHXwK9ruDkwmCv2aZ5y0SApQzUJCg02p3A7Ue2J5hxvlk1YI53c00NmRyQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
   '@npmcli/installed-package-contents@3.0.0':
@@ -2553,49 +2549,49 @@ packages:
     resolution: {integrity: sha512-G55e5j77DqRW3LkalJLAjRRfuyKrjHaKTnwIYXa6ycO+Q1+l14pEUxu+eK5Abu2rtSdViwRSb5/G6a/miSUlYA==}
     engines: {node: '>=18'}
 
-  '@sentry/cli-darwin@2.42.0':
-    resolution: {integrity: sha512-V4eJMFq/OEnrCDcLqsuxj0wEBzqYD0ExAK6qn3mTavUraje+nj3aPIypQcKCcUkG8Xh7gfXz5VKhCunBCtI5dQ==}
+  '@sentry/cli-darwin@2.42.1':
+    resolution: {integrity: sha512-WZFsrzSWtsRK24SiTa+Xod+4Hjlw7xaggmM4lbuo0lISO1EQj+K29jyGX+Ku0qflO1qp1z32bSP/RlWx/1rBjg==}
     engines: {node: '>=10'}
     os: [darwin]
 
-  '@sentry/cli-linux-arm64@2.42.0':
-    resolution: {integrity: sha512-1Nr302lrTNRA/Tf1+rij5Nv192vLsyJK1c/ntuGAKqc6KMMinKDv2UEQLw9tAPJbMYaERYOKZ5u0/gUWEKT5YA==}
+  '@sentry/cli-linux-arm64@2.42.1':
+    resolution: {integrity: sha512-8A43bLvDIzquCXblHNadaRm109ANw1Q9VRXg5qLYv7DrPkUm2oQP+oRnuNUgOJ3W/8QQSvANpG9pPko+mJs4xw==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux, freebsd]
 
-  '@sentry/cli-linux-arm@2.42.0':
-    resolution: {integrity: sha512-By0CIuay0e7gszL68UUl7KxtgFJFZHM59t/PXisudzoHvOYDmUOU7JlfsFBNCg+KsHZOXltbjn0mksCaNiQ4ow==}
+  '@sentry/cli-linux-arm@2.42.1':
+    resolution: {integrity: sha512-3xR2B9v8e7NjB6U9+oMu2puR3xOv/Axd7qNuUrZxQnNZYtgtnAqIDgSmFTWHOOoged1+AZXe+xDWLN0Y11Q03Q==}
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux, freebsd]
 
-  '@sentry/cli-linux-i686@2.42.0':
-    resolution: {integrity: sha512-NBikNNDjKyHBrF/MAnBFVt8i37Go2U1t2IMfI44DKEz4J4YQhtnM1YpvQoKquVvMLabNt/K5ewnHP2Ux55fBcA==}
+  '@sentry/cli-linux-i686@2.42.1':
+    resolution: {integrity: sha512-YBz6prKqh1i0gzTg3Rus8ALQWmAk5Acap2U2dGuVYgTt7Bbu6SJbxNC9d8j3RUGu7ylupofUEMqKd391mTHf7g==}
     engines: {node: '>=10'}
     cpu: [x86, ia32]
     os: [linux, freebsd]
 
-  '@sentry/cli-linux-x64@2.42.0':
-    resolution: {integrity: sha512-tTQGSH80/ah/1T+3+U5k8oZLLgG8LxV+BLH1UwCrlXKD/M6mJaRRNsdK1GTCf1QXg0PR+Fybuq5XOi5Jzj1U2w==}
+  '@sentry/cli-linux-x64@2.42.1':
+    resolution: {integrity: sha512-Rvc6Jy3kLZrcyO7Ysy1gj0iQi0nGVUN79VqC3OO9JDV44aDtKBDYuBkeFKE3gd1SL8EvPetKH85en2u2wdWxYg==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux, freebsd]
 
-  '@sentry/cli-win32-i686@2.42.0':
-    resolution: {integrity: sha512-QuPRdMJRvVcqD9uWokzIoubAXnek9/3DElvoQ1AHI148iCQ4eJQ546pJZHO3jWyP8XZRahch3t0FIp8kbvoT4A==}
+  '@sentry/cli-win32-i686@2.42.1':
+    resolution: {integrity: sha512-FC8FE6dk+G83PCO09Ux/9NJNouF5yXKhpzLV5BZkqQye39hV9GDrFTu+VWTnwI1P77fnaJkPEEKRkjwNiPGjLA==}
     engines: {node: '>=10'}
     cpu: [x86, ia32]
     os: [win32]
 
-  '@sentry/cli-win32-x64@2.42.0':
-    resolution: {integrity: sha512-yiv8YXhf39qCgYznOfaxUc7g0nSgoO80DtF7MrA16GOSwmE7Hxfq2ZDf4YHE/0papS87BbA/G5+5PNCDm8M6pQ==}
+  '@sentry/cli-win32-x64@2.42.1':
+    resolution: {integrity: sha512-1595wD7JQSu5J9pA4m/B3WrjjIXltSV9VzuErehvanBvfusQ/YgBcvsNzgIf8aJsgSAYGbpR3Zqu81pjohdjgA==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
 
-  '@sentry/cli@2.42.0':
-    resolution: {integrity: sha512-coDL16iKjZFW6v6lrL+YyAKDoNB4+9WCoJ9+ZpRnHS+LAatqEQ4GaQb4ZSL5Ap86NJNO4YPnNz1QJxgqa5E/lg==}
+  '@sentry/cli@2.42.1':
+    resolution: {integrity: sha512-3fonGZoGwlze/iGYDdCJXpG5skXc6j/yYom+k6TqVvJJqSct1RgLJHjCw1P0IxHsR8pNz9f1H85OdLXKxrc6sw==}
     engines: {node: '>= 10'}
     hasBin: true
 
@@ -2634,81 +2630,81 @@ packages:
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
 
-  '@tailwindcss/node@4.0.6':
-    resolution: {integrity: sha512-jb6E0WeSq7OQbVYcIJ6LxnZTeC4HjMvbzFBMCrQff4R50HBlo/obmYNk6V2GCUXDeqiXtvtrQgcIbT+/boB03Q==}
+  '@tailwindcss/node@4.0.7':
+    resolution: {integrity: sha512-dkFXufkbRB2mu3FPsW5xLAUWJyexpJA+/VtQj18k3SUiJVLdpgzBd1v1gRRcIpEJj7K5KpxBKfOXlZxT3ZZRuA==}
 
-  '@tailwindcss/oxide-android-arm64@4.0.6':
-    resolution: {integrity: sha512-xDbym6bDPW3D2XqQqX3PjqW3CKGe1KXH7Fdkc60sX5ZLVUbzPkFeunQaoP+BuYlLc2cC1FoClrIRYnRzof9Sow==}
+  '@tailwindcss/oxide-android-arm64@4.0.7':
+    resolution: {integrity: sha512-5iQXXcAeOHBZy8ASfHFm1k0O/9wR2E3tKh6+P+ilZZbQiMgu+qrnfpBWYPc3FPuQdWiWb73069WT5D+CAfx/tg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
 
-  '@tailwindcss/oxide-darwin-arm64@4.0.6':
-    resolution: {integrity: sha512-1f71/ju/tvyGl5c2bDkchZHy8p8EK/tDHCxlpYJ1hGNvsYihZNurxVpZ0DefpN7cNc9RTT8DjrRoV8xXZKKRjg==}
+  '@tailwindcss/oxide-darwin-arm64@4.0.7':
+    resolution: {integrity: sha512-7yGZtEc5IgVYylqK/2B0yVqoofk4UAbkn1ygNpIJZyrOhbymsfr8uUFCueTu2fUxmAYIfMZ8waWo2dLg/NgLgg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@tailwindcss/oxide-darwin-x64@4.0.6':
-    resolution: {integrity: sha512-s/hg/ZPgxFIrGMb0kqyeaqZt505P891buUkSezmrDY6lxv2ixIELAlOcUVTkVh245SeaeEiUVUPiUN37cwoL2g==}
+  '@tailwindcss/oxide-darwin-x64@4.0.7':
+    resolution: {integrity: sha512-tPQDV20fBjb26yWbPqT1ZSoDChomMCiXTKn4jupMSoMCFyU7+OJvIY1ryjqBuY622dEBJ8LnCDDWsnj1lX9nNQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@tailwindcss/oxide-freebsd-x64@4.0.6':
-    resolution: {integrity: sha512-Z3Wo8FWZnmio8+xlcbb7JUo/hqRMSmhQw8IGIRoRJ7GmLR0C+25Wq+bEX/135xe/yEle2lFkhu9JBHd4wZYiig==}
+  '@tailwindcss/oxide-freebsd-x64@4.0.7':
+    resolution: {integrity: sha512-sZqJpTyTZiknU9LLHuByg5GKTW+u3FqM7q7myequAXxKOpAFiOfXpY710FuMY+gjzSapyRbDXJlsTQtCyiTo5w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [freebsd]
 
-  '@tailwindcss/oxide-linux-arm-gnueabihf@4.0.6':
-    resolution: {integrity: sha512-SNSwkkim1myAgmnbHs4EjXsPL7rQbVGtjcok5EaIzkHkCAVK9QBQsWeP2Jm2/JJhq4wdx8tZB9Y7psMzHYWCkA==}
+  '@tailwindcss/oxide-linux-arm-gnueabihf@4.0.7':
+    resolution: {integrity: sha512-PBgvULgeSswjd8cbZ91gdIcIDMdc3TUHV5XemEpxlqt9M8KoydJzkuB/Dt910jYdofOIaTWRL6adG9nJICvU4A==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@tailwindcss/oxide-linux-arm64-gnu@4.0.6':
-    resolution: {integrity: sha512-tJ+mevtSDMQhKlwCCuhsFEFg058kBiSy4TkoeBG921EfrHKmexOaCyFKYhVXy4JtkaeeOcjJnCLasEeqml4i+Q==}
+  '@tailwindcss/oxide-linux-arm64-gnu@4.0.7':
+    resolution: {integrity: sha512-By/a2yeh+e9b+C67F88ndSwVJl2A3tcUDb29FbedDi+DZ4Mr07Oqw9Y1DrDrtHIDhIZ3bmmiL1dkH2YxrtV+zw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@tailwindcss/oxide-linux-arm64-musl@4.0.6':
-    resolution: {integrity: sha512-IoArz1vfuTR4rALXMUXI/GWWfx2EaO4gFNtBNkDNOYhlTD4NVEwE45nbBoojYiTulajI4c2XH8UmVEVJTOJKxA==}
+  '@tailwindcss/oxide-linux-arm64-musl@4.0.7':
+    resolution: {integrity: sha512-WHYs3cpPEJb/ccyT20NOzopYQkl7JKncNBUbb77YFlwlXMVJLLV3nrXQKhr7DmZxz2ZXqjyUwsj2rdzd9stYdw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@tailwindcss/oxide-linux-x64-gnu@4.0.6':
-    resolution: {integrity: sha512-QtsUfLkEAeWAC3Owx9Kg+7JdzE+k9drPhwTAXbXugYB9RZUnEWWx5x3q/au6TvUYcL+n0RBqDEO2gucZRvRFgQ==}
+  '@tailwindcss/oxide-linux-x64-gnu@4.0.7':
+    resolution: {integrity: sha512-7bP1UyuX9kFxbOwkeIJhBZNevKYPXB6xZI37v09fqi6rqRJR8elybwjMUHm54GVP+UTtJ14ueB1K54Dy1tIO6w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@tailwindcss/oxide-linux-x64-musl@4.0.6':
-    resolution: {integrity: sha512-QthvJqIji2KlGNwLcK/PPYo7w1Wsi/8NK0wAtRGbv4eOPdZHkQ9KUk+oCoP20oPO7i2a6X1aBAFQEL7i08nNMA==}
+  '@tailwindcss/oxide-linux-x64-musl@4.0.7':
+    resolution: {integrity: sha512-gBQIV8nL/LuhARNGeroqzXymMzzW5wQzqlteVqOVoqwEfpHOP3GMird5pGFbnpY+NP0fOlsZGrxxOPQ4W/84bQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@tailwindcss/oxide-win32-arm64-msvc@4.0.6':
-    resolution: {integrity: sha512-+oka+dYX8jy9iP00DJ9Y100XsqvbqR5s0yfMZJuPR1H/lDVtDfsZiSix1UFBQ3X1HWxoEEl6iXNJHWd56TocVw==}
+  '@tailwindcss/oxide-win32-arm64-msvc@4.0.7':
+    resolution: {integrity: sha512-aH530NFfx0kpQpvYMfWoeG03zGnRCMVlQG8do/5XeahYydz+6SIBxA1tl/cyITSJyWZHyVt6GVNkXeAD30v0Xg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@tailwindcss/oxide-win32-x64-msvc@4.0.6':
-    resolution: {integrity: sha512-+o+juAkik4p8Ue/0LiflQXPmVatl6Av3LEZXpBTfg4qkMIbZdhCGWFzHdt2NjoMiLOJCFDddoV6GYaimvK1Olw==}
+  '@tailwindcss/oxide-win32-x64-msvc@4.0.7':
+    resolution: {integrity: sha512-8Cva6bbJN7ZJx320k7vxGGdU0ewmpfS5A4PudyzUuofdi8MgeINuiiWiPQ0VZCda/GX88K6qp+6UpDZNVr8HMQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
 
-  '@tailwindcss/oxide@4.0.6':
-    resolution: {integrity: sha512-lVyKV2y58UE9CeKVcYykULe9QaE1dtKdxDEdrTPIdbzRgBk6bdxHNAoDqvcqXbIGXubn3VOl1O/CFF77v/EqSA==}
+  '@tailwindcss/oxide@4.0.7':
+    resolution: {integrity: sha512-yr6w5YMgjy+B+zkJiJtIYGXW+HNYOPfRPtSs+aqLnKwdEzNrGv4ZuJh9hYJ3mcA+HMq/K1rtFV+KsEr65S558g==}
     engines: {node: '>= 10'}
 
-  '@tailwindcss/postcss@4.0.6':
-    resolution: {integrity: sha512-noTaGPHjGCXTCc487TWnfAEN0VMjqDAecssWDOsfxV2hFrcZR0AHthX7IdY/0xHTg/EtpmIPdssddlZ5/B7JnQ==}
+  '@tailwindcss/postcss@4.0.7':
+    resolution: {integrity: sha512-zXcKs1uGssVDlnsQ+iwrkul5GPKvsXPynGCuk/eXLx3DVhHlQKMpA6tXN2oO28x2ki1xRBTfadKiHy2taVvp7g==}
 
   '@tufjs/canonical-json@2.0.0':
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
@@ -3067,8 +3063,8 @@ packages:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
 
-  apollo-angular@10.0.0:
-    resolution: {integrity: sha512-Aew8HzqtKii0WKZT+yO13yHTjY24VVVbffAaDBA8suWE91FtnPfvPilPjrCBcvrrtuMTAn49Zx6DDCPgXaElnw==}
+  apollo-angular@10.0.1:
+    resolution: {integrity: sha512-XzRKZa/e++GEqejf/qUlkPkBlQIAlWtDFwECpq6KRdISqV5cLSwuZWUzAmb2AFwrRy+3IFR1qSLDbKoS6PmI3Q==}
     engines: {node: '>=16'}
     peerDependencies:
       '@angular/core': ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -5917,8 +5913,8 @@ packages:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
+  postcss@8.5.3:
+    resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -6005,14 +6001,6 @@ packages:
   progress@2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
     engines: {node: '>=0.4.0'}
-
-  promise-inflight@1.0.1:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
 
   promise-retry@2.0.1:
     resolution: {integrity: sha512-y+WKFlBR8BGXnsNlIHFGPZmyDf3DFMoLhaflAnyZgV6rG6xu+JwesTo2Q9R6XwYmtmwAFCkAk3e35jEdoeh/3g==}
@@ -6682,8 +6670,8 @@ packages:
     resolution: {integrity: sha512-c7AfkZ9udatCuAy9RSfiGPpeOKKUAUK5e1cXadLOGUjasdxqYqAK0jTNkM/FSEyJ3a5Ra27j/tw/PS0qLmaF/A==}
     engines: {node: '>=18'}
 
-  tailwindcss@4.0.6:
-    resolution: {integrity: sha512-mysewHYJKaXgNOW6pp5xon/emCsfAMnO8WMaGKZZ35fomnR/T5gYnRg2/yRTTrtXiEl1tiVkeRt0eMO6HxEZqw==}
+  tailwindcss@4.0.7:
+    resolution: {integrity: sha512-yH5bPPyapavo7L+547h3c4jcBXcrKwybQRjwdEIVAd9iXRvy/3T1CC6XSQEgZtRySjKfqvo3Cc0ZF1DTheuIdA==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -7326,13 +7314,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(lightningcss@1.29.1)(tailwindcss@4.0.6)(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.4)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(sass@1.83.1)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)':
+  '@angular-devkit/build-angular@19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(lightningcss@1.29.1)(tailwindcss@4.0.7)(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.4)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(sass@1.83.1)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1901.7(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.1901.7(chokidar@4.0.3)(webpack-dev-server@5.2.0(webpack@5.97.1))(webpack@5.97.1(esbuild@0.24.2))
       '@angular-devkit/core': 19.1.7(chokidar@4.0.3)
-      '@angular/build': 19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(postcss@8.4.49)(tailwindcss@4.0.6)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
+      '@angular/build': 19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(postcss@8.4.49)(tailwindcss@4.0.7)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)
       '@angular/compiler-cli': 19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3)
       '@babel/core': 7.26.0
       '@babel/generator': 7.26.3
@@ -7388,7 +7376,7 @@ snapshots:
     optionalDependencies:
       esbuild: 0.24.2
       karma: 6.4.4
-      tailwindcss: 4.0.6
+      tailwindcss: 4.0.7
     transitivePeerDependencies:
       - '@angular/compiler'
       - '@rspack/core'
@@ -7507,7 +7495,7 @@ snapshots:
       '@angular/core': 19.1.6(rxjs@7.8.1)(zone.js@0.15.0)
       tslib: 2.8.1
 
-  '@angular/build@19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(postcss@8.4.49)(tailwindcss@4.0.6)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)':
+  '@angular/build@19.1.7(@angular/compiler-cli@19.1.6(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.1.6(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.13.4)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(postcss@8.4.49)(tailwindcss@4.0.7)(terser@5.37.0)(typescript@5.6.3)(yaml@2.7.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1901.7(chokidar@4.0.3)
@@ -7542,7 +7530,7 @@ snapshots:
       less: 4.2.1
       lmdb: 3.2.2
       postcss: 8.4.49
-      tailwindcss: 4.0.6
+      tailwindcss: 4.0.7
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -7586,7 +7574,6 @@ snapshots:
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
-      - bluebird
       - chokidar
       - supports-color
 
@@ -8766,12 +8753,12 @@ snapshots:
 
   '@discoveryjs/json-ext@0.6.3': {}
 
-  '@envelop/core@5.0.3':
+  '@envelop/core@5.1.0':
     dependencies:
-      '@envelop/types': 5.0.0
+      '@envelop/types': 5.1.0
       tslib: 2.8.1
 
-  '@envelop/types@5.0.0':
+  '@envelop/types@5.1.0':
     dependencies:
       tslib: 2.8.1
 
@@ -8865,10 +8852,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/core@0.10.0':
-    dependencies:
-      '@types/json-schema': 7.0.15
-
   '@eslint/core@0.11.0':
     dependencies:
       '@types/json-schema': 7.0.15
@@ -8891,9 +8874,9 @@ snapshots:
 
   '@eslint/object-schema@2.1.6': {}
 
-  '@eslint/plugin-kit@0.2.5':
+  '@eslint/plugin-kit@0.2.6':
     dependencies:
-      '@eslint/core': 0.10.0
+      '@eslint/core': 0.11.0
       levn: 0.4.1
 
   '@firebase/analytics-compat@0.2.17(@firebase/app-compat@0.2.50)(@firebase/app@0.11.1)':
@@ -9225,7 +9208,7 @@ snapshots:
       '@babel/generator': 7.26.9
       '@babel/template': 7.26.9
       '@babel/types': 7.26.9
-      '@graphql-codegen/client-preset': 4.6.2(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/client-preset': 4.6.3(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-codegen/core': 4.0.2(graphql@16.10.0)
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
       '@graphql-tools/apollo-engine-loader': 8.0.15(graphql@16.10.0)
@@ -9272,17 +9255,17 @@ snapshots:
       - uWebSockets.js
       - utf-8-validate
 
-  '@graphql-codegen/client-preset@4.6.2(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/client-preset@4.6.3(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@babel/helper-plugin-utils': 7.26.5
       '@babel/template': 7.26.9
       '@graphql-codegen/add': 5.0.3(graphql@16.10.0)
-      '@graphql-codegen/gql-tag-operations': 4.0.14(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/gql-tag-operations': 4.0.15(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
-      '@graphql-codegen/typed-document-node': 5.0.13(encoding@0.1.13)(graphql@16.10.0)
-      '@graphql-codegen/typescript': 4.1.3(encoding@0.1.13)(graphql@16.10.0)
-      '@graphql-codegen/typescript-operations': 4.4.1(encoding@0.1.13)(graphql@16.10.0)
-      '@graphql-codegen/visitor-plugin-common': 5.6.1(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/typed-document-node': 5.0.14(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/typescript': 4.1.4(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/typescript-operations': 4.5.0(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/visitor-plugin-common': 5.7.0(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-tools/documents': 1.0.1(graphql@16.10.0)
       '@graphql-tools/utils': 10.8.1(graphql@16.10.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
@@ -9299,10 +9282,10 @@ snapshots:
       graphql: 16.10.0
       tslib: 2.6.3
 
-  '@graphql-codegen/gql-tag-operations@4.0.14(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/gql-tag-operations@4.0.15(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
-      '@graphql-codegen/visitor-plugin-common': 5.6.1(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/visitor-plugin-common': 5.7.0(encoding@0.1.13)(graphql@16.10.0)
       '@graphql-tools/utils': 10.8.1(graphql@16.10.0)
       auto-bind: 4.0.0
       graphql: 16.10.0
@@ -9347,10 +9330,10 @@ snapshots:
       graphql: 16.10.0
       tslib: 2.6.3
 
-  '@graphql-codegen/typed-document-node@5.0.13(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/typed-document-node@5.0.14(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
-      '@graphql-codegen/visitor-plugin-common': 5.6.1(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/visitor-plugin-common': 5.7.0(encoding@0.1.13)(graphql@16.10.0)
       auto-bind: 4.0.0
       change-case-all: 1.0.15
       graphql: 16.10.0
@@ -9370,22 +9353,22 @@ snapshots:
       - encoding
       - supports-color
 
-  '@graphql-codegen/typescript-operations@4.4.1(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/typescript-operations@4.5.0(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
-      '@graphql-codegen/typescript': 4.1.3(encoding@0.1.13)(graphql@16.10.0)
-      '@graphql-codegen/visitor-plugin-common': 5.6.1(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/typescript': 4.1.4(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/visitor-plugin-common': 5.7.0(encoding@0.1.13)(graphql@16.10.0)
       auto-bind: 4.0.0
       graphql: 16.10.0
       tslib: 2.6.3
     transitivePeerDependencies:
       - encoding
 
-  '@graphql-codegen/typescript@4.1.3(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/typescript@4.1.4(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
       '@graphql-codegen/schema-ast': 4.1.0(graphql@16.10.0)
-      '@graphql-codegen/visitor-plugin-common': 5.6.1(encoding@0.1.13)(graphql@16.10.0)
+      '@graphql-codegen/visitor-plugin-common': 5.7.0(encoding@0.1.13)(graphql@16.10.0)
       auto-bind: 4.0.0
       graphql: 16.10.0
       tslib: 2.6.3
@@ -9409,7 +9392,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@graphql-codegen/visitor-plugin-common@5.6.1(encoding@0.1.13)(graphql@16.10.0)':
+  '@graphql-codegen/visitor-plugin-common@5.7.0(encoding@0.1.13)(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.0(graphql@16.10.0)
       '@graphql-tools/optimize': 2.0.0(graphql@16.10.0)
@@ -9454,7 +9437,7 @@ snapshots:
   '@graphql-tools/delegate@10.2.13(graphql@16.10.0)':
     dependencies:
       '@graphql-tools/batch-execute': 9.0.12(graphql@16.10.0)
-      '@graphql-tools/executor': 1.3.14(graphql@16.10.0)
+      '@graphql-tools/executor': 1.4.0(graphql@16.10.0)
       '@graphql-tools/schema': 10.0.18(graphql@16.10.0)
       '@graphql-tools/utils': 10.8.1(graphql@16.10.0)
       '@repeaterjs/repeater': 3.0.6
@@ -9471,7 +9454,7 @@ snapshots:
 
   '@graphql-tools/executor-common@0.0.2(graphql@16.10.0)':
     dependencies:
-      '@envelop/core': 5.0.3
+      '@envelop/core': 5.1.0
       '@graphql-tools/utils': 10.8.1(graphql@16.10.0)
       graphql: 16.10.0
 
@@ -9518,7 +9501,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@graphql-tools/executor@1.3.14(graphql@16.10.0)':
+  '@graphql-tools/executor@1.4.0(graphql@16.10.0)':
     dependencies:
       '@graphql-tools/utils': 10.8.1(graphql@16.10.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
@@ -10131,19 +10114,16 @@ snapshots:
     dependencies:
       semver: 7.6.3
 
-  '@npmcli/git@6.0.1':
+  '@npmcli/git@6.0.3':
     dependencies:
       '@npmcli/promise-spawn': 8.0.2
       ini: 5.0.0
       lru-cache: 10.4.3
       npm-pick-manifest: 10.0.0
       proc-log: 5.0.0
-      promise-inflight: 1.0.1
       promise-retry: 2.0.1
       semver: 7.6.3
       which: 5.0.0
-    transitivePeerDependencies:
-      - bluebird
 
   '@npmcli/installed-package-contents@3.0.0':
     dependencies:
@@ -10154,15 +10134,13 @@ snapshots:
 
   '@npmcli/package-json@6.1.1':
     dependencies:
-      '@npmcli/git': 6.0.1
+      '@npmcli/git': 6.0.3
       glob: 10.4.5
       hosted-git-info: 8.0.2
       json-parse-even-better-errors: 4.0.0
       proc-log: 5.0.0
       semver: 7.6.3
       validate-npm-package-license: 3.0.4
-    transitivePeerDependencies:
-      - bluebird
 
   '@npmcli/promise-spawn@8.0.2':
     dependencies:
@@ -10179,7 +10157,6 @@ snapshots:
       proc-log: 5.0.0
       which: 5.0.0
     transitivePeerDependencies:
-      - bluebird
       - supports-color
 
   '@parcel/watcher-android-arm64@2.5.1':
@@ -10372,28 +10349,28 @@ snapshots:
       '@sentry-internal/replay-canvas': 9.1.0
       '@sentry/core': 9.1.0
 
-  '@sentry/cli-darwin@2.42.0':
+  '@sentry/cli-darwin@2.42.1':
     optional: true
 
-  '@sentry/cli-linux-arm64@2.42.0':
+  '@sentry/cli-linux-arm64@2.42.1':
     optional: true
 
-  '@sentry/cli-linux-arm@2.42.0':
+  '@sentry/cli-linux-arm@2.42.1':
     optional: true
 
-  '@sentry/cli-linux-i686@2.42.0':
+  '@sentry/cli-linux-i686@2.42.1':
     optional: true
 
-  '@sentry/cli-linux-x64@2.42.0':
+  '@sentry/cli-linux-x64@2.42.1':
     optional: true
 
-  '@sentry/cli-win32-i686@2.42.0':
+  '@sentry/cli-win32-i686@2.42.1':
     optional: true
 
-  '@sentry/cli-win32-x64@2.42.0':
+  '@sentry/cli-win32-x64@2.42.1':
     optional: true
 
-  '@sentry/cli@2.42.0(encoding@0.1.13)':
+  '@sentry/cli@2.42.1(encoding@0.1.13)':
     dependencies:
       https-proxy-agent: 5.0.1
       node-fetch: 2.7.0(encoding@0.1.13)
@@ -10401,13 +10378,13 @@ snapshots:
       proxy-from-env: 1.1.0
       which: 2.0.2
     optionalDependencies:
-      '@sentry/cli-darwin': 2.42.0
-      '@sentry/cli-linux-arm': 2.42.0
-      '@sentry/cli-linux-arm64': 2.42.0
-      '@sentry/cli-linux-i686': 2.42.0
-      '@sentry/cli-linux-x64': 2.42.0
-      '@sentry/cli-win32-i686': 2.42.0
-      '@sentry/cli-win32-x64': 2.42.0
+      '@sentry/cli-darwin': 2.42.1
+      '@sentry/cli-linux-arm': 2.42.1
+      '@sentry/cli-linux-arm64': 2.42.1
+      '@sentry/cli-linux-i686': 2.42.1
+      '@sentry/cli-linux-x64': 2.42.1
+      '@sentry/cli-win32-i686': 2.42.1
+      '@sentry/cli-win32-x64': 2.42.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10451,67 +10428,67 @@ snapshots:
   '@socket.io/component-emitter@3.1.2':
     optional: true
 
-  '@tailwindcss/node@4.0.6':
+  '@tailwindcss/node@4.0.7':
     dependencies:
       enhanced-resolve: 5.18.1
       jiti: 2.4.2
-      tailwindcss: 4.0.6
+      tailwindcss: 4.0.7
 
-  '@tailwindcss/oxide-android-arm64@4.0.6':
+  '@tailwindcss/oxide-android-arm64@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-darwin-arm64@4.0.6':
+  '@tailwindcss/oxide-darwin-arm64@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-darwin-x64@4.0.6':
+  '@tailwindcss/oxide-darwin-x64@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-freebsd-x64@4.0.6':
+  '@tailwindcss/oxide-freebsd-x64@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-linux-arm-gnueabihf@4.0.6':
+  '@tailwindcss/oxide-linux-arm-gnueabihf@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-linux-arm64-gnu@4.0.6':
+  '@tailwindcss/oxide-linux-arm64-gnu@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-linux-arm64-musl@4.0.6':
+  '@tailwindcss/oxide-linux-arm64-musl@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-linux-x64-gnu@4.0.6':
+  '@tailwindcss/oxide-linux-x64-gnu@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-linux-x64-musl@4.0.6':
+  '@tailwindcss/oxide-linux-x64-musl@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-win32-arm64-msvc@4.0.6':
+  '@tailwindcss/oxide-win32-arm64-msvc@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide-win32-x64-msvc@4.0.6':
+  '@tailwindcss/oxide-win32-x64-msvc@4.0.7':
     optional: true
 
-  '@tailwindcss/oxide@4.0.6':
+  '@tailwindcss/oxide@4.0.7':
     optionalDependencies:
-      '@tailwindcss/oxide-android-arm64': 4.0.6
-      '@tailwindcss/oxide-darwin-arm64': 4.0.6
-      '@tailwindcss/oxide-darwin-x64': 4.0.6
-      '@tailwindcss/oxide-freebsd-x64': 4.0.6
-      '@tailwindcss/oxide-linux-arm-gnueabihf': 4.0.6
-      '@tailwindcss/oxide-linux-arm64-gnu': 4.0.6
-      '@tailwindcss/oxide-linux-arm64-musl': 4.0.6
-      '@tailwindcss/oxide-linux-x64-gnu': 4.0.6
-      '@tailwindcss/oxide-linux-x64-musl': 4.0.6
-      '@tailwindcss/oxide-win32-arm64-msvc': 4.0.6
-      '@tailwindcss/oxide-win32-x64-msvc': 4.0.6
+      '@tailwindcss/oxide-android-arm64': 4.0.7
+      '@tailwindcss/oxide-darwin-arm64': 4.0.7
+      '@tailwindcss/oxide-darwin-x64': 4.0.7
+      '@tailwindcss/oxide-freebsd-x64': 4.0.7
+      '@tailwindcss/oxide-linux-arm-gnueabihf': 4.0.7
+      '@tailwindcss/oxide-linux-arm64-gnu': 4.0.7
+      '@tailwindcss/oxide-linux-arm64-musl': 4.0.7
+      '@tailwindcss/oxide-linux-x64-gnu': 4.0.7
+      '@tailwindcss/oxide-linux-x64-musl': 4.0.7
+      '@tailwindcss/oxide-win32-arm64-msvc': 4.0.7
+      '@tailwindcss/oxide-win32-x64-msvc': 4.0.7
 
-  '@tailwindcss/postcss@4.0.6':
+  '@tailwindcss/postcss@4.0.7':
     dependencies:
       '@alloc/quick-lru': 5.2.0
-      '@tailwindcss/node': 4.0.6
-      '@tailwindcss/oxide': 4.0.6
+      '@tailwindcss/node': 4.0.7
+      '@tailwindcss/oxide': 4.0.7
       lightningcss: 1.29.1
-      postcss: 8.5.2
-      tailwindcss: 4.0.6
+      postcss: 8.5.3
+      tailwindcss: 4.0.7
 
   '@tufjs/canonical-json@2.0.0': {}
 
@@ -10959,7 +10936,7 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  apollo-angular@10.0.0(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@apollo/client@3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0))(graphql@16.10.0)(rxjs@7.8.1):
+  apollo-angular@10.0.1(@angular/core@19.1.6(rxjs@7.8.1)(zone.js@0.15.0))(@apollo/client@3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0))(graphql@16.10.0)(rxjs@7.8.1):
     dependencies:
       '@angular/core': 19.1.6(rxjs@7.8.1)(zone.js@0.15.0)
       '@apollo/client': 3.13.1(graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.0))(graphql@16.10.0)
@@ -11036,14 +11013,14 @@ snapshots:
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
 
-  autoprefixer@10.4.20(postcss@8.5.2):
+  autoprefixer@10.4.20(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001700
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -11135,7 +11112,7 @@ snapshots:
       domhandler: 5.0.3
       htmlparser2: 9.1.0
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-media-query-parser: 0.2.3
 
   big.js@5.2.2: {}
@@ -11693,12 +11670,12 @@ snapshots:
 
   css-loader@7.1.2(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.2)
-      postcss: 8.5.2
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.2)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.2)
-      postcss-modules-scope: 3.2.1(postcss@8.5.2)
-      postcss-modules-values: 4.0.0(postcss@8.5.2)
+      icss-utils: 5.1.0(postcss@8.5.3)
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
       postcss-value-parser: 4.2.0
       semver: 7.6.3
     optionalDependencies:
@@ -12157,7 +12134,7 @@ snapshots:
       '@eslint/core': 0.11.0
       '@eslint/eslintrc': 3.2.0
       '@eslint/js': 9.20.0
-      '@eslint/plugin-kit': 0.2.5
+      '@eslint/plugin-kit': 0.2.6
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.1
@@ -12832,9 +12809,9 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  icss-utils@5.1.0(postcss@8.5.2):
+  icss-utils@5.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
   idb@7.1.1: {}
 
@@ -14027,7 +14004,7 @@ snapshots:
 
   pacote@20.0.0:
     dependencies:
-      '@npmcli/git': 6.0.1
+      '@npmcli/git': 6.0.3
       '@npmcli/installed-package-contents': 3.0.0
       '@npmcli/package-json': 6.1.1
       '@npmcli/promise-spawn': 8.0.2
@@ -14045,7 +14022,6 @@ snapshots:
       ssri: 12.0.0
       tar: 6.2.1
     transitivePeerDependencies:
-      - bluebird
       - supports-color
 
   param-case@3.0.4:
@@ -14180,26 +14156,26 @@ snapshots:
 
   postcss-media-query-parser@0.2.3: {}
 
-  postcss-modules-extract-imports@3.1.0(postcss@8.5.2):
+  postcss-modules-extract-imports@3.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-modules-local-by-default@4.2.0(postcss@8.5.2):
+  postcss-modules-local-by-default@4.2.0(postcss@8.5.3):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.2)
-      postcss: 8.5.2
+      icss-utils: 5.1.0(postcss@8.5.3)
+      postcss: 8.5.3
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
 
-  postcss-modules-scope@3.2.1(postcss@8.5.2):
+  postcss-modules-scope@3.2.1(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 7.1.0
 
-  postcss-modules-values@4.0.0(postcss@8.5.2):
+  postcss-modules-values@4.0.0(postcss@8.5.3):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.2)
-      postcss: 8.5.2
+      icss-utils: 5.1.0(postcss@8.5.3)
+      postcss: 8.5.3
 
   postcss-selector-parser@7.1.0:
     dependencies:
@@ -14214,7 +14190,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.2:
+  postcss@8.5.3:
     dependencies:
       nanoid: 3.3.8
       picocolors: 1.1.1
@@ -14241,8 +14217,6 @@ snapshots:
   process-nextick-args@2.0.1: {}
 
   progress@2.0.3: {}
-
-  promise-inflight@1.0.1: {}
 
   promise-retry@2.0.1:
     dependencies:
@@ -14475,7 +14449,7 @@ snapshots:
       adjust-sourcemap-loader: 4.0.0
       convert-source-map: 1.9.0
       loader-utils: 2.0.4
-      postcss: 8.5.2
+      postcss: 8.5.3
       source-map: 0.6.1
 
   resolve@1.22.10:
@@ -15047,7 +15021,7 @@ snapshots:
       timeout-signal: 2.0.0
       whatwg-mimetype: 4.0.0
 
-  tailwindcss@4.0.6: {}
+  tailwindcss@4.0.7: {}
 
   tapable@2.2.1: {}
 
@@ -15332,7 +15306,7 @@ snapshots:
   vite@6.0.11(@types/node@22.13.4)(jiti@2.4.2)(less@4.2.1)(lightningcss@1.29.1)(sass@1.83.1)(terser@5.37.0)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
-      postcss: 8.5.2
+      postcss: 8.5.3
       rollup: 4.30.1
     optionalDependencies:
       '@types/node': 22.13.4
