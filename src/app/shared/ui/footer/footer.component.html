@@ -1,4 +1,5 @@
-<footer class="footer bg-base-200 text-neutral-content mt-4 items-center p-4">
+<footer
+  class="footer bg-base-200 text-neutral-content mt-4 p-4 lg:grid-flow-col">
   <aside class="hidden lg:flex lg:grid-flow-col lg:items-center">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,21 +18,23 @@
     <p class="yanone-kaffeesatz-400 text-xl">previewly</p>
   </aside>
 
-  <nav class="grid grid-flow-col gap-4">
+  <nav>
+    <h6 class="footer-title">Legal</h6>
+
     <a class="link-hover link" href="/terms">Terms of Service</a>
     <a class="link-hover link" href="/privacy">Privacy Policy</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Support</h6>
+
     <a class="link-hover link" href="https://ko-fi.com/previewly">Donate</a>
   </nav>
 
-  <nav class="grid-flow-col gap-4 justify-self-end">
-    <div class="flex flex-row items-center">
-      <p>create an issue on</p>
-      <a
-        class="btn btn-circle btn-neutral hover:btn-primary ms-4"
-        href="https://github.com/previewly/previewly-frontend"
-        target="_blank">
-        <ng-icon name="phosphorGithubLogo" size="28" />
-      </a>
-    </div>
+  <nav class="grid-flow-col content-center gap-4 lg:justify-self-end">
+    <a
+      href="https://github.com/previewly/previewly-frontend/issues"
+      class="btn btn-secondary">
+      <ng-icon name="phosphorGithubLogo" size="28" />create an issue
+    </a>
   </nav>
 </footer>
