@@ -1,3 +1,9 @@
 import { Loadable } from '../../../app.types';
 
-export type SharedState = Loadable;
+export enum CookieCategory {
+  NECESSARY = 'necessary',
+  ANALYTICS = 'analytics',
+}
+export type SharedState = Loadable & {
+  cookie: CookieCategory[];
+};

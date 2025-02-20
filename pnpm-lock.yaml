@@ -86,6 +86,9 @@ importers:
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
+      vanilla-cookieconsent:
+        specifier: ^3.1.0
+        version: 3.1.0
       zone.js:
         specifier: ~0.15.0
         version: 0.15.0
@@ -6982,6 +6985,9 @@ packages:
   value-or-promise@1.0.12:
     resolution: {integrity: sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==}
     engines: {node: '>=12'}
+
+  vanilla-cookieconsent@3.1.0:
+    resolution: {integrity: sha512-/McNRtm/3IXzb9dhqMIcbquoU45SzbN2VB+To4jxEPqMmp7uVniP6BhGLjU8MC7ZCDsNQVOp27fhQTM/ruIXAA==}
 
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -15300,6 +15306,8 @@ snapshots:
   validate-npm-package-name@6.0.0: {}
 
   value-or-promise@1.0.12: {}
+
+  vanilla-cookieconsent@3.1.0: {}
 
   vary@1.1.2: {}
 

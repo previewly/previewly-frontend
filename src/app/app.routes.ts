@@ -23,6 +23,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'cookie-policy',
+    loadComponent: () =>
+      import('./features/static-page/cookie-page/cookie-page.component').then(
+        p => p.CookiePageComponent
+      ),
+  },
+  {
     path: 'upload',
     loadComponent: () =>
       import('./features/upload-page/upload-page.component').then(
