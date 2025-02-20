@@ -1,6 +1,9 @@
-import { createActionGroup } from '@ngrx/store';
+import { createActionGroup, props } from '@ngrx/store';
+import { CookieValue } from 'vanilla-cookieconsent';
 
 export const SharedActions = createActionGroup({
   source: 'shared',
-  events: {},
+  events: {
+    'Dispatch cookie consent': props<{ cookie: CookieValue }>(),
+  },
 });
