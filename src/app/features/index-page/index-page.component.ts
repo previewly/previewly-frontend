@@ -8,6 +8,7 @@ import { CodeContainerComponent } from '../../code-container/code-container.comp
 import { InputUrlComponent } from '../../input-url/input-url.component';
 import { sharedFeature } from '../../shared/store/shared/shared.reducers';
 import { SharedPreviewContainerComponent } from '../../shared/ui/preview-container/preview-container.component';
+import { ViewPreviewItem } from '../preview/preview-item/preview-item.types';
 import { PreviewActions } from '../preview/store/preview.actions';
 import { previewFeature } from '../preview/store/preview.reducers';
 
@@ -52,5 +53,13 @@ export class IndexPageComponent {
 
   addUrl(url: string) {
     this.store.dispatch(PreviewActions.addNewUrl({ url }));
+  }
+
+  removePreview(preview: ViewPreviewItem) {
+    if (preview.data?.url) {
+      this.store.dispatch(
+        PreviewActions.removePreview({ url: preview.data.url })
+      );
+    }
   }
 }

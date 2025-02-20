@@ -1,10 +1,14 @@
 <div
-  tabindex="1"
-  class="bg-base-100 animate__animated animate__pulse relative h-52 w-96 rounded-xl shadow-xl"
+  class="bg-base-100 animate__animated relative h-52 w-96 rounded-xl shadow-xl"
   [class.cursor-pointer]="preview().status === 'success'"
-  (keyup)="keyUp($event)"
-  (click)="click()">
-  <div class="bg-base-200 grid h-full w-full place-items-center rounded-xl">
+  (animationend)="animationEnd()"
+  [class.animate__fadeOut]="shouldRemove()"
+  [class.animate__fadeIn]="!shouldRemove()">
+  <div
+    tabindex="0"
+    class="bg-base-200 grid h-full w-full place-items-center rounded-xl"
+    (keyup.enter)="click()"
+    (click)="click()">
     @switch (preview().status) {
       @case ('loading') {
         <span class="loading loading-spinner loading-lg text-primary"></span>
@@ -37,5 +41,14 @@
     @if (preview().data?.shortUrl) {
       <h2 class="text-sm">{{ preview().data?.shortUrl }}</h2>
     }
+  </div>
+  <div class="absolute right-2 bottom-2 z-10">
+    <a
+      tabindex="1"
+      (click)="removeClick()"
+      (keyup.enter)="removeClick()"
+      class="btn btn-ghost btn-circle hover:btn-warning">
+      <ng-icon name="phosphorTrashSimpleDuotone" size="24"></ng-icon>
+    </a>
   </div>
 </div>
