@@ -41,7 +41,10 @@ const metaReducers = [
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   (reducer: ActionReducer<any, any>) =>
     localStorageSync({
-      keys: [{ [sharedFeature.name]: ['cookie'] }],
+      keys: [
+        { [sharedFeature.name]: ['cookie'] },
+        { [previewFeature.name]: ['previews'] },
+      ],
       rehydrate: true,
     })(reducer),
 ];

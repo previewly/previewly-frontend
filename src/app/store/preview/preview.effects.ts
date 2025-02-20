@@ -1,10 +1,5 @@
 import { inject } from '@angular/core';
-import {
-  Actions,
-  createEffect,
-  ofType,
-  ROOT_EFFECTS_INIT,
-} from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
 import {
@@ -14,13 +9,11 @@ import {
   map,
   of,
   switchMap,
-  tap,
   toArray,
 } from 'rxjs';
 
 import { ApiClient } from '../../api/graphql';
-import { StoreDispatchEffect, StoreUnDispatchEffect } from '../../app.types';
-import { StoragePreviewService } from '../../service/storage-preview.service';
+import { StoreDispatchEffect } from '../../app.types';
 import { sharedFeature } from '../../shared/store/shared/shared.reducers';
 import { PreviewActions } from './preview.actions';
 import { PreviewItem } from './preview.types';
@@ -70,35 +63,6 @@ const addUrl = (
     )
   );
 
-const addUrlToStorage = (
-  actions$ = inject(Actions),
-  storage = inject(StoragePreviewService)
-) =>
-  actions$.pipe(
-    ofType(PreviewActions.successAddNewUrl),
-    tap(({ urls }) => urls.forEach(url => storage.addUrl(url.url.toString())))
-  );
-
-const addUrlsFromLocalStorage = (
-  actions$ = inject(Actions),
-  storage = inject(StoragePreviewService)
-) =>
-  actions$.pipe(
-    ofType(ROOT_EFFECTS_INIT),
-    map(() =>
-      PreviewActions.addUrlsFromLocalStorage({
-        urls: Object.keys(storage.readState().urls)
-          .map(url => ({
-            url: url,
-            status: 'pending',
-            updateAttempts: 1,
-            data: null,
-            error: null,
-          }))
-          .reverse(),
-      })
-    )
-  );
 const updatePreviews = (
   actions$ = inject(Actions),
   store = inject(Store),
@@ -165,11 +129,5 @@ const updatePreviews = (
 };
 export const previewEffects = {
   addUrl: createEffect(addUrl, StoreDispatchEffect),
-  addUrlToStorage: createEffect(addUrlToStorage, StoreUnDispatchEffect),
-  addUrlsFromLocalStorage: createEffect(
-    addUrlsFromLocalStorage,
-    StoreDispatchEffect
-  ),
-
   updatePreviews: createEffect(updatePreviews, StoreDispatchEffect),
 };
