@@ -8,7 +8,8 @@ import {
   signal,
 } from '@angular/core';
 
-import { TitleComponent } from '../shared/ui/content/title/title.component';
+import { TitleComponent } from '../../../shared/ui/content/title/title.component';
+import { SharedLoaderComponent } from '../../../shared/ui/tools/loader/loader.component';
 import { ApiUrlService } from './api-url.service';
 import { GqlContentComponent } from './gql-content/gql-content.component';
 import { RestContentComponent } from './rest-content/rest-content.component';
@@ -23,6 +24,7 @@ import { RestContentComponent } from './rest-content/rest-content.component';
     TitleComponent,
     GqlContentComponent,
     RestContentComponent,
+    SharedLoaderComponent,
   ],
 })
 export class CodeContainerComponent {
@@ -36,10 +38,6 @@ export class CodeContainerComponent {
     const token = this.token();
     return token ? this.apiUrlService.createApiImageUrl(token) : undefined;
   });
-
   restUrl = computed(() => this.apiUrlService.createApiJsonUrl());
-
-  gqlUrl = computed(() => {
-    return this.apiUrlService.createApiGqlUrl();
-  });
+  gqlUrl = computed(() => this.apiUrlService.createApiGqlUrl());
 }
