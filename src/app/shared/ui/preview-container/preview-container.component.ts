@@ -10,24 +10,23 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
-import { SubTitleComponent } from '../shared/ui/content/title/sub-title.component';
-import { PreviewItem } from '../store/preview/preview.types';
 import {
   ModalComponent,
   ModalEventInput,
   ModalEventOutput,
-} from './modal/modal.component';
-import { PreviewItemComponent } from './preview-item/preview-item.component';
+} from '../../../features/preview/modal/modal.component';
+import { PreviewItemComponent } from '../../../features/preview/preview-item/preview-item.component';
 import {
-  createDumpPreviewItem,
   createErrorPreviewItem,
   createLoadedPreviewItem,
   ViewPreviewData,
   ViewPreviewItem,
-} from './preview-item/preview-item.types';
+} from '../../../features/preview/preview-item/preview-item.types';
+import { PreviewItem } from '../../../features/preview/store/preview.types';
+import { SubTitleComponent } from '../content/title/sub-title.component';
 
 @Component({
-  selector: 'app-preview-container',
+  selector: 'app-shared-preview-container',
   standalone: true,
   templateUrl: './preview-container.component.html',
   styleUrls: ['./preview-container.component.scss'],
@@ -41,37 +40,35 @@ import {
   ],
   viewProviders: [provideIcons({ phosphorArrowCircleDownDuotone })],
 })
-export class PreviewContainerComponent {
+export class SharedPreviewContainerComponent {
   token = input.required<string | undefined>();
   previews = input.required<PreviewItem[]>();
 
   views: Signal<ViewPreviewItem[]> = computed(() =>
-    this.previews().length > 0
-      ? this.previews()
-          .map((preview): ViewPreviewItem => {
-            switch (preview.status) {
-              case 'pending':
-                return createLoadedPreviewItem(this.createData(preview));
-              case 'error':
-                return createErrorPreviewItem(
-                  preview.error || undefined,
-                  this.createData(preview)
-                );
-              case 'success':
-                return {
-                  status: 'success',
-                  error: undefined,
-                  data: this.createData(preview),
-                };
-              default:
-                return createErrorPreviewItem(
-                  'something went wrong',
-                  this.createData(preview)
-                );
-            }
-          })
-          .reverse()
-      : this.createDumpPreviews()
+    this.previews()
+      .map((preview): ViewPreviewItem => {
+        switch (preview.status) {
+          case 'pending':
+            return createLoadedPreviewItem(this.createData(preview));
+          case 'error':
+            return createErrorPreviewItem(
+              preview.error || undefined,
+              this.createData(preview)
+            );
+          case 'success':
+            return {
+              status: 'success',
+              error: undefined,
+              data: this.createData(preview),
+            };
+          default:
+            return createErrorPreviewItem(
+              'something went wrong',
+              this.createData(preview)
+            );
+        }
+      })
+      .reverse()
   );
 
   modalInEvent = signal<ModalEventInput>(ModalEventInput.close);
@@ -104,13 +101,5 @@ export class PreviewContainerComponent {
       previewAltTitle: preview.data?.title || preview.url.toString(),
       title: preview.data?.title,
     };
-  }
-
-  private createDumpPreviews(): ViewPreviewItem[] {
-    return [
-      createDumpPreviewItem(),
-      createDumpPreviewItem(),
-      createDumpPreviewItem(),
-    ];
   }
 }

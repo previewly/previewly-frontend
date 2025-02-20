@@ -1,6 +1,6 @@
-<div class="mt-16 mb-8 flex px-4">
+<div class="mt-16 flex px-4">
   <app-share-content-sub-title class="text-warning flex-auto">
-    and will get a site screenshot here!
+    and will get a site screenshot!
   </app-share-content-sub-title>
   <div class="flex-none">
     <a href="https://ko-fi.com/P5P218535A" target="_blank">
@@ -14,18 +14,18 @@
   </div>
 </div>
 
-<div class="lg:mx-4">
-  <div
-    class="carousel carousel-center bg-neutral w-full gap-4 p-4 lg:rounded-xl">
-    @if (views().length > 0 && token()) {
+@if (views().length > 0 && token()) {
+  <div class="lg:mx-4">
+    <div
+      class="carousel carousel-center bg-neutral w-full gap-4 p-4 lg:rounded-xl">
       @for (view of views(); track $index) {
         <app-preview-item
           [preview]="view"
           (openStat)="openStat(view)"></app-preview-item>
       }
-    }
+    </div>
   </div>
-</div>
+}
 
 <app-modal
   [emitEvent]="modalInEvent()"

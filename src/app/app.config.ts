@@ -22,12 +22,12 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
+import { previewEffects } from './features/preview/store/preview.effects';
+import { previewFeature } from './features/preview/store/preview.reducers';
 import { tokenEffects } from './features/token/store/token.effects';
 import { tokenFeature } from './features/token/store/token.reducers';
 import { sharedEffects } from './shared/store/shared/shared.effects';
 import { sharedFeature } from './shared/store/shared/shared.reducers';
-import { previewEffects } from './store/preview/preview.effects';
-import { previewFeature } from './store/preview/preview.reducers';
 import { uploadEffects } from './store/upload/upload.effects';
 import { uploadFeature } from './store/upload/upload.reducers';
 

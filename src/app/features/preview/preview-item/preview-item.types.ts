@@ -19,12 +19,6 @@ export interface ViewPreviewItem {
   data: ViewPreviewData | undefined;
 }
 
-export const createDumpPreviewItem = (): ViewPreviewItem => ({
-  status: 'dump',
-  error: undefined,
-  data: undefined,
-});
-
 export const createLoadedPreviewItem = (
   data?: ViewPreviewData | undefined
 ): ViewPreviewItem => {
