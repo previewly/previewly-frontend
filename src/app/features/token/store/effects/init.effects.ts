@@ -10,23 +10,23 @@ import {
   StoreDispatchEffect,
   StoreUnDispatchEffect,
 } from '../../../../app.types';
-import { StoragePreviewService } from '../../../../service/storage-preview.service';
 import { TokenService } from '../../token.service';
+import { TokenStorageService } from '../../tokenStorage.service';
 import { TokenActions } from '../token.actions';
 
 export const initEffect = {
   initEffects: createEffect(
     (
       actions$ = inject(Actions),
-      storageService = inject(StoragePreviewService),
-      tokenService = inject(TokenService)
+      tokenService = inject(TokenService),
+      tokenStorageService = inject(TokenStorageService)
     ) => {
       return actions$.pipe(
         ofType(ROOT_EFFECTS_INIT),
-        map(() => storageService.readState()),
-        exhaustMap(state =>
-          state.token && state.token !== ''
-            ? tokenService.verify(state.token)
+        map(() => tokenStorageService.getToken()),
+        exhaustMap(token =>
+          token && token !== ''
+            ? tokenService.verify(token)
             : tokenService.create()
         ),
         map(token => TokenActions.setToken({ token })),
@@ -39,11 +39,11 @@ export const initEffect = {
   saveTokenToLocalStorage: createEffect(
     (
       actions$ = inject(Actions),
-      storageService = inject(StoragePreviewService)
+      tokenStorageService = inject(TokenStorageService)
     ) => {
       return actions$.pipe(
         ofType(TokenActions.setToken),
-        tap(({ token }) => storageService.saveToken(token))
+        tap(({ token }) => tokenStorageService.saveToken(token))
       );
     },
     StoreUnDispatchEffect
