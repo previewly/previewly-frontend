@@ -6,23 +6,16 @@ import { LocalStorageState, Urls } from './storage-preview.types';
   providedIn: 'root',
 })
 export class StoragePreviewService {
-  private readonly tokenKey = 'previewToken';
   private readonly urlsKey = 'previewUrls';
 
-  initState(token: string) {
-    this.saveToken(token);
+  initState() {
     this.saveUrls({});
   }
 
   readState(): LocalStorageState {
     return {
-      token: localStorage.getItem(this.tokenKey) || undefined,
       urls: this.getStorageUrls() || {},
     };
-  }
-
-  saveToken(token: string) {
-    localStorage.setItem(this.tokenKey, token);
   }
 
   addUrl(url: string) {

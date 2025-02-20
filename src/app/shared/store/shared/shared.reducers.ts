@@ -34,8 +34,9 @@ export const sharedFeature = createFeature({
         .filter(Boolean) as CookieCategory[],
     }))
   ),
-  extraSelectors: ({ selectIsLoading }) => ({
+  extraSelectors: ({ selectIsLoading, selectCookie }) => ({
     isLoading: createSelector(selectIsLoading, isLoading => isLoading),
     selectToken: createSelector(tokenFeature.selectToken, token => token),
+    canUseCookies: createSelector(selectCookie, cookie => cookie.length > 0),
   }),
 });
