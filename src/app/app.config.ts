@@ -21,6 +21,8 @@ import { TraceService } from '@sentry/angular';
 import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
+import { sharedEffects } from './shared/store/shared/shared.effects';
+import { sharedFeature } from './shared/store/shared/shared.reducers';
 import { previewEffects } from './store/preview/preview.effects';
 import { previewFeature } from './store/preview/preview.reducers';
 import { uploadEffects } from './store/upload/upload.effects';
@@ -40,10 +42,11 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore({
+      [sharedFeature.name]: sharedFeature.reducer,
       [previewFeature.name]: previewFeature.reducer,
       [uploadFeature.name]: uploadFeature.reducer,
     }),
-    provideEffects([previewEffects, uploadEffects]),
+    provideEffects([sharedEffects, previewEffects, uploadEffects]),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
