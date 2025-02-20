@@ -4,8 +4,7 @@
 
 @plugin "daisyui" {
   themes:
-    nord --default,
-    night --prefersdark;
+    /* nord --default, */ night --default --prefersdark;
 }
 
 .default-font-regular {
