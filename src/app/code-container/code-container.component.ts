@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import { ApiUrlService } from '../service/api-url.service';
-import { TitleComponent } from '../share/content/title/title.component';
+import { TitleComponent } from '../shared/ui/content/title/title.component';
 import { GqlContentComponent } from './gql-content/gql-content.component';
 import { RestContentComponent } from './rest-content/rest-content.component';
 

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   standalone: true,
   selector: 'app-terms-page',
   templateUrl: './terms-page.component.html',
-  styleUrls: ['./terms-page.component.scss'],
+  styleUrls: ['../static-page.component.scss'],
 })
 export class TermsPageComponent {
   protected readonly today = new Date().toISOString().slice(0, 10);

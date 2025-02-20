@@ -10,7 +10,7 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
-import { SubTitleComponent } from '../share/content/title/sub-title.component';
+import { SubTitleComponent } from '../shared/ui/content/title/sub-title.component';
 import { PreviewItem } from '../store/preview/preview.types';
 import {
   ModalComponent,
