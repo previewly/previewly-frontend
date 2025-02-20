@@ -63,6 +63,14 @@ export const previewFeature = createFeature({
           updateAttempts: url.updateAttempts + 1,
         })),
       })
+    ),
+
+    on(
+      PreviewActions.removePreview,
+      (state, { url }): PreviewState => ({
+        ...state,
+        previews: state.previews.filter(preview => preview.url != url),
+      })
     )
   ),
   extraSelectors: ({ selectPreviews }) => ({

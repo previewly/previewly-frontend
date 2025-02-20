@@ -15,5 +15,7 @@ export const PreviewActions = createActionGroup({
 
     'Update previews': props<{ urls: PreviewItem[] }>(),
     'Success update previews': props<{ urls: PreviewItem[] }>(),
+
+    'Remove preview': props<{ url: string }>(),
   },
 });
