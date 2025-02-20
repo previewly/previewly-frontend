@@ -1,4 +1,4 @@
-import { Loadable } from '../../app.types';
+import { Loadable } from '../../../app.types';
 
 export interface PreviewItem {
   url: string;

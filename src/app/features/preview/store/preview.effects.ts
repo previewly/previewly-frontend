@@ -12,9 +12,9 @@ import {
   toArray,
 } from 'rxjs';
 
-import { ApiClient } from '../../api/graphql';
-import { StoreDispatchEffect } from '../../app.types';
-import { sharedFeature } from '../../shared/store/shared/shared.reducers';
+import { ApiClient } from '../../../api/graphql';
+import { StoreDispatchEffect } from '../../../app.types';
+import { sharedFeature } from '../../../shared/store/shared/shared.reducers';
 import { PreviewActions } from './preview.actions';
 import { PreviewItem } from './preview.types';
 
