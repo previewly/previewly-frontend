@@ -8,8 +8,8 @@ import {
   signal,
 } from '@angular/core';
 
-import { ApiUrlService } from '../service/api-url.service';
 import { TitleComponent } from '../shared/ui/content/title/title.component';
+import { ApiUrlService } from './api-url.service';
 import { GqlContentComponent } from './gql-content/gql-content.component';
 import { RestContentComponent } from './rest-content/rest-content.component';
 
