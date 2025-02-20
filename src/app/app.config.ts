@@ -21,6 +21,8 @@ import { TraceService } from '@sentry/angular';
 import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
+import { tokenEffects } from './features/token/store/token.effects';
+import { tokenFeature } from './features/token/store/token.reducers';
 import { sharedEffects } from './shared/store/shared/shared.effects';
 import { sharedFeature } from './shared/store/shared/shared.reducers';
 import { previewEffects } from './store/preview/preview.effects';
@@ -43,10 +45,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({
       [sharedFeature.name]: sharedFeature.reducer,
+      [tokenFeature.name]: tokenFeature.reducer,
       [previewFeature.name]: previewFeature.reducer,
       [uploadFeature.name]: uploadFeature.reducer,
     }),
-    provideEffects([sharedEffects, previewEffects, uploadEffects]),
+    provideEffects([
+      sharedEffects,
+      tokenEffects,
+      previewEffects,
+      uploadEffects,
+    ]),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
