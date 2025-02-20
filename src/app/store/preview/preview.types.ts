@@ -13,6 +13,5 @@ export interface PreviewData {
 }
 
 export interface PreviewState extends Loadable {
-  token: string | undefined;
   previews: PreviewItem[];
 }

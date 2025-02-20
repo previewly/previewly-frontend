@@ -7,7 +7,6 @@ const MAX_COUNT = 10;
 const MAX_ATTEMPTS = 10;
 
 const initialState: PreviewState = {
-  token: undefined,
   previews: [],
   isLoading: true,
 };
@@ -43,32 +42,16 @@ export const previewFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(
-      PreviewActions.successCreateToken,
       PreviewActions.emptyToken,
-      PreviewActions.applyTokenFromLocalStorage,
-      PreviewActions.cannotCreateAToken,
       PreviewActions.successAddNewUrl,
       (state): PreviewState => ({ ...state, isLoading: false })
     ),
 
     on(
-      PreviewActions.createNewToken,
       PreviewActions.addNewUrl,
       (state: PreviewState): PreviewState => ({ ...state, isLoading: true })
     ),
 
-    on(
-      PreviewActions.applyTokenFromLocalStorage,
-      (storeState, { token }): PreviewState => ({ ...storeState, token: token })
-    ),
-
-    on(
-      PreviewActions.successCreateToken,
-      (state, { token }): PreviewState => ({
-        ...state,
-        token: token,
-      })
-    ),
     on(
       PreviewActions.addUrlsFromLocalStorage,
       PreviewActions.successAddNewUrl,
