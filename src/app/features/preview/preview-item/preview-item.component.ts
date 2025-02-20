@@ -4,9 +4,13 @@ import {
   Component,
   input,
   output,
+  signal,
 } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { phosphorCloudWarningDuotone } from '@ng-icons/phosphor-icons/duotone';
+import {
+  phosphorCloudWarningDuotone,
+  phosphorTrashSimpleDuotone,
+} from '@ng-icons/phosphor-icons/duotone';
 
 import { ViewPreviewItem } from './preview-item.types';
 
@@ -16,11 +20,16 @@ import { ViewPreviewItem } from './preview-item.types';
   imports: [CommonModule, NgIconComponent],
   templateUrl: './preview-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  viewProviders: [provideIcons({ phosphorCloudWarningDuotone })],
+  viewProviders: [
+    provideIcons({ phosphorCloudWarningDuotone, phosphorTrashSimpleDuotone }),
+  ],
 })
 export class PreviewItemComponent {
   preview = input.required<ViewPreviewItem>();
   openStat = output();
+  removePreview = output();
+
+  protected shouldRemove = signal(false);
 
   click() {
     if (this.preview().status === 'success') {
@@ -28,9 +37,13 @@ export class PreviewItemComponent {
     }
   }
 
-  keyUp($event: KeyboardEvent) {
-    if ($event.key === 'Enter') {
-      this.click();
+  removeClick() {
+    this.shouldRemove.set(true);
+  }
+
+  animationEnd() {
+    if (this.shouldRemove()) {
+      this.removePreview.emit();
     }
   }
 }

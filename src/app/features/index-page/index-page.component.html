@@ -7,7 +7,10 @@
     (url)="addUrl($event)"
     [isLoading]="isLoading()" />
 </div>
-<app-shared-preview-container [previews]="userPreviews()" [token]="token()" />
+<app-shared-preview-container
+  [previews]="userPreviews()"
+  [token]="token()"
+  (removePreview)="removePreview($event)" />
 
 <div class="p-4">
   <app-code-container [token]="token()" [isLoading]="isLoading()" />
