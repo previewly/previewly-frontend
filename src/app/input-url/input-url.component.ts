@@ -13,7 +13,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorLinkSimpleBold } from '@ng-icons/phosphor-icons/bold';
 
-import { TitleComponent } from '../share/content/title/title.component';
+import { TitleComponent } from '../shared/ui/content/title/title.component';
 
 @Component({
   selector: 'app-input-url',

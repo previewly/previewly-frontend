@@ -1,12 +1,32 @@
 import { Routes } from '@angular/router';
-import { IndexPageComponent } from './pages/index-page/index-page.component';
-import { PrivacyPageComponent } from './pages/privacy-page/privacy-page.component';
-import { TermsPageComponent } from './pages/terms-page/terms-page.component';
-import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 
 export const routes: Routes = [
-  { path: '', component: IndexPageComponent },
-  { path: 'terms', component: TermsPageComponent },
-  { path: 'privacy', component: PrivacyPageComponent },
-  { path: 'upload', component: UploadPageComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./features/index-page/index-page.component').then(
+        i => i.IndexPageComponent
+      ),
+  },
+  {
+    path: 'terms',
+    loadComponent: () =>
+      import('./features/static-page/terms-page/terms-page.component').then(
+        t => t.TermsPageComponent
+      ),
+  },
+  {
+    path: 'privacy',
+    loadComponent: () =>
+      import('./features/static-page/privacy-page/privacy-page.component').then(
+        p => p.PrivacyPageComponent
+      ),
+  },
+  {
+    path: 'upload',
+    loadComponent: () =>
+      import('./features/upload-page/upload-page.component').then(
+        u => u.UploadPageComponent
+      ),
+  },
 ];

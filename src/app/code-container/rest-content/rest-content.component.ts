@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { CopyToClipboardComponent } from '../../share/tools/copy-to-clipboard/copy-to-clipboard.component';
+import { CopyToClipboardComponent } from '../../shared/ui/tools/copy-to-clipboard/copy-to-clipboard.component';
 import { CodeAndResultComponent } from '../share/code-and-result/code-and-result.component';
 
 @Component({
