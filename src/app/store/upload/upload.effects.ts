@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { catchError, exhaustMap, map, of } from 'rxjs';
 import { ApiClient } from '../../api/graphql';
 import { StoreDispatchEffect } from '../../app.types';
-import { previewFeature } from '../preview/preview.reducers';
+import { sharedFeature } from '../../shared/store/shared/shared.reducers';
 import { UploadActions } from './upload.actions';
 
 const uploadFiles = (
@@ -15,7 +15,7 @@ const uploadFiles = (
 ) =>
   actions$.pipe(
     ofType(UploadActions.uploadImages),
-    concatLatestFrom(() => store.select(previewFeature.selectToken)),
+    concatLatestFrom(() => store.select(sharedFeature.selectToken)),
     map(([{ files }, token]) => ({
       files: files.map(file => ({
         image: file,

@@ -7,6 +7,7 @@ import { interval, map } from 'rxjs';
 import { CodeContainerComponent } from '../../code-container/code-container.component';
 import { InputUrlComponent } from '../../input-url/input-url.component';
 import { PreviewContainerComponent } from '../../preview-container/preview-container.component';
+import { sharedFeature } from '../../shared/store/shared/shared.reducers';
 import { PreviewActions } from '../../store/preview/preview.actions';
 import { previewFeature } from '../../store/preview/preview.reducers';
 
@@ -24,15 +25,13 @@ import { previewFeature } from '../../store/preview/preview.reducers';
 })
 export class IndexPageComponent {
   private readonly store = inject(Store);
-  protected readonly token = this.store.selectSignal(
-    previewFeature.selectToken
-  );
+  protected readonly token = this.store.selectSignal(sharedFeature.selectToken);
 
   protected readonly userPreviews = this.store.selectSignal(
     previewFeature.selectPreviews
   );
   protected readonly isLoading = this.store.selectSignal(
-    previewFeature.selectIsLoading
+    sharedFeature.isLoading
   );
 
   constructor() {
