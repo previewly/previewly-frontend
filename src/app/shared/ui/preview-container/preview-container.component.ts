@@ -4,6 +4,7 @@ import {
   Component,
   computed,
   input,
+  output,
   Signal,
   signal,
 } from '@angular/core';
@@ -43,6 +44,8 @@ import { SubTitleComponent } from '../content/title/sub-title.component';
 export class SharedPreviewContainerComponent {
   token = input.required<string | undefined>();
   previews = input.required<PreviewItem[]>();
+
+  removePreview = output<ViewPreviewItem>();
 
   views: Signal<ViewPreviewItem[]> = computed(() =>
     this.previews()

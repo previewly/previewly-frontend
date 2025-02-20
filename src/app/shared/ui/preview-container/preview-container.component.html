@@ -21,6 +21,7 @@
       @for (view of views(); track $index) {
         <app-preview-item
           [preview]="view"
+          (removePreview)="removePreview.emit(view)"
           (openStat)="openStat(view)"></app-preview-item>
       }
     </div>
