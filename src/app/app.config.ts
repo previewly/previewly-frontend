@@ -11,13 +11,14 @@ import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import { provideStore } from '@ngrx/store';
+import { ActionReducer, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { ErrorHandler } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Sentry from '@sentry/angular';
 import { TraceService } from '@sentry/angular';
+import { localStorageSync } from 'ngrx-store-localstorage';
 import { environment } from '../environments/environment';
 import { provideApollo } from './api/graphql.provider';
 import { routes } from './app.routes';
@@ -36,6 +37,15 @@ const provideSentry = () =>
     { provide: Sentry.TraceService, deps: [Router] },
   ]);
 
+const metaReducers = [
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  (reducer: ActionReducer<any, any>) =>
+    localStorageSync({
+      keys: [{ [sharedFeature.name]: ['cookie'] }],
+      rehydrate: true,
+    })(reducer),
+];
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAppInitializer(() => {
@@ -43,12 +53,15 @@ export const appConfig: ApplicationConfig = {
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore({
-      [sharedFeature.name]: sharedFeature.reducer,
-      [tokenFeature.name]: tokenFeature.reducer,
-      [previewFeature.name]: previewFeature.reducer,
-      [uploadFeature.name]: uploadFeature.reducer,
-    }),
+    provideStore(
+      {
+        [sharedFeature.name]: sharedFeature.reducer,
+        [tokenFeature.name]: tokenFeature.reducer,
+        [previewFeature.name]: previewFeature.reducer,
+        [uploadFeature.name]: uploadFeature.reducer,
+      },
+      { metaReducers }
+    ),
     provideEffects([
       sharedEffects,
       tokenEffects,
