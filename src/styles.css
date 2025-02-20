@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
+@import 'animate.css';
+
 @plugin "daisyui" {
-  themes: night;
+  themes:
+    nord --default,
+    night --prefersdark;
 }
 
 .default-font-regular {

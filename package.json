@@ -36,6 +36,7 @@
     "@sentry/angular": "^9.1.0",
     "@sentry/cli": "^2.42.1",
     "@tailwindcss/postcss": "^4.0.7",
+    "animate.css": "^4.1.1",
     "apollo-angular": "^10.0.1",
     "apollo-upload-client": "^18.0.1",
     "graphql": "^16.10.0",
