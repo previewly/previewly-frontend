@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.16](https://github.com/previewly/previewly-frontend/compare/v0.1.15...v0.1.16) (2025-02-21)
+
+### Features
+
+- add animate.css ([8b9bac5](https://github.com/previewly/previewly-frontend/commit/8b9bac5f5c70cc0cdc6b3396b2492655fbbec6ac))
+- add cookie consent ([b580176](https://github.com/previewly/previewly-frontend/commit/b5801760bc21427cf7c3b685581d5953ec08162c))
+- add shared store ([b389f3f](https://github.com/previewly/previewly-frontend/commit/b389f3fd5d62ef86035b73583ea6fc21138037c6))
+- add sync store ([c7ed8d3](https://github.com/previewly/previewly-frontend/commit/c7ed8d3a36f2c57fc4adb685358274243e7a6da6))
+- add top navigation ([74c7ada](https://github.com/previewly/previewly-frontend/commit/74c7ada51dea14caa0c72a39e2bf9c058ab78c2f))
+- create 404 error page ([61bfc8b](https://github.com/previewly/previewly-frontend/commit/61bfc8bba8b4c7fc7e42c761568025a630636ccb))
+- create token feature ([c6fe99c](https://github.com/previewly/previewly-frontend/commit/c6fe99c79cedbe7644bdf6b5c21d2a5abf3d0ae5))
+- removing preview ([ad35a6f](https://github.com/previewly/previewly-frontend/commit/ad35a6f4100add7af7a4588a5ceac81ccb0ca1d3))
+- show loader into integration component ([557f1da](https://github.com/previewly/previewly-frontend/commit/557f1da57ef1f8ebe4e51cc247c9dbc5245ebe34))
+
+### Bug Fixes
+
+- add anamation ([15573c4](https://github.com/previewly/previewly-frontend/commit/15573c4a7a98220a795f201da44ae0d3fb818af0))
+- add refresh token button for API integrations ([5a69cb3](https://github.com/previewly/previewly-frontend/commit/5a69cb3ab02ab9503e7dcbfac79ccd14e7c75a79))
+- disable input without token ([c2f23bb](https://github.com/previewly/previewly-frontend/commit/c2f23bbe155bc7677fca52aaad4fac469022306d))
+- fix code and result block for huge text ([2c6a596](https://github.com/previewly/previewly-frontend/commit/2c6a5969d9f97035fd706b8a2b780461594c34f7))
+- fix footer ([b12629b](https://github.com/previewly/previewly-frontend/commit/b12629b878acc058a151019cc71f62520520ebf6))
+- fix footer ([c8168ef](https://github.com/previewly/previewly-frontend/commit/c8168efc8d06d0c9257e510236da04ec0d0be0b5))
+- fix input outline and border on input focus ([1134855](https://github.com/previewly/previewly-frontend/commit/11348553ddb40946ef8b30002843111fd0f5b35a))
+- fix sync previews ([f4bbd2b](https://github.com/previewly/previewly-frontend/commit/f4bbd2b1ba4cee0b4d1050ab7dc1ba4ca1b1b46d))
+- increase angular budget ([04491e7](https://github.com/previewly/previewly-frontend/commit/04491e7844f28d325ba2b9b231ee9c879ee3e45c))
+
 ## [0.1.15](https://github.com/wert2all/previewly-frontend/compare/v0.1.14...v0.1.15) (2025-02-19)
 
 ### Bug Fixes
