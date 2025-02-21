@@ -27,8 +27,8 @@ export class CookieConsentComponent implements AfterViewInit {
             acceptNecessaryBtn: 'Reject all',
             showPreferencesBtn: 'Manage Individual preferences',
             footer: `
-                    <a class="link" href="/cookie-policy" target="_blank">Cookie Policy</a>
-                    <a class="link" href="/privacy" target="_blank">Privacy Policy</a>
+                    <a class="link" href="/legal/cookie-policy" target="_blank">Cookie Policy</a>
+                    <a class="link" href="/legal/privacy" target="_blank">Privacy Policy</a>
                 `,
           },
           preferencesModal: {
