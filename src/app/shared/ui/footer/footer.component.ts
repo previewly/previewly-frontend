@@ -4,7 +4,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorGithubLogo } from '@ng-icons/phosphor-icons/regular';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-shared-footer',
   standalone: true,
   imports: [CommonModule, NgIconComponent],
   templateUrl: './footer.component.html',
@@ -12,4 +12,4 @@ import { phosphorGithubLogo } from '@ng-icons/phosphor-icons/regular';
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [provideIcons({ phosphorGithubLogo })],
 })
-export class FooterComponent {}
+export class SharedFooterComponent { }
