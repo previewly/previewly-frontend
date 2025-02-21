@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
 import { RouterOutlet } from '@angular/router';
-import { CookieConsentComponent } from './features/cookie/cookie-consent/cookie-consent.component';
-import { FooterComponent } from './shared/ui/footer/footer.component';
-import { LogoComponent } from './shared/ui/logo/logo.component';
+import { SharedCookieConsentComponent } from './shared/ui/cookie-consent/cookie-consent.component';
+import { SharedFooterComponent } from './shared/ui/footer/footer.component';
+import { SharedLogoComponent } from './shared/ui/logo/logo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   imports: [
-    LogoComponent,
-    FooterComponent,
+    SharedLogoComponent,
+    SharedFooterComponent,
     RouterOutlet,
-    CookieConsentComponent,
+    SharedCookieConsentComponent,
   ],
 })
-export class AppComponent {}
+export class AppComponent { }

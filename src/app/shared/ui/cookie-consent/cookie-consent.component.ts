@@ -1,14 +1,14 @@
 import { AfterViewInit, Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as CookieConsent from 'vanilla-cookieconsent';
-import { SharedActions } from '../../../shared/store/shared/shared.actions';
+import { SharedActions } from '../../store/shared/shared.actions';
 
 @Component({
   standalone: true,
-  selector: 'app-cookie-consent',
+  selector: 'app-shared-cookie-consent',
   template: '',
 })
-export class CookieConsentComponent implements AfterViewInit {
+export class SharedCookieConsentComponent implements AfterViewInit {
   private readonly store = inject(Store);
   private readonly config = {
     categories: {
