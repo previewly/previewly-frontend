@@ -12,4 +12,4 @@ import { phosphorGithubLogo } from '@ng-icons/phosphor-icons/regular';
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [provideIcons({ phosphorGithubLogo })],
 })
-export class SharedFooterComponent { }
+export class SharedFooterComponent {}
