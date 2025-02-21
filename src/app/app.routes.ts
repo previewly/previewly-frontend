@@ -9,25 +9,9 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'terms',
-    loadComponent: () =>
-      import('./features/static-page/terms-page/terms-page.component').then(
-        t => t.TermsPageComponent
-      ),
-  },
-  {
-    path: 'privacy',
-    loadComponent: () =>
-      import('./features/static-page/privacy-page/privacy-page.component').then(
-        p => p.PrivacyPageComponent
-      ),
-  },
-  {
-    path: 'cookie-policy',
-    loadComponent: () =>
-      import('./features/static-page/cookie-page/cookie-page.component').then(
-        p => p.CookiePageComponent
-      ),
+    path: 'legal',
+    loadChildren: () =>
+      import('./features/legal/legal.routes').then(l => l.routes),
   },
   {
     path: 'upload',
