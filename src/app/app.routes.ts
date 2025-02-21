@@ -36,4 +36,11 @@ export const routes: Routes = [
         u => u.UploadPageComponent
       ),
   },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./features/404/404-page.component').then(
+        f => f.NotFoundPageComponent
+      ),
+  },
 ];
