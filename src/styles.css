@@ -7,6 +7,12 @@
     /* nord --default, */ night --default --prefersdark;
 }
 
+/* daisyUI fix: fix outline and border on input focus */
+.input:has(input:focus) {
+  border-color: var(--color-base-100);
+  outline-color: var(--color-secondary);
+}
+
 .default-font-regular {
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
