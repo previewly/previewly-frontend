@@ -8,11 +8,11 @@ import {
   signal,
 } from '@angular/core';
 
-import { TitleComponent } from '../../../shared/ui/content/title/title.component';
-import { SharedLoaderComponent } from '../../../shared/ui/tools/loader/loader.component';
-import { ApiUrlService } from './api-url.service';
-import { GqlContentComponent } from './gql-content/gql-content.component';
-import { RestContentComponent } from './rest-content/rest-content.component';
+import { TitleComponent } from '../../../../shared/ui/content/title/title.component';
+import { SharedLoaderComponent } from '../../../../shared/ui/tools/loader/loader.component';
+import { ApiUrlService } from '../../api-url.service';
+import { GqlContentComponent } from '../../gql-content/gql-content.component';
+import { RestContentComponent } from '../../rest-content/rest-content.component';
 
 @Component({
   selector: 'app-code-container',
