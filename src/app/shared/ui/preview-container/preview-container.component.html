@@ -1,4 +1,4 @@
-<div class="mt-16 flex px-4">
+<div class="mt-16 flex">
   <app-share-content-sub-title class="text-warning flex-auto">
     and will get a site screenshot!
   </app-share-content-sub-title>
@@ -15,7 +15,7 @@
 </div>
 
 @if (views().length > 0 && token()) {
-  <div class="animate__animated animate__fadeIn lg:mx-4">
+  <div class="animate__animated animate__fadeIn">
     <div
       class="carousel carousel-center bg-neutral w-full gap-4 p-4 lg:rounded-xl">
       @for (view of views(); track $index) {

@@ -1,0 +1,48 @@
+<div class="mt-24 mb-8">
+  <app-share-content-title class="text-warning">
+    Input an URL
+  </app-share-content-title>
+</div>
+<form
+  class="bg-neutral rounded-xl p-2"
+  [class.skeleton]="isLoading() || !token()"
+  (submit)="createPreview()">
+  <div class="flex flex-row gap-4">
+    @if (error()) {
+      <div role="alert" class="alert alert-error flex-auto">
+        <ng-icon name="phosphorXCircle" class="hidden lg:block" size="24" />
+        <span>{{ error() }}</span>
+      </div>
+    } @else {
+      <label class="input flex-auto">
+        <span class="label">
+          <ng-icon name="phosphorLinkSimpleBold" size="24" />
+        </span>
+        <input
+          #url
+          type="text"
+          placeholder="website url"
+          [formControl]="urlInput" />
+      </label>
+    }
+
+    <div class="flex-none place-content-center">
+      @if (error()) {
+        <button
+          type="submit"
+          class="btn btn-warning"
+          (click)="retryExposeToken.emit()">
+          retry
+        </button>
+      } @else {
+        <button
+          type="submit"
+          [class.skeleton]="isLoading()"
+          class="btn btn-primary"
+          [attr.disabled]="!this.urlInput.value || isLoading() ? true : null">
+          go!
+        </button>
+      }
+    </div>
+  </div>
+</form>
