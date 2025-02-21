@@ -9,11 +9,25 @@
 
 <h3 class="bg-neutral p-2 text-xl font-bold">Token</h3>
 <p class="flex items-center py-2">
-  {{ token() }}
-  <app-copy-to-clipboard
-    position="right"
-    [value]="token()"
-    class="ms-8"></app-copy-to-clipboard>
+  @if (error()) {
+    <div role="alert" class="alert alert-error">
+      <ng-icon name="phosphorXCircle" class="hidden lg:block" size="24" />
+      <span>{{ error() }}</span>
+    </div>
+    <div class="tooltip tooltip-right" data-tip="refresh token">
+      <button
+        class="btn btn-warning btn-circle btn-sm ms-8"
+        (click)="refreshToken.emit()">
+        <ng-icon name="phosphorArrowsClockwiseLight" size="22" />
+      </button>
+    </div>
+  } @else {
+    {{ token() }}
+    <app-copy-to-clipboard
+      position="right"
+      [value]="token()"
+      class="ms-8"></app-copy-to-clipboard>
+  }
 </p>
 <div class="divider"></div>
 <h3 class="bg-neutral p-2 text-xl font-bold">1. Add URL of website</h3>

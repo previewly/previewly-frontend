@@ -5,9 +5,11 @@ import {
   computed,
   inject,
   input,
+  output,
   signal,
 } from '@angular/core';
 
+import { Undefined } from '../../../../app.types';
 import { TitleComponent } from '../../../../shared/ui/content/title/title.component';
 import { SharedLoaderComponent } from '../../../../shared/ui/tools/loader/loader.component';
 import { ApiUrlService } from '../../api-url.service';
@@ -31,8 +33,11 @@ export class CodeContainerComponent {
   private readonly apiUrlService = inject(ApiUrlService);
   protected readonly activeTab = signal(0);
 
-  token = input.required<string | undefined>();
+  token = input.required<string>();
   isLoading = input<boolean>(false);
+  error = input<string | Undefined>(null);
+
+  refreshToken = output();
 
   imgUrl = computed(() => {
     const token = this.token();

@@ -13,5 +13,9 @@
     [token]="token()"
     (removePreview)="removePreview($event)" />
 
-  <app-code-container [token]="token()" [isLoading]="isLoading()" />
+  <app-code-container
+    [token]="token()"
+    [isLoading]="isLoading()"
+    [error]="pageError()"
+    (refreshToken)="retryExposeToken()" />
 </div>
