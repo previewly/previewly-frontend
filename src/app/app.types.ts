@@ -1,11 +1,16 @@
 import { EffectConfig } from '@ngrx/effects';
 
+export type Undefined = null | undefined;
 export interface Loadable {
   isLoading: boolean;
 }
 
 export interface Unique {
   uuid: string;
+}
+
+export interface WithError {
+  error: string | Undefined;
 }
 
 export const StoreDispatchEffect: EffectConfig & {

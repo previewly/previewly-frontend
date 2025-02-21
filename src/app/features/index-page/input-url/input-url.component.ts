@@ -12,8 +12,9 @@ import {
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorLinkSimpleBold } from '@ng-icons/phosphor-icons/bold';
-
-import { TitleComponent } from '../shared/ui/content/title/title.component';
+import { phosphorXCircle } from '@ng-icons/phosphor-icons/regular';
+import { Undefined } from '../../../app.types';
+import { TitleComponent } from '../../../shared/ui/content/title/title.component';
 
 @Component({
   selector: 'app-input-url',
@@ -24,16 +25,19 @@ import { TitleComponent } from '../shared/ui/content/title/title.component';
   viewProviders: [
     provideIcons({
       phosphorLinkSimpleBold,
+      phosphorXCircle,
     }),
   ],
 })
 export class InputUrlComponent implements AfterViewInit {
   token = input.required<string | undefined>();
   isLoading = input<boolean>(false);
+  error = input<string | Undefined>(null);
+
+  url = output<string>();
+  retryExposeToken = output();
 
   urlInput = new FormControl('', [Validators.required]);
-  url = output<string>();
-
   @ViewChild('url') urlInputRef: ElementRef | undefined;
 
   constructor() {

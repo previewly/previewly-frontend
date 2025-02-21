@@ -10,6 +10,7 @@ import {
   StoreDispatchEffect,
   StoreUnDispatchEffect,
 } from '../../../../app.types';
+import { SharedActions } from '../../../../shared/store/shared/shared.actions';
 import { TokenService } from '../../token.service';
 import { TokenStorageService } from '../../tokenStorage.service';
 import { TokenActions } from '../token.actions';
@@ -47,5 +48,17 @@ export const initEffect = {
       );
     },
     StoreUnDispatchEffect
+  ),
+
+  reCreateToken: createEffect(
+    (actions$ = inject(Actions), tokenService = inject(TokenService)) => {
+      return actions$.pipe(
+        ofType(SharedActions.retryCreateToken),
+        exhaustMap(() => tokenService.create()),
+        map(token => TokenActions.setToken({ token })),
+        catchError(error => of(TokenActions.cannotExposeToken({ error })))
+      );
+    },
+    StoreDispatchEffect
   ),
 };

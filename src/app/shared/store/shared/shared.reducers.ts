@@ -4,7 +4,11 @@ import { tokenFeature } from '../../../features/token/store/token.reducers';
 import { SharedActions } from './shared.actions';
 import { CookieCategory, SharedState } from './shared.types';
 
-const initialState: SharedState = { isLoading: true, cookie: [] };
+const initialState: SharedState = {
+  isLoading: true,
+  error: null,
+  cookie: [],
+};
 export const sharedFeature = createFeature({
   name: 'shared',
   reducer: createReducer(
@@ -16,6 +20,14 @@ export const sharedFeature = createFeature({
       (state): SharedState => ({
         ...state,
         isLoading: false,
+      })
+    ),
+
+    on(
+      TokenActions.cannotExposeToken,
+      (state): SharedState => ({
+        ...state,
+        error: 'Cannot expose token',
       })
     ),
 

@@ -4,13 +4,14 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
 import { interval, map } from 'rxjs';
-import { InputUrlComponent } from '../../input-url/input-url.component';
+import { SharedActions } from '../../shared/store/shared/shared.actions';
 import { sharedFeature } from '../../shared/store/shared/shared.reducers';
 import { SharedPreviewContainerComponent } from '../../shared/ui/preview-container/preview-container.component';
 import { CodeContainerComponent } from '../integration/code-container/code-container.component';
 import { ViewPreviewItem } from '../preview/preview-item/preview-item.types';
 import { PreviewActions } from '../preview/store/preview.actions';
 import { previewFeature } from '../preview/store/preview.reducers';
+import { InputUrlComponent } from './input-url/input-url.component';
 
 @Component({
   selector: 'app-index-page',
@@ -34,6 +35,7 @@ export class IndexPageComponent {
   protected readonly isLoading = this.store.selectSignal(
     sharedFeature.isLoading
   );
+  pageError = this.store.selectSignal(sharedFeature.selectError);
 
   constructor() {
     interval(3000)
@@ -61,5 +63,9 @@ export class IndexPageComponent {
         PreviewActions.removePreview({ url: preview.data.url })
       );
     }
+  }
+
+  retryExposeToken() {
+    this.store.dispatch(SharedActions.retryCreateToken());
   }
 }
