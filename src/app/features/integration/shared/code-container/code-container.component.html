@@ -26,11 +26,19 @@
     </div>
     <div class="pt-2">
       @if (activeTab() === 0) {
-        <app-gql-content [gqlUrl]="gqlUrl()" [token]="token() || ''" />
+        <app-gql-content
+          [gqlUrl]="gqlUrl()"
+          [token]="token()"
+          [error]="error()"
+          (refreshToken)="refreshToken.emit()" />
       }
 
       @if (activeTab() === 1) {
-        <app-rest-content [restUrl]="restUrl()" [token]="token() || ''" />
+        <app-rest-content
+          [restUrl]="restUrl()"
+          [token]="token()"
+          [error]="error()"
+          (refreshToken)="refreshToken.emit()" />
       }
     </div>
   }

@@ -11,6 +11,7 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
+import { SubTitleComponent } from '../../../../shared/ui/content/title/sub-title.component';
 import {
   ModalComponent,
   ModalEventInput,
@@ -24,7 +25,6 @@ import {
   ViewPreviewItem,
 } from '../../preview-item/preview-item.types';
 import { PreviewItem } from '../../store/preview.types';
-import { SubTitleComponent } from '../../../../shared/ui/content/title/sub-title.component';
 
 @Component({
   selector: 'app-shared-preview-container',
