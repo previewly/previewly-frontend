@@ -15,16 +15,16 @@ import {
   ModalComponent,
   ModalEventInput,
   ModalEventOutput,
-} from '../../../features/preview/modal/modal.component';
-import { PreviewItemComponent } from '../../../features/preview/preview-item/preview-item.component';
+} from '../../modal/modal.component';
+import { PreviewItemComponent } from '../../preview-item/preview-item.component';
 import {
   createErrorPreviewItem,
   createLoadedPreviewItem,
   ViewPreviewData,
   ViewPreviewItem,
-} from '../../../features/preview/preview-item/preview-item.types';
-import { PreviewItem } from '../../../features/preview/store/preview.types';
-import { SubTitleComponent } from '../content/title/sub-title.component';
+} from '../../preview-item/preview-item.types';
+import { PreviewItem } from '../../store/preview.types';
+import { SubTitleComponent } from '../../../../shared/ui/content/title/sub-title.component';
 
 @Component({
   selector: 'app-shared-preview-container',
@@ -41,7 +41,7 @@ import { SubTitleComponent } from '../content/title/sub-title.component';
   ],
   viewProviders: [provideIcons({ phosphorArrowCircleDownDuotone })],
 })
-export class SharedPreviewContainerComponent {
+export class PreviewContainerComponent {
   token = input.required<string | undefined>();
   previews = input.required<PreviewItem[]>();
 

@@ -6,8 +6,8 @@ import { Store } from '@ngrx/store';
 import { interval, map } from 'rxjs';
 import { SharedActions } from '../../shared/store/shared/shared.actions';
 import { sharedFeature } from '../../shared/store/shared/shared.reducers';
-import { SharedPreviewContainerComponent } from '../../shared/ui/preview-container/preview-container.component';
-import { CodeContainerComponent } from '../integration/code-container/code-container.component';
+import { PreviewContainerComponent } from '../preview/shared/preview-container/preview-container.component';
+import { CodeContainerComponent } from '../integration/shared/code-container/code-container.component';
 import { ViewPreviewItem } from '../preview/preview-item/preview-item.types';
 import { PreviewActions } from '../preview/store/preview.actions';
 import { previewFeature } from '../preview/store/preview.reducers';
@@ -19,7 +19,7 @@ import { InputUrlComponent } from './input-url/input-url.component';
   imports: [
     CommonModule,
     InputUrlComponent,
-    SharedPreviewContainerComponent,
+    PreviewContainerComponent,
     CodeContainerComponent,
   ],
   templateUrl: './index-page.component.html',

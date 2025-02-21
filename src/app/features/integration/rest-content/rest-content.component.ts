@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 
-import { CopyToClipboardComponent } from '../../../../shared/ui/tools/copy-to-clipboard/copy-to-clipboard.component';
-import { CodeAndResultComponent } from '../share/code-and-result/code-and-result.component';
+import { CopyToClipboardComponent } from '../../../shared/ui/tools/copy-to-clipboard/copy-to-clipboard.component';
+import { CodeAndResultComponent } from '../code-and-result/code-and-result.component';
 
 @Component({
   standalone: true,
