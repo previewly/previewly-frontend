@@ -1,0 +1,22 @@
+fragment Preview on PreviewData {
+  id
+  url
+  status
+  image
+  imageId
+  error
+  title
+}
+
+fragment ImageData on ImageData {
+  name
+  url
+}
+
+fragment ResizedImage on ImageProcess {
+  error
+  image {
+    ...ImageData
+  }
+  status
+}

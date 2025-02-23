@@ -67,6 +67,14 @@ export type Preview = {
   title?: string | null;
 };
 
+export type ImageData = { name: string; url: string };
+
+export type ResizedImage = {
+  error?: string | null;
+  status: Status;
+  image?: ImageData | null;
+};
+
 export type UploadImageStatus = {
   id: number;
   name: string;
@@ -93,6 +101,16 @@ export type UploadImagesVariables = Exact<{
 
 export type UploadImages = { upload: Array<UploadImageStatus> };
 
+export type ResizeImageVariables = Exact<{
+  imageId: Scalars['Int']['input'];
+  token: Scalars['String']['input'];
+}>;
+
+export type ResizeImage = {
+  resized_490x250?: ResizedImage | null;
+  resized_50x50?: ResizedImage | null;
+};
+
 export type VerifyTokenVariables = Exact<{
   token: Scalars['String']['input'];
 }>;
@@ -116,6 +134,22 @@ export const Preview = gql`
     error
     title
   }
+`;
+export const ImageData = gql`
+  fragment ImageData on ImageData {
+    name
+    url
+  }
+`;
+export const ResizedImage = gql`
+  fragment ResizedImage on ImageProcess {
+    error
+    image {
+      ...ImageData
+    }
+    status
+  }
+  ${ImageData}
 `;
 export const UploadImageStatus = gql`
   fragment UploadImageStatus on UploadImageStatus {
@@ -186,6 +220,55 @@ export class UploadImagesMutation extends Apollo.Mutation<
     super(apollo);
   }
 }
+export const ResizeImageDocument = gql`
+  mutation ResizeImage($imageId: Int!, $token: String!) {
+    resized_490x250: processImage(
+      imageId: $imageId
+      processes: [
+        {
+          options: [
+            { key: "width", value: "490" }
+            { key: "height", value: "250" }
+          ]
+          type: resize
+        }
+      ]
+      token: $token
+    ) {
+      ...ResizedImage
+    }
+    resized_50x50: processImage(
+      imageId: $imageId
+      processes: [
+        {
+          options: [
+            { key: "width", value: "50" }
+            { key: "height", value: "50" }
+          ]
+          type: resize
+        }
+      ]
+      token: $token
+    ) {
+      ...ResizedImage
+    }
+  }
+  ${ResizedImage}
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ResizeImageMutation extends Apollo.Mutation<
+  ResizeImage,
+  ResizeImageVariables
+> {
+  override document = ResizeImageDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const VerifyTokenDocument = gql`
   query VerifyToken($token: String!) {
     isValid: verifyToken(token: $token)
@@ -245,6 +328,7 @@ export class ApiClient {
     private createTokenMutation: CreateTokenMutation,
     private addUrlMutation: AddUrlMutation,
     private uploadImagesMutation: UploadImagesMutation,
+    private resizeImageMutation: ResizeImageMutation,
     private verifyTokenQuery: VerifyTokenQuery,
     private getPreviewQuery: GetPreviewQuery
   ) {}
@@ -268,6 +352,13 @@ export class ApiClient {
     options?: MutationOptionsAlone<UploadImages, UploadImagesVariables>
   ) {
     return this.uploadImagesMutation.mutate(variables, options);
+  }
+
+  resizeImage(
+    variables: ResizeImageVariables,
+    options?: MutationOptionsAlone<ResizeImage, ResizeImageVariables>
+  ) {
+    return this.resizeImageMutation.mutate(variables, options);
   }
 
   verifyToken(
