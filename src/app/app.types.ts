@@ -13,6 +13,34 @@ export interface WithError {
   error: string | Undefined;
 }
 
+export interface MaybeWithError {
+  error?: Error | Undefined;
+}
+
+export enum Status {
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
+  LOADING = 'LOADING',
+}
+
+export interface WithStatus {
+  status: Status;
+}
+
+export type DataWrapper<T> = MaybeWithError & WithStatus & { data?: T };
+
+export const wrapError = <T>(error: Error): DataWrapper<T> => ({
+  error,
+  status: Status.ERROR,
+});
+export const wrapLoading = <T>(): DataWrapper<T> => ({
+  status: Status.LOADING,
+});
+export const wrapSuccess = <T>(data: T): DataWrapper<T> => ({
+  data,
+  status: Status.SUCCESS,
+});
+
 export const StoreDispatchEffect: EffectConfig & {
   functional: true;
   dispatch?: true;
