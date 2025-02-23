@@ -62,6 +62,7 @@ export type Preview = {
   url: string;
   status: Status;
   image: string;
+  imageId?: number | null;
   error?: string | null;
   title?: string | null;
 };
@@ -111,6 +112,7 @@ export const Preview = gql`
     url
     status
     image
+    imageId
     error
     title
   }
