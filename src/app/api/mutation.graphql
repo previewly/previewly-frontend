@@ -13,3 +13,36 @@ mutation UploadImages($token: String!, $images: [UploadInput!]!) {
     ...UploadImageStatus
   }
 }
+
+mutation ResizeImage($imageId: Int!, $token: String!) {
+  resized_1280x627: processImage(
+    imageId: $imageId
+    processes: [
+      {
+        options: [
+          { key: "width", value: "1280" }
+          { key: "height", value: "627" }
+        ]
+        type: resize
+      }
+    ]
+    token: $token
+  ) {
+    ...ResizedImage
+  }
+  resized_400x196: processImage(
+    imageId: $imageId
+    processes: [
+      {
+        options: [
+          { key: "width", value: "400" }
+          { key: "height", value: "196" }
+        ]
+        type: resize
+      }
+    ]
+    token: $token
+  ) {
+    ...ResizedImage
+  }
+}
