@@ -70,7 +70,9 @@ export class PreviewService {
         concat(
           of(addUrlResult),
           timer(0, POLLING_INTERVAL).pipe(
-            switchMap(() => this.api.getPreview({ url, token })),
+            switchMap(() =>
+              this.api.getPreview({ url, token }, { fetchPolicy: 'no-cache' })
+            ),
             tap(() => pollingCount++),
             tap(() => {
               if (pollingCount > MAX_POLLING_COUNT) {
@@ -82,7 +84,7 @@ export class PreviewService {
                 stopPolling = true;
               }
             }),
-            takeWhile(() => !stopPolling)
+            takeWhile(() => !stopPolling, true)
           )
         ).pipe(
           toArray(),
