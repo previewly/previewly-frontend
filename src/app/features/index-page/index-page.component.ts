@@ -35,7 +35,7 @@ export class IndexPageComponent {
   pageError = this.store.selectSignal(sharedFeature.selectError);
 
   addUrl(url: string) {
-    this.store.dispatch(PreviewActions.addNewUrl({ url }));
+    this.store.dispatch(PreviewActions.addNewUrls({ urls: [url] }));
   }
 
   removePreview(preview: ViewPreviewItem) {

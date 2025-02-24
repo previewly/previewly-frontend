@@ -43,7 +43,7 @@ const metaReducers = [
     localStorageSync({
       keys: [
         { [sharedFeature.name]: ['cookie'] },
-        { [previewFeature.name]: ['previews'] },
+        { [previewFeature.name]: ['urls'] },
       ],
       rehydrate: true,
     })(reducer),
