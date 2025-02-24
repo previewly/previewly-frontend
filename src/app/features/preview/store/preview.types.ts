@@ -19,4 +19,5 @@ export interface PreviewData {
 
 export interface PreviewState extends Loadable {
   previews: PreviewItem[];
+  urls: string[];
 }
