@@ -8,6 +8,7 @@ export interface PreviewItem {
   error: string | null;
 }
 export interface PreviewData {
+  id: number;
   preview: string;
   title?: string;
 }
