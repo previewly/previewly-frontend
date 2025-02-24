@@ -47,9 +47,11 @@
             <li>title: {{ showPreview()?.data?.title }}</li>
             <li>
               preview url:
-              <a href="{{ showPreview()?.data?.preview }}" class="link">{{
-                showPreview()?.data?.preview
-              }}</a>
+              <a
+                href="{{ showPreview()?.data?.preview?.original }}"
+                class="link"
+                >{{ showPreview()?.data?.preview?.original }}</a
+              >
             </li>
           </ul>
         </div>

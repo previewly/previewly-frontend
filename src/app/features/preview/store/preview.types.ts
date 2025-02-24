@@ -1,8 +1,8 @@
-import { Loadable, Undefined } from '../../../app.types';
+import { Loadable, Status, Undefined } from '../../../app.types';
 
 export interface PreviewItem {
   url: string;
-  status: string;
+  status: Status;
   data: PreviewData | Undefined;
   error: string | Undefined;
 }

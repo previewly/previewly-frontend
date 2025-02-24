@@ -30,14 +30,14 @@ export const previewEffects = {
               url: result.url,
               data: result.data
                 ? {
-                  id: result.data?.id,
-                  title: result.data.title || undefined,
-                  preview: {
-                    small: result.data.imageSmall,
-                    window: result.data.imageWindow,
-                    original: result.data.image,
-                  },
-                }
+                    id: result.data?.id,
+                    title: result.data.title || undefined,
+                    preview: {
+                      small: result.data.imageSmall,
+                      window: result.data.imageWindow,
+                      original: result.data.image,
+                    },
+                  }
                 : null,
               error: result.error?.message,
               status: result.status,
