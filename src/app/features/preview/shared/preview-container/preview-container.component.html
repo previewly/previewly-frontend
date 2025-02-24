@@ -31,10 +31,10 @@
 <app-modal
   [emitEvent]="modalInEvent()"
   (modalOutputEvent)="modalOutEvent($event)">
-  @if (showPreview()?.data) {
+  @if (showPreview()?.data?.preview?.window; as image) {
     <img
       class="min-h-[627px] w-full"
-      src="{{ showPreview()?.data?.preview }}"
+      src="{{ image }}"
       [alt]="showPreview()?.data?.previewAltTitle || ''" />
     <div
       class="preview-stat bg-neutral absolute right-0 bottom-0 left-0 mx-4 overflow-hidden rounded-t-xl p-4">

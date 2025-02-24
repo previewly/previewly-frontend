@@ -1,15 +1,19 @@
-import { Loadable } from '../../../app.types';
+import { Loadable, Undefined } from '../../../app.types';
 
 export interface PreviewItem {
   url: string;
   status: string;
-  updateAttempts: number;
-  data: PreviewData | null;
-  error: string | null;
+  data: PreviewData | Undefined;
+  error: string | Undefined;
+}
+export interface Images {
+  small?: string;
+  window?: string;
+  original: string;
 }
 export interface PreviewData {
   id: number;
-  preview: string;
+  preview: Images;
   title?: string;
 }
 

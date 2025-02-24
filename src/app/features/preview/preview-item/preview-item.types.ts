@@ -1,3 +1,5 @@
+import { Undefined } from '../../../app.types';
+
 export type ViewPreviewItemStatus =
   | 'preding'
   | 'success'
@@ -5,10 +7,15 @@ export type ViewPreviewItemStatus =
   | 'dump'
   | 'loading';
 
+export interface ViewPreviewItemImage {
+  item: string;
+  window: string;
+  original: string;
+}
 export interface ViewPreviewData {
   url: string | undefined;
   shortUrl: string | undefined;
-  preview: string | undefined;
+  preview: ViewPreviewItemImage | Undefined;
   previewAltTitle: string | undefined;
   title: string | undefined;
 }

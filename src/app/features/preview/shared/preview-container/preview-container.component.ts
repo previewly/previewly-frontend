@@ -100,7 +100,14 @@ export class PreviewContainerComponent {
     return {
       url: preview.url,
       shortUrl: this.createURL(preview.url)?.hostname,
-      preview: preview.data?.preview,
+      preview:
+        preview.data?.preview.small && preview.data?.preview.window
+          ? {
+            item: preview.data?.preview.small,
+            window: preview.data.preview.window,
+            original: preview.data.preview.original,
+          }
+          : null,
       previewAltTitle: preview.data?.title || preview.url.toString(),
       title: preview.data?.title,
     };
