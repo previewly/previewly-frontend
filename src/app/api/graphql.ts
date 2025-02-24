@@ -107,8 +107,8 @@ export type ResizeImageVariables = Exact<{
 }>;
 
 export type ResizeImage = {
-  resized_490x250?: ResizedImage | null;
-  resized_50x50?: ResizedImage | null;
+  resized_1280x627?: ResizedImage | null;
+  resized_400x196?: ResizedImage | null;
 };
 
 export type VerifyTokenVariables = Exact<{
@@ -222,13 +222,13 @@ export class UploadImagesMutation extends Apollo.Mutation<
 }
 export const ResizeImageDocument = gql`
   mutation ResizeImage($imageId: Int!, $token: String!) {
-    resized_490x250: processImage(
+    resized_1280x627: processImage(
       imageId: $imageId
       processes: [
         {
           options: [
-            { key: "width", value: "490" }
-            { key: "height", value: "250" }
+            { key: "width", value: "1280" }
+            { key: "height", value: "627" }
           ]
           type: resize
         }
@@ -237,13 +237,13 @@ export const ResizeImageDocument = gql`
     ) {
       ...ResizedImage
     }
-    resized_50x50: processImage(
+    resized_400x196: processImage(
       imageId: $imageId
       processes: [
         {
           options: [
-            { key: "width", value: "50" }
-            { key: "height", value: "50" }
+            { key: "width", value: "400" }
+            { key: "height", value: "196" }
           ]
           type: resize
         }
