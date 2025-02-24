@@ -54,7 +54,7 @@ const addUrl = (
                 url: data.url,
                 status: data.status,
                 updateAttempts: 1,
-                data: { preview: data.preview.image },
+                data: { preview: data.preview.image, id: data.preview.id },
                 error: null,
               },
             ],
@@ -101,6 +101,7 @@ const updatePreviews = (
                     ...returnPreview,
                     data: {
                       ...url.data,
+                      id: preview.id,
                       preview: preview.image,
                       title: preview.title || undefined,
                     },
@@ -127,6 +128,7 @@ const updatePreviews = (
     map(urls => PreviewActions.successUpdatePreviews({ urls: urls }))
   );
 };
+
 export const previewEffects = {
   addUrl: createEffect(addUrl, StoreDispatchEffect),
   updatePreviews: createEffect(updatePreviews, StoreDispatchEffect),
