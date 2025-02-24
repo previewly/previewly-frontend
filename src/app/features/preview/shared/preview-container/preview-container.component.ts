@@ -11,6 +11,7 @@ import {
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
+import { Status } from '../../../../app.types';
 import { SubTitleComponent } from '../../../../shared/ui/content/title/sub-title.component';
 import {
   ModalComponent,
@@ -51,14 +52,14 @@ export class PreviewContainerComponent {
     this.previews()
       .map((preview): ViewPreviewItem => {
         switch (preview.status) {
-          case 'pending':
+          case Status.LOADING:
             return createLoadedPreviewItem(this.createData(preview));
-          case 'error':
+          case Status.ERROR:
             return createErrorPreviewItem(
               preview.error || undefined,
               this.createData(preview)
             );
-          case 'success':
+          case Status.SUCCESS:
             return {
               status: 'success',
               error: undefined,
@@ -103,10 +104,10 @@ export class PreviewContainerComponent {
       preview:
         preview.data?.preview.small && preview.data?.preview.window
           ? {
-            item: preview.data?.preview.small,
-            window: preview.data.preview.window,
-            original: preview.data.preview.original,
-          }
+              item: preview.data?.preview.small,
+              window: preview.data.preview.window,
+              original: preview.data.preview.original,
+            }
           : null,
       previewAltTitle: preview.data?.title || preview.url.toString(),
       title: preview.data?.title,

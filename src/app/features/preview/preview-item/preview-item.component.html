@@ -21,10 +21,10 @@
         <h2 class="text-warning text-center text-sm">{{ preview().error }}</h2>
       }
       @case ('success') {
-        @if (preview().data?.preview) {
+        @if (preview().data?.preview?.item; as image) {
           <img
             class="block h-full w-full rounded-xl object-cover"
-            [src]="preview().data?.preview"
+            [src]="image"
             [alt]="preview().data?.previewAltTitle || ''" />
         }
       }
