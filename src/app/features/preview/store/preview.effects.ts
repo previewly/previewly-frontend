@@ -1,9 +1,4 @@
-import {
-  Actions,
-  createEffect,
-  ofType,
-  ROOT_EFFECTS_INIT,
-} from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { inject } from '@angular/core';
 import { concatLatestFrom } from '@ngrx/operators';
@@ -13,23 +8,8 @@ import { StoreDispatchEffect } from '../../../app.types';
 import { sharedFeature } from '../../../shared/store/shared/shared.reducers';
 import { PreviewService } from '../preview.service';
 import { PreviewActions } from './preview.actions';
-import { previewFeature } from './preview.reducers';
 
 export const previewEffects = {
-  initPreview: createEffect(
-    (actions$ = inject(Actions), store = inject(Store)) => {
-      return actions$.pipe(
-        ofType(ROOT_EFFECTS_INIT),
-        concatLatestFrom(() =>
-          store
-            .select(previewFeature.selectUrls)
-            .pipe(map(urls => [...new Set(urls)]))
-        ),
-        map(([, urls]) => PreviewActions.updatePreviewsAfterInit({ urls }))
-      );
-    },
-    StoreDispatchEffect
-  ),
   addUrl: createEffect(
     (
       actions$ = inject(Actions),
@@ -42,15 +22,16 @@ export const previewEffects = {
           PreviewActions.updatePreviewsAfterInit
         ),
         concatLatestFrom(() => store.select(sharedFeature.selectToken)),
-        switchMap(([{ urls }, token]) =>
-          concat(
+        switchMap(([{ urls }, token]) => {
+          console.log(token);
+          return concat(
             ...urls.map(url =>
               previewService
                 .getPreview(url, token)
                 .pipe(map(result => ({ ...result, url })))
             )
-          ).pipe(toArray())
-        ),
+          ).pipe(toArray());
+        }),
         map(results =>
           results.map(result => ({
             url: result.url,
