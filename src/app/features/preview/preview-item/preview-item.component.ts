@@ -4,7 +4,6 @@ import {
   Component,
   input,
   output,
-  signal,
 } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -29,8 +28,6 @@ export class PreviewItemComponent {
   openStat = output();
   removePreview = output();
 
-  protected shouldRemove = signal(false);
-
   click() {
     if (this.preview().status === 'success') {
       this.openStat.emit();
@@ -38,12 +35,6 @@ export class PreviewItemComponent {
   }
 
   removeClick() {
-    this.shouldRemove.set(true);
-  }
-
-  animationEnd() {
-    if (this.shouldRemove()) {
-      this.removePreview.emit();
-    }
+    this.removePreview.emit();
   }
 }

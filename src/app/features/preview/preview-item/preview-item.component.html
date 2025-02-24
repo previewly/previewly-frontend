@@ -1,9 +1,6 @@
 <div
-  class="bg-base-100 animate__animated relative h-52 w-96 rounded-xl shadow-xl"
-  [class.cursor-pointer]="preview().status === 'success'"
-  (animationend)="animationEnd()"
-  [class.animate__fadeOut]="shouldRemove()"
-  [class.animate__fadeIn]="!shouldRemove()">
+  class="bg-base-100 relative h-52 w-96 rounded-xl shadow-xl"
+  [class.cursor-pointer]="preview().status === 'success'">
   <div
     tabindex="0"
     class="bg-base-200 grid h-full w-full place-items-center rounded-xl"
