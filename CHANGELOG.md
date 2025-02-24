@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.17](https://github.com/wert2all/previewly-frontend/compare/v0.1.16...v0.1.17) (2025-02-24)
+
+### Features
+
+- add image resize operation ([37408e1](https://github.com/wert2all/previewly-frontend/commit/37408e15bd9835b961c1a1c2b7ed3638d671ebe5))
+- add imageId to preview GQL type ([129d163](https://github.com/wert2all/previewly-frontend/commit/129d1639c59f7c194b37781beedb000882759425))
+- create service for polling previews ([6395b85](https://github.com/wert2all/previewly-frontend/commit/6395b855744b9717bc1249cb8c1091c8f756ddff))
+- expose preview by service ([ac2e9d5](https://github.com/wert2all/previewly-frontend/commit/ac2e9d52e46229fa6264ca5e36d04d50bf9ea6d5))
+- load preview data after init store ([50ad982](https://github.com/wert2all/previewly-frontend/commit/50ad982fa0cffe1695c88883587c839fccd32a8c))
+
+### Bug Fixes
+
+- fix code-style ([28325d2](https://github.com/wert2all/previewly-frontend/commit/28325d2de54916ad8353cd89fc5f4c6bc311a0fa))
+- fix gql scheme ([a4a66e2](https://github.com/wert2all/previewly-frontend/commit/a4a66e2893c84e27ecad232e07d7bfc2d26fea11))
+- fix polling previews ([ba2d92e](https://github.com/wert2all/previewly-frontend/commit/ba2d92ee7a5ce9bea55ce1e056fbbd324fbd8017))
+- fix preview init effect with empty token ([6ca9a95](https://github.com/wert2all/previewly-frontend/commit/6ca9a95464ed6fe1279a5e57d07b1013442e27e4))
+- fix showing previews ([7fe3ff9](https://github.com/wert2all/previewly-frontend/commit/7fe3ff9142a525aa775a520b1017909505d7ac17))
+- remove animation on remove preview ([9f90b6e](https://github.com/wert2all/previewly-frontend/commit/9f90b6e224530e4c22bbf0e893aacae8fe4cc53e))
+- remove console.log ([f3c8bed](https://github.com/wert2all/previewly-frontend/commit/f3c8bed32a00bf194f71730d93c85a49f9eedd59))
+- remove sending analytics ([5a9985e](https://github.com/wert2all/previewly-frontend/commit/5a9985e453ad23dddd7cdc59121783c719138312))
+
 ## [0.1.16](https://github.com/previewly/previewly-frontend/compare/v0.1.15...v0.1.16) (2025-02-21)
 
 ### Features
