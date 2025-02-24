@@ -22,16 +22,15 @@ export const previewEffects = {
           PreviewActions.updatePreviewsAfterInit
         ),
         concatLatestFrom(() => store.select(sharedFeature.selectToken)),
-        switchMap(([{ urls }, token]) => {
-          console.log(token);
-          return concat(
+        switchMap(([{ urls }, token]) =>
+          concat(
             ...urls.map(url =>
               previewService
                 .getPreview(url, token)
                 .pipe(map(result => ({ ...result, url })))
             )
-          ).pipe(toArray());
-        }),
+          ).pipe(toArray())
+        ),
         map(results =>
           results.map(result => ({
             url: result.url,
