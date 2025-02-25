@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { inject } from '@angular/core';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Store } from '@ngrx/store';
-import { catchError, concat, map, of, switchMap, toArray } from 'rxjs';
+import { catchError, concat, map, mergeMap, of, toArray } from 'rxjs';
 import { StoreDispatchEffect } from '../../../app.types';
 import { sharedFeature } from '../../../shared/store/shared/shared.reducers';
 import { PreviewService } from '../preview.service';
@@ -22,7 +22,7 @@ export const previewEffects = {
           PreviewActions.updatePreviewsAfterInit
         ),
         concatLatestFrom(() => store.select(sharedFeature.selectToken)),
-        switchMap(([{ urls }, token]) =>
+        mergeMap(([{ urls }, token]) =>
           concat(
             ...urls.map(url =>
               previewService
