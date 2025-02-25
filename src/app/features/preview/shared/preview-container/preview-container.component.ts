@@ -8,7 +8,7 @@ import {
   Signal,
   signal,
 } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { provideIcons } from '@ng-icons/core';
 import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
 import { Status } from '../../../../app.types';
@@ -18,6 +18,7 @@ import {
   ModalEventInput,
   ModalEventOutput,
 } from '../../modal/modal.component';
+import { PreviewInfoComponent } from '../../preview-info/preview-info.component';
 import { PreviewItemComponent } from '../../preview-item/preview-item.component';
 import {
   createErrorPreviewItem,
@@ -25,7 +26,7 @@ import {
   ViewPreviewData,
   ViewPreviewItem,
 } from '../../preview-item/preview-item.types';
-import { PreviewItem } from '../../store/preview.types';
+import { PreviewItem, ViewPreviewInfo } from '../../store/preview.types';
 
 @Component({
   selector: 'app-shared-preview-container',
@@ -38,7 +39,7 @@ import { PreviewItem } from '../../store/preview.types';
     SubTitleComponent,
     PreviewItemComponent,
     ModalComponent,
-    NgIconComponent,
+    PreviewInfoComponent,
   ],
   viewProviders: [provideIcons({ phosphorArrowCircleDownDuotone })],
 })
@@ -76,11 +77,14 @@ export class PreviewContainerComponent {
   );
 
   modalInEvent = signal<ModalEventInput>(ModalEventInput.close);
-  showPreview = signal<ViewPreviewItem | undefined>(undefined);
+  previewInfo = signal<ViewPreviewInfo | undefined>(undefined);
 
   openStat(previewItem: ViewPreviewItem) {
-    this.showPreview.set(previewItem);
-    this.modalInEvent.set(ModalEventInput.open);
+    const previewInfo = this.createPreviewInfo(previewItem);
+    if (previewInfo) {
+      this.previewInfo.set(previewInfo);
+      this.modalInEvent.set(ModalEventInput.open);
+    }
   }
 
   modalOutEvent($event: ModalEventOutput) {
@@ -99,8 +103,10 @@ export class PreviewContainerComponent {
 
   private createData(preview: PreviewItem): ViewPreviewData {
     return {
+      id: preview.data?.id,
       url: preview.url,
-      shortUrl: this.createURL(preview.url)?.hostname,
+      title: preview.data?.title,
+      shortUrl: this.createURL(preview.url)?.hostname || '',
       preview:
         preview.data?.preview.small && preview.data?.preview.window
           ? {
@@ -109,8 +115,26 @@ export class PreviewContainerComponent {
               original: preview.data.preview.original,
             }
           : null,
-      previewAltTitle: preview.data?.title || preview.url.toString(),
-      title: preview.data?.title,
+      imageId: preview.data?.imageId,
     };
+  }
+
+  private createPreviewInfo(
+    previewItem: ViewPreviewItem
+  ): ViewPreviewInfo | null {
+    return previewItem.data?.id &&
+      previewItem.data.imageId &&
+      previewItem.data.preview
+      ? {
+          id: previewItem.data?.id,
+          url: previewItem.data.url,
+          title: previewItem.data.title || previewItem.data.shortUrl,
+          image: {
+            id: previewItem.data.imageId,
+            originalUrl: previewItem.data.preview?.original,
+            thumbnailUrl: previewItem.data.preview?.window,
+          },
+        }
+      : null;
   }
 }

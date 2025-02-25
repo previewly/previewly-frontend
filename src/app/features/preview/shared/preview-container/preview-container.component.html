@@ -28,40 +28,10 @@
   </div>
 }
 
-<app-modal
-  [emitEvent]="modalInEvent()"
-  (modalOutputEvent)="modalOutEvent($event)">
-  @if (showPreview()?.data?.preview?.window; as image) {
-    <img
-      class="min-h-[627px] w-full"
-      src="{{ image }}"
-      [alt]="showPreview()?.data?.previewAltTitle || ''" />
-    <div
-      class="preview-stat bg-neutral absolute right-0 bottom-0 left-0 mx-4 overflow-hidden rounded-t-xl p-4">
-      <div class="flex">
-        <div class="grow">
-          <a href="{{ showPreview()?.data?.url }}" target="_blank" class="link">
-            {{ showPreview()?.data?.shortUrl }}</a
-          >
-          <ul class="ms-4 hidden lg:block">
-            <li>title: {{ showPreview()?.data?.title }}</li>
-            <li>
-              preview url:
-              <a
-                href="{{ showPreview()?.data?.preview?.original }}"
-                class="link"
-                >{{ showPreview()?.data?.preview?.original }}</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="tooltip tooltip-left tooltip-accent" data-tip="show more">
-          <button class="btn btn-circle btn-ghost">
-            <ng-icon name="phosphorArrowCircleDownDuotone" size="24" />
-          </button>
-        </div>
-      </div>
-    </div>
-  }
-</app-modal>
+@if (previewInfo(); as info) {
+  <app-modal
+    [emitEvent]="modalInEvent()"
+    (modalOutputEvent)="modalOutEvent($event)">
+    <app-preview-info [info]="info" />
+  </app-modal>
+}

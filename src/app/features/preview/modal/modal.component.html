@@ -1,11 +1,11 @@
 <dialog class="modal" appDialog>
-  <div class="modal-box relative w-screen max-w-7xl p-0">
+  <div class="modal-box relative w-screen max-w-6xl overflow-hidden p-0">
     <button
       class="btn btn-circle btn-accent btn-sm absolute top-2 right-2"
       (click)="dialog.close()">
       ✕
     </button>
-    <div class="content"><ng-content></ng-content></div>
+    <ng-content></ng-content>
   </div>
 
   <form class="modal-backdrop" method="dialog"><button>Close</button></form>
