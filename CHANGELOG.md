@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.19](https://github.com/previewly/previewly-frontend/compare/v0.1.18...v0.1.19) (2025-02-25)
+
+### Features
+
+- update preview window ([2d07dec](https://github.com/previewly/previewly-frontend/commit/2d07dec9c204e4f01f2361e7b78a64ce46263af0))
+
 ## [0.1.18](https://github.com/wert2all/previewly-frontend/compare/v0.1.17...v0.1.18) (2025-02-25)
 
 ### Bug Fixes
