@@ -13,11 +13,12 @@ export interface ViewPreviewItemImage {
   original: string;
 }
 export interface ViewPreviewData {
-  url: string | undefined;
-  shortUrl: string | undefined;
-  preview: ViewPreviewItemImage | Undefined;
-  previewAltTitle: string | undefined;
+  id?: number;
+  url: string;
   title: string | undefined;
+  shortUrl: string;
+  preview: ViewPreviewItemImage | Undefined;
+  imageId?: number;
 }
 
 export interface ViewPreviewItem {

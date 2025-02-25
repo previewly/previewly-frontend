@@ -43,6 +43,7 @@ export const previewEffects = {
                     window: result.data.imageWindow,
                     original: result.data.image,
                   },
+                  imageId: result.data.imageId || undefined,
                 }
               : null,
             error: result.error?.message,
