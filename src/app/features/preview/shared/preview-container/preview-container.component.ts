@@ -8,8 +8,6 @@ import {
   Signal,
   signal,
 } from '@angular/core';
-import { provideIcons } from '@ng-icons/core';
-import { phosphorArrowCircleDownDuotone } from '@ng-icons/phosphor-icons/duotone';
 
 import { Status } from '../../../../app.types';
 import { SubTitleComponent } from '../../../../shared/ui/content/title/sub-title.component';
@@ -41,7 +39,6 @@ import { PreviewItem, ViewPreviewInfo } from '../../store/preview.types';
     ModalComponent,
     PreviewInfoComponent,
   ],
-  viewProviders: [provideIcons({ phosphorArrowCircleDownDuotone })],
 })
 export class PreviewContainerComponent {
   token = input.required<string | undefined>();
