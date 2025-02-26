@@ -11,7 +11,9 @@
           <a [href]="info().url">{{ info().title }}</a>
         </h2>
 
-        <h3 class="flex items-center gap-1 lg:ms-8">
+        <h3
+          class="flex items-center gap-1 lg:ms-8"
+          [class.hidden]="!isMoreHidden()">
           <a class="btn btn-circle btn-ghost hidden lg:flex">
             <ng-icon name="phosphorImageSquare" size="22" />
           </a>
@@ -19,30 +21,46 @@
             info().image.originalUrl
           }}</a>
         </h3>
-
-        <ul class="ms-4 mt-4 hidden">
-          <li class="flex items-center gap-2">
-            <ng-icon name="phosphorKey" size="22"></ng-icon> id:
-          </li>
-          <li class="flex items-center gap-2">
-            <ng-icon name="phosphorImageSquare" size="22" />
-            preview url:
-          </li>
-          <li class="flex items-center gap-2">
-            <ng-icon name="phosphorBookmark" size="22" />
-            image id: {{ info().image.id }}
-          </li>
-        </ul>
       </div>
 
-      <div class="hidden flex-none">
-        <div class="tooltip tooltip-left tooltip-info" data-tip="show more">
-          <button class="btn btn-circle btn-ghost">
-            <ng-icon name="phosphorArrowCircleDownDuotone" size="24" />
+      <div class="hidden flex-none items-center lg:flex">
+        <div
+          class="tooltip tooltip-left tooltip-info"
+          [attr.data-tip]="isMoreHidden() ? 'show more' : 'show less'">
+          <button class="btn btn-circle btn-ghost" (click)="toggleMore()">
+            <ng-icon
+              [name]="
+                isMoreHidden()
+                  ? 'phosphorArrowCircleDownDuotone'
+                  : 'phosphorArrowCircleUpDuotone'
+              "
+              size="24" />
           </button>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary mt-4 hidden w-full">show more</button>
+    <button
+      class="btn btn-primary mt-4 w-full lg:hidden"
+      (click)="toggleMore()">
+      @if (isMoreHidden()) {
+        show more
+      } @else {
+        show less
+      }
+    </button>
+
+    <ul class="ms-4 mt-4" [class.hidden]="isMoreHidden()">
+      <li class="flex items-center gap-2">
+        <ng-icon name="phosphorKey" size="22"></ng-icon> id: {{ info().id }}
+      </li>
+      <li class="flex items-center gap-2">
+        <ng-icon name="phosphorImageSquare" size="22" />
+        preview url: {{ info().image.originalUrl }}
+      </li>
+      <li class="flex items-center gap-2">
+        <ng-icon name="phosphorBookmark" size="22" />
+        image id: {{ info().image.id }}
+      </li>
+    </ul>
   </div>
 </div>

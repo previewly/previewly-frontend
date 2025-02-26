@@ -1,5 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import {
+  phosphorArrowCircleDownDuotone,
+  phosphorArrowCircleUpDuotone,
+} from '@ng-icons/phosphor-icons/duotone';
 import {
   phosphorBookmark,
   phosphorImageSquare,
@@ -19,9 +23,17 @@ import { ViewPreviewInfo } from '../store/preview.types';
       phosphorImageSquare,
       phosphorBookmark,
       phosphorKey,
+      phosphorArrowCircleDownDuotone,
+      phosphorArrowCircleUpDuotone,
     }),
   ],
 })
 export class PreviewInfoComponent {
   info = input.required<ViewPreviewInfo>();
+
+  protected isMoreHidden = signal(true);
+
+  protected toggleMore() {
+    this.isMoreHidden.update(v => !v);
+  }
 }
