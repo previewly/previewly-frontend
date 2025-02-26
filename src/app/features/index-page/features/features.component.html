@@ -1,0 +1,76 @@
+<div class="mt-44" id="features">
+  <app-share-content-title>Features</app-share-content-title>
+
+  <section class="slider next">
+    <div class="list">
+      <article
+        class="item"
+        [class.active]="activeSlide() === 0"
+        [class.other_2]="activeSlide() === 2"
+        [class.other_1]="activeSlide() === 1">
+        <div class="title">
+          <h3
+            class="yanone-kaffeesatz-400 mb-2 place-content-center text-center lg:text-2xl">
+            You input the website URL
+          </h3>
+        </div>
+        <div class="content-container">
+          <div
+            class="content w-fule bg-neutral h-full place-items-center rounded-2xl p-2"
+            #slideContent>
+            <img
+              src="/assets/features/url.png"
+              alt="input website URL"
+              class="overflow-hidden rounded-2xl" />
+          </div>
+          <div class="mobile-title block lg:hidden">
+            You input the website URL
+          </div>
+        </div>
+      </article>
+      <article
+        class="item active"
+        [class.active]="activeSlide() === 1"
+        [class.other_2]="activeSlide() === 0"
+        [class.other_1]="activeSlide() === 2">
+        <div class="title">
+          <h3
+            class="yanone-kaffeesatz-400 mb-2 place-content-center text-center lg:text-2xl">
+            We will browse your website
+          </h3>
+        </div>
+        <div class="content-container">
+          <div
+            class="content w-fule bg-neutral h-full place-items-center rounded-2xl p-2"
+            #slideContent>
+            <app-swipe-browser />
+          </div>
+          <div class="mobile-title block lg:hidden">
+            We will browse your website
+          </div>
+        </div>
+      </article>
+      <article
+        class="item"
+        [class.active]="activeSlide() === 2"
+        [class.other_1]="activeSlide() === 0">
+        <div class="title">
+          <h3
+            class="yanone-kaffeesatz-400 mb-2 place-content-center text-center lg:text-2xl">
+            And generate a preview for you
+          </h3>
+        </div>
+        <div class="content-container">
+          <div
+            class="content w-fule bg-neutral h-full place-items-center rounded-2xl p-2"
+            #slideContent>
+            <app-swipe-preview />
+          </div>
+          <div class="mobile-title block lg:hidden">
+            And generate a preview for you
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

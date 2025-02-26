@@ -8,6 +8,7 @@ import { ViewPreviewItem } from '../preview/preview-item/preview-item.types';
 import { PreviewContainerComponent } from '../preview/shared/preview-container/preview-container.component';
 import { PreviewActions } from '../preview/store/preview.actions';
 import { previewFeature } from '../preview/store/preview.reducers';
+import { FeaturesComponent } from './features/features.component';
 import { InputUrlComponent } from './input-url/input-url.component';
 
 @Component({
@@ -18,6 +19,7 @@ import { InputUrlComponent } from './input-url/input-url.component';
     InputUrlComponent,
     PreviewContainerComponent,
     CodeContainerComponent,
+    FeaturesComponent,
   ],
   templateUrl: './index-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

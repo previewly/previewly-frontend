@@ -1,0 +1,138 @@
+:host {
+  --w-image: 1024px;
+}
+
+.slider {
+  width: 100%;
+  height: calc(var(--w-image) / 16 * 9);
+  overflow: hidden;
+
+  .list {
+    height: 100%;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      width: var(--w-image);
+      height: 100%;
+      content: '';
+      top: 0;
+      left: calc(100% - calc(var(--w-image)));
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      display: none;
+
+      .content-container {
+        width: var(--w-image);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: calc(100% - calc(var(--w-image)));
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+
+        .content {
+          width: 100%;
+          height: 100%;
+          place-content: center;
+        }
+      }
+
+      .title {
+        height: 100%;
+        opacity: 0;
+        display: grid;
+        grid-template-columns: calc(100% - calc(var(--w-image)));
+      }
+
+      &.active,
+      &.other_1,
+      &.other_2 {
+        display: block;
+      }
+      &.active {
+        z-index: 2;
+      }
+      &.other_1,
+      &.other_2 {
+        pointer-events: none;
+      }
+      &.active .title {
+        animation: showContent 1s ease-in-out 1 forwards;
+      }
+    }
+  }
+
+  &.next .item {
+    &.other_1 {
+      z-index: 1;
+    }
+
+    .content-container .content,
+    .content-container .mobile-title {
+      animation: effectNext 0.5s ease-in-out 1 forwards;
+    }
+
+    &.active .content-container {
+      --transform-from: var(--w-image);
+    }
+
+    &.other_1 .content-container {
+      z-index: 3;
+      --transform-from: 0px;
+      overflow: hidden;
+    }
+
+    &.other_2 .content-container {
+      z-index: 3;
+      --transform-from: calc(var(--w-image) * 2);
+    }
+  }
+}
+
+@keyframes showContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes effectNext {
+  from {
+    transform: translateX(calc(var(--transform-from)));
+  }
+  to {
+    transform: translateX(calc(var(--transform-from) - var(--w-image)));
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  :host {
+    --w-image: 400px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .slider .list .item .content-container {
+    width: 100%;
+    left: 0;
+    justify-content: center;
+  }
+  .slider .list .item .title {
+    display: none;
+  }
+}
