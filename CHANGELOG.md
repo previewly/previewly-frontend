@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.21](https://github.com/wert2all/previewly-frontend/compare/v0.1.20...v0.1.21) (2025-02-27)
+
+### Features
+
+- add features block ([5997a31](https://github.com/wert2all/previewly-frontend/commit/5997a31052f78a21952ab215535c1a7dfc2f7606))
+- add more info for preview ([4b3a2a9](https://github.com/wert2all/previewly-frontend/commit/4b3a2a937db15f0c4704354099aeed964f3044cd))
+
+### Bug Fixes
+
+- fix nav-bar design ([2897180](https://github.com/wert2all/previewly-frontend/commit/289718005bb2defcaeeb68162d512ea3ad526de1))
+- update design ([1562e00](https://github.com/wert2all/previewly-frontend/commit/1562e00ed6642ad72e76f1f50c0fd5fbbcbdabf8))
+
 ## [0.1.20](https://github.com/previewly/previewly-frontend/compare/v0.1.19...v0.1.20) (2025-02-25)
 
 ### Bug Fixes
