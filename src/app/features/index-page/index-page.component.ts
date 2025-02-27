@@ -22,6 +22,7 @@ import { InputUrlComponent } from './input-url/input-url.component';
     FeaturesComponent,
   ],
   templateUrl: './index-page.component.html',
+  styleUrls: ['./index-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IndexPageComponent {

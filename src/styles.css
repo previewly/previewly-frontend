@@ -7,6 +7,10 @@
     /* nord --default, */ night --default --prefersdark;
 }
 
+:root {
+  --margin-top: calc(var(--spacing) * 16);
+}
+
 /* daisyUI fix: fix outline and border on input focus */
 .input:has(input:focus) {
   border-color: var(--color-base-100);
