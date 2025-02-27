@@ -2,6 +2,10 @@
   --w-image: 1024px;
 }
 
+.features-container {
+  min-height: 100vh;
+}
+
 .slider {
   width: 100%;
   height: calc(var(--w-image) / 16 * 9);

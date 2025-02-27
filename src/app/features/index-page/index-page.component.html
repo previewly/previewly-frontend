@@ -1,18 +1,19 @@
 <div class="p-4">
-  <h1 class="yanone-kaffeesatz-400 text-2xl lg:text-4xl">
-    Generate website previews for <span class="text-accent">free!</span>
-  </h1>
-  <app-input-url
-    [token]="token()"
-    [error]="pageError()"
-    [isLoading]="isLoading()"
-    (url)="addUrl($event)"
-    (retryExposeToken)="retryExposeToken()" />
-  <app-shared-preview-container
-    [previews]="userPreviews()"
-    [token]="token()"
-    (removePreview)="removePreview($event)" />
-
+  <div class="try-container">
+    <h1 class="yanone-kaffeesatz-400 text-2xl lg:text-4xl">
+      Generate website previews for <span class="text-accent">free!</span>
+    </h1>
+    <app-input-url
+      [token]="token()"
+      [error]="pageError()"
+      [isLoading]="isLoading()"
+      (url)="addUrl($event)"
+      (retryExposeToken)="retryExposeToken()" />
+    <app-shared-preview-container
+      [previews]="userPreviews()"
+      [token]="token()"
+      (removePreview)="removePreview($event)" />
+  </div>
   <app-features />
   <app-code-container
     [token]="token()"
