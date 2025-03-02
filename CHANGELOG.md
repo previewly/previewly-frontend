@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.22](https://github.com/previewly/previewly-frontend/compare/v0.1.21...v0.1.22) (2025-03-02)
+
 ## [0.1.21](https://github.com/wert2all/previewly-frontend/compare/v0.1.20...v0.1.21) (2025-02-27)
 
 ### Features
