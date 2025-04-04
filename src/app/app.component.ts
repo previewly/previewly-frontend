@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedCookieConsentComponent } from './shared/ui/cookie-consent/cookie-consent.component';
 import { SharedFooterComponent } from './shared/ui/footer/footer.component';
-import { LogoComponent } from './shared/ui/top-nav/logo/logo.component';
 import { SharedTopNavComponent } from './shared/ui/top-nav/top-nav.component';
 
 @Component({
@@ -11,7 +10,6 @@ import { SharedTopNavComponent } from './shared/ui/top-nav/top-nav.component';
   standalone: true,
   templateUrl: './app.component.html',
   imports: [
-    LogoComponent,
     SharedFooterComponent,
     RouterOutlet,
     SharedCookieConsentComponent,
