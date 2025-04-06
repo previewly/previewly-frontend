@@ -19,13 +19,12 @@ const uploadFiles = (
     map(([{ files }, token]) => ({
       files: files.map(file => ({
         image: file,
-        name: file.name,
-        extra: 'test',
+        extra: 'upload page',
       })),
       token,
     })),
-    exhaustMap(({ files, token }) => {
-      return token
+    exhaustMap(({ files, token }) =>
+      token
         ? api.uploadImages({ images: files, token }).pipe(
             map(result => result.data?.upload),
             map(result =>
@@ -35,13 +34,13 @@ const uploadFiles = (
               of(
                 UploadActions.errorUploadingImages({
                   error: 'Could not upload images',
-                  files: files.map(file => ({ uuid: file.name })),
+                  files: files.map(file => ({ uuid: file.image.name })),
                 })
               )
             )
           )
-        : of(UploadActions.emptyToken());
-    })
+        : of(UploadActions.emptyToken())
+    )
   );
 
 export const uploadEffects = {

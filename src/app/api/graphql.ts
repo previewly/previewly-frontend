@@ -38,6 +38,7 @@ export interface ImageProcessOptionInput {
 }
 
 export enum ImageProcessType {
+  crop = 'crop',
   resize = 'resize',
 }
 
